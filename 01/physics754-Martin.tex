@@ -12,6 +12,7 @@
 \author{
     Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
 }
+\publishers{Group 5}
 
 \begin{document}
 
@@ -19,6 +20,94 @@
 
 \section{A coordinate transformation}
 
+\subsection{}
+
+First of all, I will start by computing the components of the tensor $\pd{{x^\alpha}}{{y^\mu}}$:
+\[
+    \dpd{{x^\alpha}}{{y^\mu}}
+    =
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & \sin(\theta) \cos(\phi) & \sin(\theta) \sin(\phi) & \cos(\theta) \\
+        0 & r \cos(\theta) \cos(\phi) & r \cos(\theta) \sin(\phi) & - r \sin(\theta) \\
+        0 & - r \sin(\theta) \sin(\phi) & r \sin(\theta) \cos(\phi) & 0
+    \end{pmatrix}.
+\]
+
+With that, I can go through the components of $g$ and calculate each component.
+I know that $g$ is symmetric, so I have only ten components to calculate. After
+working with some trigonometric identities, I finally got this:
+\[
+    \tens g(\vec x)
+    \sim
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -r^2 & 0 \\
+        0 & 0 & 0 & -r^2 \sin(\theta)^2
+    \end{pmatrix}.
+\]
+
+I wrote “$\tens g \sim$” since $\tens g$ is a tensor of valence (0, 2) and not
+a matrix with valence (1, 1). Would is be better to write “$g_{\mu\nu} =$”
+instead, although the left side would have two dangling indices, whereas the
+right side would not? Should one write it as “$g_{\mu\nu} = (\cdots)^\mu_\nu$”
+instead?
+
+\subsection{}
+
+The electric field is given as
+\[
+    E_i(\vec x) = \frac{Q}{|x|^3} x_i.
+\]
+
+In the field tensor $\tens F$, the electric field is contained such that
+$F_{0i} = E_i$. Therefore, I write
+\[
+    F_{0i}(\vec x) = \frac{Q}{|x|^3} x_i.
+\]
+
+From the antisymmetry, the other nonzero entries are $F_{i0}$.
+
+\subsection{}
+
+Now $\tens F$ will be transformed:
+\begin{align*}
+    \hat F_{\mu\nu}(\vec y)
+    &= F_{\alpha\beta}(\vec y) \dpd{{x^\alpha}}{{y^\mu}} \dpd{{x^\beta}}{{y^\nu}}.
+    \intertext{%
+        Since most components of $\tens F$ are zero, I can restrict $\alpha$
+        and $\beta$ such that only nonzero components remain:
+    }
+    &= F_{0i}(\vec y) \dpd{{x^0}}{{y^\mu}} \dpd{{x^i}}{{y^\nu}}.
+    \intertext{%
+        For the first partial derivative, the only nonzero part is the one for
+        $\mu = 0$, which is just 1. This simplifies to:
+    }
+    \hat F_{0\nu}(\vec y)
+    &= F_{0i}(\vec y) \dpd{{x^i}}{{y^\nu}}
+    \intertext{%
+        where the other nonzero components of $\hat{\tens F}$ are computed
+        using the antisymmetry. Now I have summed over $i$ which gives (after
+        trigonometry):
+    }
+    &= \frac{Q}{r^2} \begin{pmatrix}
+        0 \\ 1 \\ 0 \\ 0
+    \end{pmatrix}_\nu.
+\end{align*}
+
+From that, I conclude the following representation for the transformed field tensor:
+\[
+    \hat{\tens F}(\vec y)
+    \sim
+    \frac{Q}{r^2}
+    \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        -1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+\]
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
@@ -26,4 +115,4 @@
 
 \end{document}
 
-% vim: spell spelllang=de
+% vim: spell spelllang=en
