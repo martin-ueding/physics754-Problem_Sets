@@ -109,10 +109,82 @@ From that, I conclude the following representation for the transformed field ten
     \end{pmatrix}
 \]
 
+\section{Calculating with Christoffel-Symbols}
+
+I was trying to get a feeling for those Christoffel-Symbols by drawing them as
+tensor diagrams. The metric is just a hoop:
+\begin{center}
+    \includegraphics{Drawing-0001.pdf}
+\end{center}
+
+Then the definition of the Christoffel-Symbol of the second kind can be drawn
+as:
+\begin{center}
+    \includegraphics{Drawing-0002.pdf}
+\end{center}
+
+That definition with the great amount of indices can be visualized to some
+extend in this notation. The first thing is just the partial derivative of
+$\omega$, the next two stand for the terms with a plus, the last two for the
+terms with the minus:
+\begin{center}
+    \includegraphics{Drawing-0003.pdf}
+\end{center}
+
+At this point, I do not see how they help with calculations, they just make
+reading the indices a little easier.
+
+\subsection{}
+
+I have the hunch that $\nabla \tens g = 0$ means that the metric is constant
+along geodesics. Does something like that hold?
+
+\newcommand\csk[3]{\Gamma^{#1}_{{#2}{#3}}}
+
+\begin{align*}
+    \nabla_\mu g_{\alpha\beta}
+    &= \partial_\mu g_{\alpha\beta} - g_{\lambda\beta} \csk\gamma\alpha\mu
+    - g_{\alpha\lambda} \csk\lambda\beta\mu \\
+    \intertext{%
+        Now I will just insert the definition of the Christoffel-Symbols for
+        both occurrences.
+    }
+    &= \partial_\mu g_{\alpha\beta}
+    - \frac12 g_{\lambda\beta} g^{\lambda\delta} \cdot (\partial_\alpha
+    g_{\delta\mu} + \partial_\mu g_{\delta\alpha} - \partial_\delta
+    g_{\mu\alpha})
+    - \frac12 g_{\alpha\lambda} g^{\lambda\delta} \cdot (\partial_\beta g_{\delta\mu} +
+    \partial_\mu g_{\delta\beta} - \partial_\delta g_{\mu\beta}) \\
+    \intertext{%
+        I have used a “$\cdot$” here to distinguish the opening parentheses
+        from a function evaluation. No inner product is intended. As a next
+        step, I contract the two $\tens g$ in the last two terms to yield a
+        $\tens \delta$-symbol.
+    }
+    &= \partial_\mu g_{\alpha\beta}
+    - \frac12 \delta\beta^\delta \cdot (\partial_\alpha g_{\delta\mu} + \partial_\mu g_{\delta\alpha} - \partial_\delta g_{\mu\alpha})
+    - \frac12 \delta_\alpha^\delta \cdot (\partial_\beta g_{\delta\mu} + \partial_\mu g_{\delta\beta} - \partial_\delta g_{\mu\beta}) \\
+    \intertext{%
+        Contracting the $\tens \delta$:
+    }
+    &= \partial_\mu g_{\alpha\beta}
+    - \frac12 (\partial_\alpha g_{\beta\mu} + \partial_\mu g_{\beta\alpha} - \partial_\beta g_{\mu\alpha})
+    - \frac12 (\partial_\beta g_{\alpha\mu} + \partial_\mu g_{\alpha\beta} - \partial_\alpha g_{\mu\beta}) \\
+    \intertext{%
+        Using the symmetry of $\tens g$, the first and last terms of other
+        parentheses, respectively, cancel each other out. This leaves:
+    }
+    &= \partial_\mu g_{\alpha\beta}
+    - \frac12 \partial_\mu g_{\beta\alpha}
+    - \frac12 \partial_\mu g_{\alpha\beta} \\
+    &= 0
+\end{align*}
+
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
 
 \end{document}
 
-% vim: spell spelllang=en
+% vim: spell spelllang=en tw=79
