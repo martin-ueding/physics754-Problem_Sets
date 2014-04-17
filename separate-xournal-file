@@ -4,20 +4,28 @@
 # Copyright © 2014 Martin Ueding <dev@martin-ueding.de>
 
 import argparse
-import subprocess
+import itertools
 import os
+import os.path
+import subprocess
 import tempfile
 
 def main():
     options = _parse_args()
 
     with tempfile.TemporaryDirectory() as tempdir:
+        exported_file = options.xournalfile + '.pdf'
+        if not os.path.isfile(exported_file):
+            subprocess.check_call(['xoj2pdf', options.xournalfile])
         subprocess.check_call([
-            'pdftk', options.xournalfile, 'burst', 'output',
+            'pdftk', exported_file, 'burst', 'output',
             os.path.join(tempdir, '%04d.pdf'),
         ])
         page_files = [os.path.join(tempdir, x) for x in sorted(os.listdir(tempdir)) if x.endswith('.pdf')]
         print(page_files)
+
+        for i, page_file in zip(itertools.count(1), page_files):
+            subprocess.check_call(['pdfcrop', page_file, 'Drawing-{:04d}.pdf'.format(i)])
 
 
 def _parse_args():
