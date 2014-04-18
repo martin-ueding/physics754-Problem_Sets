@@ -11,7 +11,7 @@
 % Since this file encorporates a CC-BY-SA fragment, this whole files is
 % licensed under the CC-BY-SA license.
 
-\documentclass[11pt, ngerman, fleqn, DIV=15, headinclude]{scrartcl}
+\documentclass[11pt, english, fleqn, DIV=15, headinclude]{scrartcl}
 
 \usepackage{graphicx}
 
@@ -22,7 +22,6 @@
 %                                Locale, date                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{babel}
 \usepackage[iso]{isodate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,7 +102,7 @@
 \usepackage{commath}
 
 % Physical units.
-\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage{siunitx}
 
 % Since I use mathdesign with italic uppercase greek characters, the Ohm unit will be displayed with an italic Ω by default. Units have to be roman, so this forces it the right way.
 \DeclareSIUnit{\ohm}{$\Omegaup$}
@@ -171,6 +170,8 @@
 
 % Thermodynamic partial derivative.
 \newcommand\tdpd[3]{\del{\dpd{#1}{#2}}_{#3}}
+
+\DeclareMathOperator{\Tr}{Tr}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Headings                                   %
