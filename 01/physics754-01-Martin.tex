@@ -305,6 +305,53 @@ he uses:
     \includegraphics{Drawing-0007.pdf}
 \end{center}
 
+That takes care of the normalisation by using another $\tens \omega$.
+
+\subsection{}
+
+\paragraph{Argumentation}
+
+Any other set of $\vec h_\mu$ can be constructed from $\ev_\mu$ with another
+linear transformation $\tens B$ such that $\vec h_\mu = \tens B \ev_\mu$.
+
+YYY states that the trace of $\tens B^{-1} \tens A \tens B$ is the same as the
+one of $\tens A$. So with $\tens{\tilde A} = \tens B^{-1} \tens A \tens B$, the
+basis could be changed without altering the trace.
+
+\paragraph{Showing Identity}
+
+Again, I just have to draw a diagram for this.
+\begin{center}
+    \includegraphics{Drawing-0008.pdf}
+\end{center}
+
+As I see this, the trace is the sum of the determinants of matrices that only
+affect one basis vector. These matrices are the identity matrix which one row
+exchanged with a row from $\tens A$, like so:
+\[
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        4 & 2 & 7 \\
+        0 & 0 & 1
+    \end{pmatrix}.
+\]
+
+To obtain the determinant, I expand them with the method by Laplace:
+\[
+    = 4 \begin{pmatrix}
+        0 & 0 \\ 0 & 1
+    \end{pmatrix}
+    - 2 \begin{pmatrix}
+        1 & 0 \\ 0 & 1
+    \end{pmatrix}
+    + 7 \begin{pmatrix}
+        1 & 0 \\ 0 & 0
+    \end{pmatrix}
+\]
+
+Only the 2 on the diagonal has an effect here. Therefore, that sum will give
+the trace.
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
