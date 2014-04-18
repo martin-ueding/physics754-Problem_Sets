@@ -360,6 +360,61 @@ It should be shown that the following the relation holds:
     A^{-1}(\alpha) \dpd{}\alpha \tens A(\alpha)}.
 \]
 
+To do this, I will start with both sides and convert them into the same
+expression. I'll start with the left hand side. To simplify, I will just assume
+that $n = 2$, so that the product rule does not have that many terms. But the
+principle stays the same.
+\begin{align*}
+    \text{LHS}
+    &= \dpd{}\alpha \det(\tens A(\alpha)) \\
+    &= \frac{1}{n!} \dpd{}\alpha \omega(\tens A(\alpha) \ev_1, \tens A(\alpha)
+    \ev_2) \\
+    \intertext{%
+        I was not able to derive this using the product and chain rule with
+        $\tens \omega$, but I got it with indices. I chose a $\tens \omega$
+        such that it is $\tens \epsilon$.
+    }
+    &= \frac{1}{n!} \dpd{}\alpha \epsilon_{ij} A^i_k(\alpha) \delta^k_1
+    A^j_l(\alpha)
+    \delta^l_2 \\
+    &= \frac{1}{n!} \epsilon_{ij} \del{ A'^i_k(\alpha) \delta^k_1 A^j_l(\alpha)
+    \delta^l_2 + A^i_k(\alpha) \delta^k_1 A^j_l(\alpha) \delta^l_2} \\
+    \intertext{%
+        Now I will get this back into the $\omega$ way of writing it.
+    }
+    &= \frac{1}{n!} \del{ \omega\del{\tens{A'}(\alpha) \ev_1, \tens A(\alpha)
+\ev_2} + \omega\del{\tens{A}(\alpha) \ev_1, \tens {A'}(\alpha)
+\ev_2} }
+\end{align*}
+
+\begin{aside}
+    How do I do this using the product and chain rule correctly?
+\end{aside}
+
+Now I will turn to the right hand side.
+\begin{align*}
+    \text{RHS}
+    &= \det(\tens A(\alpha)) \Tr\del{\tens A^{-1}(\alpha) \dpd{}\alpha \tens
+A(\alpha)} \\
+    &= \frac{1}{n!} \omega(A \ev_1, A \ev_2) \frac{1}{n!}\del{
+    \omega(A^{-1} \partial_\alpha A \ev_1, \ev_2) + \omega(\ev_1, A^{-1}
+    \partial_\alpha A \ev_2)
+} \\
+\intertext{%
+    For the determinants, the determinant of a product is the product of the
+    determinants. Therefore, I should be able to combine those two factors into
+    a single one. The determinants that came from the trace do not feature the
+    same matrix as the first factor. But I think that it still works.
+}
+&= \frac{1}{n!} \del{
+\omega(A A^{-1} A' \ev_1, A \ev_2) + \omega(A\ev_1, A A^{-1} A' \ev_2)
+}
+\end{align*}
+
+With $A A^{-1}$ being the identity matrix, the left and right hand sides are
+exactly the same. Therefore the relation holds, given the assumptions I made
+during the derivation.
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
