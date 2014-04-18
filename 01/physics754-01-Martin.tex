@@ -6,6 +6,8 @@
     pdftitle={physics754 Problem Set \problemset}
 }
 
+\newenvironment{aside}{\itshape\small}{}
+
 %\subject{}
 \title{physics754 -- Problem Set \problemset}
 %\subtitle{}
@@ -17,6 +19,10 @@
 \begin{document}
 
 \maketitle
+
+While doing the exercises, I had a couple conceptional questions. They are
+included in small italic font within the text. I would greatly appreciate it if
+you could add a few remarks to each.
 
 \section{A coordinate transformation}
 
@@ -48,11 +54,13 @@ working with some trigonometric identities, I finally got this:
     \end{pmatrix}.
 \]
 
-I wrote “$\tens g \sim$” since $\tens g$ is a tensor of valence (0, 2) and not
-a matrix with valence (1, 1). Would is be better to write “$g_{\mu\nu} =$”
-instead, although the left side would have two dangling indices, whereas the
-right side would not? Should one write it as “$g_{\mu\nu} = (\cdots)^\mu_\nu$”
-instead?
+\begin{aside}
+    I wrote “$\tens g \sim$” since $\tens g$ is a tensor of valence (0, 2) and
+    not a matrix with valence (1, 1). Would is be better to write “$g_{\mu\nu}
+    =$” instead, although the left side would have two dangling indices,
+    whereas the right side would not? Should one write it as “$g_{\mu\nu} =
+    (\cdots)^\mu_\nu$” instead?
+\end{aside}
 
 \subsection{}
 
@@ -136,8 +144,10 @@ reading the indices a little easier.
 
 \subsection{}
 
-I have the hunch that $\nabla \tens g = 0$ means that the metric is constant
-along geodesics. Does something like that hold?
+\begin{aside}
+    I have the hunch that $\nabla \tens g = 0$ means that the metric is
+    constant along geodesics. Does something like that hold?
+\end{aside}
 
 \newcommand\csk[3]{\Gamma^{#1}_{{#2}{#3}}}
 
@@ -179,6 +189,91 @@ along geodesics. Does something like that hold?
     - \frac12 \partial_\mu g_{\alpha\beta} \\
     &= 0
 \end{align*}
+
+\subsection{Levi-Cività theorem}
+
+\begin{aside}
+    It has bothered me that $\partial_x$ is supposed to be a basis vector. It
+    seems like an operator, and geometry is not quantum mechanics.
+
+    But $\partial_i x^i = \delta^j_i$, so the $\partial_i$ are orthogonal to
+    all other $x^j$. That makes it a normal vector to the plane spanned by the
+    $\{ x^j \colon i \neq j \}$, right? Is that the reason why $\partial_x$ is
+    considered a covector?
+\end{aside}
+
+\newcommand\equ[3]{\partial_{#1} g_{{#2}{#3}} = g_{\lambda{#3}} \Gamma^\lambda_{{#2}{#1}} + g_{{#2}\lambda} \Gamma^\lambda_{{#3}{#1}}}
+
+Given is the following:
+\[
+    \equ\mu\alpha\beta
+\]
+
+The hint given on XXX is to permutate the indices. With that, I get six
+equations:
+\begin{gather*}
+    \equ\mu\alpha\beta \\
+    \equ\alpha\beta\mu \\
+    \equ\beta\mu\alpha \\
+    \equ\beta\alpha\mu \\
+    \equ\alpha\mu\beta \\
+    \equ\mu\beta\alpha.
+\end{gather*}
+
+The next step is to use the property that both $\tens g$ is symmetric in its
+two lower indices. The $+$ also commutes. Therefore, the first and the last
+equation are equivalent. Same holds for second and fifth, as well as third and
+fourth. I choose to use the first three equations from now.
+
+To isolate the $\tens \Gamma$-symbols, I use the symmetry of the lower indices
+of $\tens \Gamma$, which is equivalent to the exterior derivative having zero
+torsion. There are only three distinct Christoffel-symbols of the second kind
+in those equations. To simplify the next steps, I will introduce aliases:
+\[
+    A_1 := \partial_\mu g_{\alpha\beta}
+    \eqnsep
+    A_2 := \partial_\alpha g_{\beta\mu}
+    \eqnsep
+    A_3 := \partial_\beta g_{\mu\alpha}
+    \eqnsep
+    B_1 := g_{\lambda\beta} \csk\beta\alpha\mu
+    \eqnsep
+    B_2 := g_{\lambda\mu} \csk\mu\beta\alpha
+    \eqnsep
+    B_3 := g_{\lambda\alpha} \csk\alpha\mu\beta.
+\]
+
+The system of the three equations now becomes the easier to read
+\begin{align*}
+    B_1 \phantom{+B_2} + B_3 &= A_1 \\
+    B_1 + B_2 \phantom{+ B_3} &= A_2 \\
+    \phantom{B_1 +} B_2 + B_3 &= A_3.
+\end{align*}
+
+I will omit the solving of with Gaussian elimination here and just state the
+solution for $B_3$ that I obtained:
+\[
+    B_3 = \frac12 (A_1 - A_2 + A_3).
+\]
+
+By expanding the aliases again,
+\[
+    g_{\lambda\alpha} \csk\alpha\mu\beta = \frac12 (\partial_\mu g_{\alpha\beta} - \partial_\alpha g_{\beta\mu} + \partial_\beta g_{\mu\alpha})
+\]
+it can be seen that it is getting close to the desired result. The last step is
+to add a $g^{\eta\alpha}$ to both sides. That will give me—apart from other
+indices—the definition of the Christoffel-symbols of the second kind:
+\begin{align*}
+    g^{\eta\alpha} g_{\lambda\alpha} \csk\alpha\mu\beta &= \frac12
+    g^{\eta\alpha} (\partial_\mu g_{\alpha\beta} - \partial_\alpha g_{\beta\mu}
+    + \partial_\beta g_{\mu\alpha}) \\ 
+    \csk\eta\mu\beta &= \frac12
+    g^{\eta\alpha} (\partial_\mu g_{\alpha\beta} - \partial_\alpha g_{\beta\mu}
+    + \partial_\beta g_{\mu\alpha}).
+\end{align*}
+
+If you substitute $\eta\mapsto\gamma$, $\mu\mapsto\beta$, $\beta\mapsto\alpha$
+and $\alpha\mapsto\phi$, you will get the version on the problem set.
 
 
 \IfFileExists{\bibliographyfile}{
