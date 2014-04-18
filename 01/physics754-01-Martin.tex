@@ -225,8 +225,8 @@ two lower indices. The $+$ also commutes. Therefore, the first and the last
 equation are equivalent. Same holds for second and fifth, as well as third and
 fourth. I choose to use the first three equations from now.
 
-To isolate the $\tens \Gamma$-symbols, I use the symmetry of the lower indices
-of $\tens \Gamma$, which is equivalent to the exterior derivative having zero
+To isolate the Christoffel-symbols, I use the symmetry of the lower indices of
+the symbols, which is equivalent to the exterior derivative having zero
 torsion. There are only three distinct Christoffel-symbols of the second kind
 in those equations. To simplify the next steps, I will introduce aliases:
 \[
@@ -261,8 +261,9 @@ By expanding the aliases again,
     g_{\lambda\alpha} \csk\alpha\mu\beta = \frac12 (\partial_\mu g_{\alpha\beta} - \partial_\alpha g_{\beta\mu} + \partial_\beta g_{\mu\alpha})
 \]
 it can be seen that it is getting close to the desired result. The last step is
-to add a $g^{\eta\alpha}$ to both sides. That will give me—apart from other
-indices—the definition of the Christoffel-symbols of the second kind:
+to premultiply and contract with $g^{\eta\alpha}$ on both sides. That will give
+me—apart from other indices—the definition of the Christoffel-symbols of the
+second kind:
 \begin{align*}
     g^{\eta\alpha} g_{\lambda\alpha} \csk\alpha\mu\beta &= \frac12
     g^{\eta\alpha} (\partial_\mu g_{\alpha\beta} - \partial_\alpha g_{\beta\mu}
@@ -275,6 +276,34 @@ indices—the definition of the Christoffel-symbols of the second kind:
 If you substitute $\eta\mapsto\gamma$, $\mu\mapsto\beta$, $\beta\mapsto\alpha$
 and $\alpha\mapsto\phi$, you will get the version on the problem set.
 
+\section{Determinant Identities}
+
+\begin{aside}
+    $\omega(h_1, \ldots, h_n)$ is the action of the tensor $\tens \omega$ onto
+    the vectors.
+
+    I am not sure about the requirements, but is this somewhat equivalent to
+    the contraction of $\tens \omega$ with all those vectors. Is the
+    requirement just the existence or the choice of a basis for the vector
+    space?
+\end{aside}
+
+Let me include pictures for the definition of the determinant. First, I need to
+define the notation:
+\begin{center}
+    \includegraphics{Drawing-0005.pdf}
+\end{center}
+
+With that, the determinant is (for $n = 3$):
+\begin{center}
+    \includegraphics{Drawing-0006.pdf}
+\end{center}
+
+In \parencite{penrose-road_to_reality}, this is done a little different. There,
+he uses:
+\begin{center}
+    \includegraphics{Drawing-0007.pdf}
+\end{center}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
