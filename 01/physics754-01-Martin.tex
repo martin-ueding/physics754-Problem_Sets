@@ -119,29 +119,6 @@ From that, I conclude the following representation for the transformed field ten
 
 \section{Calculating with Christoffel-Symbols}
 
-I was trying to get a feeling for those Christoffel-Symbols by drawing them as
-tensor diagrams. The metric is just a hoop:
-\begin{center}
-    \includegraphics{Drawing-0001.pdf}
-\end{center}
-
-Then the definition of the Christoffel-Symbol of the second kind can be drawn
-as:
-\begin{center}
-    \includegraphics{Drawing-0002.pdf}
-\end{center}
-
-That definition with the great amount of indices can be visualized to some
-extend in this notation. The first thing is just the partial derivative of
-$\omega$, the next two stand for the terms with a plus, the last two for the
-terms with the minus:
-\begin{center}
-    \includegraphics{Drawing-0003.pdf}
-\end{center}
-
-At this point, I do not see how they help with calculations, they just make
-reading the indices a little easier.
-
 \subsection{}
 
 \begin{aside}
@@ -396,8 +373,8 @@ Now I will turn to the right hand side.
     \text{RHS}
     &= \det(\tens A(\alpha)) \Tr\del{\tens A^{-1}(\alpha) \dpd{}\alpha \tens
 A(\alpha)} \\
-    &= \frac{1}{n!} \omega(A \ev_1, A \ev_2) \frac{1}{n!}\del{
-    \omega(A^{-1} \partial_\alpha A \ev_1, \ev_2) + \omega(\ev_1, A^{-1}
+&= \frac{1}{n!} \omega(\tens A(\alpha) \ev_1, \tens A(\alpha) \ev_2) \frac{1}{n!}\del{
+\omega(A^{-1} \partial_\alpha \tens A(\alpha) \ev_1, \ev_2) + \omega(\ev_1, A^{-1}
     \partial_\alpha A \ev_2)
 } \\
 \intertext{%
@@ -407,7 +384,9 @@ A(\alpha)} \\
     same matrix as the first factor. But I think that it still works.
 }
 &= \frac{1}{n!} \del{
-\omega(A A^{-1} A' \ev_1, A \ev_2) + \omega(A\ev_1, A A^{-1} A' \ev_2)
+\omega\del{\tens A(\alpha) \tens A^{-1}(\alpha) \tens A'(\alpha) \ev_1, \tens
+A(\alpha) \ev_2} + \omega\del{\tens A(\alpha) \ev_1, \tens A(\alpha)  \tens
+A^{-1}(\alpha) \tens A'(\alpha) \ev_2}
 }
 \end{align*}
 
