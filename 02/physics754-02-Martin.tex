@@ -20,10 +20,93 @@
 
 \maketitle
 
+\begin{aside}
+    When writing down tensor components, I have seen
+    $R_{\alpha\beta\gamma}^\delta$ as well as $R_{\alpha\beta\gamma}{}^\delta$
+    and maybe $R^\delta{}_{\alpha\beta\gamma}$.
+    Does that make a difference? If you raise and lower indices and want to
+    keep their position fixed, this “splitting up” the lower and upper indices
+    seems to clarify. But do we need this really?
+\end{aside}
+
 \section{Transformation of the Christoffel-Symbols}
 
-\section{Curvature Tensor}
+\subsection{Compute $\Gamma^\alpha_{\beta\gamma}(\varphi^*g)$}
 
+I assume that this means that I should compose $\Gamma$ with the transformed
+$g$.
+
+The transformed $g$ is given by:
+\[
+    (\varphi^* g)_{\mu\nu}(x)
+    = g_{\alpha\beta}(\varphi(x)) \dpd{{\varphi^\alpha}}{{x^\mu}}
+    \dpd{{\varphi^\beta}}{{x^\nu}}
+    = g_{\alpha\beta}(\varphi(x)) \varphi^\alpha_{,\mu}(x)
+    \varphi^\beta_{,\nu}(x).
+\]
+
+The transformed dual\footnote{Is “dual” correct?} $g$ is similarly obtained:
+\[
+    (\varphi^* g)^{\mu\nu} = g^{\mu\nu}(\varphi(x))
+    \dpd{{x^\gamma}}{{\varphi^\mu}} \dpd{{x^\delta}}{{\varphi^\nu}}.
+\]
+
+With that, I construct $\Gamma$ using its definition, except that I use the
+transformed $g$ wherever $g$ is used in the definition.
+\begin{multline*}
+    \Gamma^\gamma_{\beta\alpha}(\varphi^*g)
+    = \frac 12 g^{\epsilon\eta}(\varphi(x))
+    \dpd{{x^\gamma}}{{\varphi^\mu}} \dpd{{x^\delta}}{{\varphi^\nu}}
+    \left(
+        \partial_\beta g_{\mu\nu}(\varphi(x)) \varphi^\mu_{,\delta}(x)
+        \varphi^\nu_{,\alpha}(x) 
+    \right. \\
+    \left.
+        +
+        \partial_\alpha g_{\mu\nu}(\varphi(x)) \varphi^\mu_{,\delta}(x)
+        \varphi^\nu_{,\beta}(x)
+        +
+        \partial_\gamma g_{\mu\nu}(\varphi(x)) \varphi^\mu_{,\alpha}(x)
+        \varphi^\nu_{,\beta}(x)
+    \right)
+\end{multline*}
+
+\begin{aside}
+    In a case like
+    \[
+        \partial_\beta g_{\mu\nu}(\varphi(x)) \varphi^\mu_{,\delta}(x)
+        \varphi^\nu_{,\alpha}(x),
+    \]
+    where I have expanded $g$ in front of a partial derivative, do I have to
+    use the product rule next? But that would involve second derivatives of
+    $\varphi$, which seems arcane to me right now.
+\end{aside}
+
+\subsection{Do the Christoffel-symbols transform like tensor(field)s?}
+
+Transforming $\Gamma$ like a tensor:
+\[
+    (\varphi^*\Gamma)^\alpha_{\beta\gamma}(x) =
+    \Gamma^\gamma_{\epsilon\eta}(\varphi(x)) \dpd{{\varphi^\alpha}}{{x^\delta}}
+    \dpd{{x^\epsilon}}{{\varphi^\beta}} \dpd{{x^\eta}}{{\varphi^\gamma}}.
+\]
+Expanding $\Gamma$:
+\[
+    = \frac 12 g^{\delta\chi}(\varphi(x))
+    \del{
+        \partial_\epsilon g_{\chi\eta}(\varphi(x)) + \partial_\eta
+        g_{\chi\epsilon}(\varphi(x)) - \partial_\chi
+    g_{\epsilon\eta}(\varphi(x))
+    }
+    \dpd{{\varphi^\alpha}}{{x^\delta}}
+    \dpd{{x^\epsilon}}{{\varphi^\beta}} \dpd{{x^\eta}}{{\varphi^\gamma}}.
+\]
+
+It looks different than $\Gamma$ with the transformed metric. In that, there
+are four partial dervatives of $\varphi$, the transformed $\Gamma$ only
+features three of them, though.
+
+\section{Curvature Tensor}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
