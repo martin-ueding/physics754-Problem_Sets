@@ -185,26 +185,72 @@ ones:
     - 2 \Gamma^\lambda_{\alpha[\mu} \Gamma^\rho_{\nu]\lambda})
 \]
 
-
-
-\hrule %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\[
-    R^\rho_{\alpha\mu\nu} X^\alpha
-    = (
+Now I will take (twice of) the antisymmetric part with respect to $\mu$ and
+$\nu$ of the above expression.
+\begin{align*}
+    2 \nabla_{[\mu} \nabla_{\nu]} X^\rho
+    &= 
+    - 2 \partial_{[\mu} \partial_{\nu]} X^\rho
+    + \partial_\nu x^\alpha \Gamma^\rho_{\alpha\mu}
+    - \partial_\mu x^\alpha \Gamma^\rho_{\alpha\nu}
+    + 2 \partial_{[\mu} X^\alpha \Gamma^\rho_{\nu]\alpha}
+    + 2 X^\lambda \Gamma^\alpha_{\lambda[\mu} \Gamma^\rho_{\nu]\alpha}
+    + 2 X^\alpha \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}
+    -4 X^\alpha \Gamma^\lambda_{\alpha[\mu} \Gamma^\rho_{\nu]\lambda}
+    \intertext{%
+Assuming that the partial derivatives commute, I can drop the first summand. If
+you look really close at the last and the third last summand, you will see that
+they are the same except for the dummy indices.
+}
+&=
+    \partial_\nu x^\alpha \Gamma^\rho_{\alpha\mu}
+    - \partial_\mu x^\alpha \Gamma^\rho_{\alpha\nu}
+    + 2 \partial_{[\mu} X^\alpha \Gamma^\rho_{\nu]\alpha}
+    + 2 X^\alpha \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}
+    - 2 X^\lambda \Gamma^\alpha_{\lambda[\mu} \Gamma^\rho_{\nu]\alpha}
+    \intertext{%
+The first three terms sum to zero. Using the product rule, the first two terms
+will give me
+}
+&=
+    2 (\partial_{[\nu}X^\alpha)\Gamma^\rho_{\mu]\alpha} + 2 x^\alpha
+\partial_{[\nu} \Gamma^\rho_{\mu]\alpha},
+    \intertext{%
+the third term will have to be expanded using product rule as well, yielding
+}
+&=
+    2 (\partial_{[\mu}X^\alpha) \Gamma^\rho_{\nu]\alpha} + 2 X^\alpha
+    \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}.
+    \intertext{%
+Those are the same as the two summands above, except that $\mu$ and $\nu$ are
+reversed in the brackets. Therefore, the two sets of summands sum two zero. The
+total expression now is:
+}
+&=
+    2 X^\alpha \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}
+    - 2 X^\lambda \Gamma^\alpha_{\lambda[\mu} \Gamma^\rho_{\nu]\alpha}
+    \\
+    &=
+    2 (\partial_{[\mu} \Gamma^\rho_{\nu]\alpha}) X^\alpha
+    + 2 \Gamma^\rho_{\lambda[\mu} \Gamma^\lambda_{\nu]\alpha} X^\alpha
+    \intertext{%
+        The $X$ can be factored out:
+    }
+    &=
     2 \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}
     + 2 \Gamma^\rho_{\lambda[\mu} \Gamma^\lambda_{\nu]\alpha}
     ) X^\alpha
-\]
-
-The result given on the problem set:
-\[
-    R^\rho_{\alpha\mu\nu} X^\alpha
-    = (\partial_\mu \Gamma^\rho_{\alpha\nu} - \partial_\nu
+    \intertext{%
+        Expanding the brackets again gives the expression given on the problem set:
+    }
+    &=
+    (\partial_\mu \Gamma^\rho_{\alpha\nu} - \partial_\nu
     \Gamma^\rho_{\alpha\mu} + \Gamma^\rho_{\lambda\mu}
     \Gamma^\lambda_{\alpha\nu} - \Gamma^\rho_{\lambda\nu}
-    \Gamma^\lambda_{\alpha\mu}) X^\alpha
-\]
+    \Gamma^\lambda_{\alpha\mu}) X^\alpha \\
+    &=
+    R^\rho_{\alpha\mu\nu} X^\alpha
+\end{align*}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
