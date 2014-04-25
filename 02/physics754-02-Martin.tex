@@ -45,7 +45,8 @@ The transformed $g$ is given by:
     \varphi^\beta_{,\nu}(x).
 \]
 
-The transformed dual\footnote{Is “dual” correct?} $g$ is similarly obtained:
+The transformed dual\footnote{Is “dual” correct at this point?} $g$ is
+similarly obtained:
 \[
     (\varphi^* g)^{\mu\nu} = g^{\mu\nu}(\varphi(x))
     \dpd{{x^\gamma}}{{\varphi^\mu}} \dpd{{x^\delta}}{{\varphi^\nu}}.
@@ -107,6 +108,18 @@ are four partial dervatives of $\varphi$, the transformed $\Gamma$ only
 features three of them, though.
 
 \section{Curvature Tensor}
+
+I use the antisymmetrization notation that is used in
+\parencite{penrose-road_to_reality} with a normalization of $1/n!$ so that it
+is idempotent, like so:
+\[
+    \nabla_{[\mu} \nabla_{\nu]} := \frac 12 \del{
+        \nabla_{\mu} \nabla_{\nu} - \nabla_{\nu} \nabla_{\mu}
+    }.
+\]
+
+\subsection{Show that $2 \nabla_{[\mu} \nabla_{\nu]} X^\rho =
+R^\rho_{\alpha\mu\nu} X^\alpha$}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
