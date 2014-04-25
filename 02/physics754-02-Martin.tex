@@ -338,15 +338,86 @@ expanding everything. I have not noticed a shorter way.
     + 2 g_{\lambda\delta} \Gamma^\lambda_{#2[#3} \Gamma^\delta_{#4]#1}
 }
 
-I will start with the compressed definition of $R$, so that this can be done
-with just a few steps.
-\begin{align*}
+\[
     R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta}
-    &= \rdef\alpha\beta\mu\nu \\
-    &\qquad
-    + \rdef\alpha\nu\beta\mu \\
-    &\qquad
-    + \rdef\alpha\mu\nu\beta \\
+\]
+\begin{align*}
+    &=
+    \partial_\beta \partial_{[\mu} g_{\nu]\alpha}
+    + \partial_\alpha \partial_{[\mu} g_{\nu]\beta}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\beta[\mu} \Gamma^\delta_{\nu]\alpha}
+    \\ &\qquad
+    + \partial_\nu \partial_{[\beta} g_{\mu]\alpha}
+    + \partial_\alpha \partial_{[\beta} g_{\mu]\nu}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\nu[\beta} \Gamma^\delta_{\mu]\alpha}
+    \\ &\qquad
+    + \partial_\mu \partial_{[\nu} g_{\beta]\alpha}
+    + \partial_\alpha \partial_{[\nu} g_{\beta]\mu}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\mu[\nu} \Gamma^\delta_{\beta]\alpha}
+    \intertext{%
+        Start by sorting the terms by type.
+    }
+    &=
+    \partial_\beta \partial_{[\mu} g_{\nu]\alpha}
+    + \partial_\nu \partial_{[\beta} g_{\mu]\alpha}
+    + \partial_\mu \partial_{[\nu} g_{\beta]\alpha}
+    \\ &\qquad
+    + \partial_\alpha \partial_{[\mu} g_{\nu]\beta}
+    + \partial_\alpha \partial_{[\beta} g_{\mu]\nu}
+    + \partial_\alpha \partial_{[\nu} g_{\beta]\mu}
+    \\ &\qquad
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\beta[\mu} \Gamma^\delta_{\nu]\alpha}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\nu[\beta} \Gamma^\delta_{\mu]\alpha}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\mu[\nu} \Gamma^\delta_{\beta]\alpha}
+    \intertext{%
+        Now expand it all again.
+    }
+    &=
+      \frac12 \partial_\beta \partial_{\mu} g_{\nu\alpha}
+    - \frac12 \partial_\beta \partial_{\nu} g_{\mu\alpha}
+    + \frac12 \partial_\nu \partial_{\beta} g_{\mu\alpha}
+    - \frac12 \partial_\nu \partial_{\mu} g_{\beta\alpha}
+    + \frac12 \partial_\mu \partial_{\nu} g_{\beta\alpha}
+    - \frac12 \partial_\mu \partial_{\beta} g_{\nu\alpha}
+    \\ &\qquad
+    + \frac12 \partial_\alpha \partial_{\mu} g_{\nu\beta}
+    - \frac12 \partial_\alpha \partial_{\nu} g_{\mu\beta}
+    + \frac12 \partial_\alpha \partial_{\beta} g_{\mu\nu}
+    - \frac12 \partial_\alpha \partial_{\mu} g_{\beta\nu}
+    + \frac12 \partial_\alpha \partial_{\nu} g_{\beta\mu}
+    - \frac12 \partial_\alpha \partial_{\beta} g_{\nu\mu}
+    \\ &\qquad
+    + g_{\lambda\delta} \Gamma^\lambda_{\beta\mu} \Gamma^\delta_{\nu\alpha}
+    - g_{\lambda\delta} \Gamma^\lambda_{\beta\nu} \Gamma^\delta_{\mu\alpha}
+    + g_{\lambda\delta} \Gamma^\lambda_{\nu\beta} \Gamma^\delta_{\mu\alpha}
+    - g_{\lambda\delta} \Gamma^\lambda_{\nu\mu} \Gamma^\delta_{\beta\alpha}
+    + g_{\lambda\delta} \Gamma^\lambda_{\mu\nu} \Gamma^\delta_{\beta\alpha}
+    - g_{\lambda\delta} \Gamma^\lambda_{\mu\beta} \Gamma^\delta_{\nu\alpha}
+    \intertext{%
+        Reorder them to match up the symmetries of the two $\partial$ and $g$.
+    }
+    &=
+      \frac12 \partial_\beta \partial_\mu   g_{\nu  \alpha}
+    - \frac12 \partial_\mu   \partial_\beta g_{\nu  \alpha}
+    + \frac12 \partial_\nu   \partial_\beta g_{\mu  \alpha}
+    - \frac12 \partial_\beta \partial_\nu   g_{\mu  \alpha}
+    - \frac12 \partial_\nu   \partial_\mu   g_{\beta\alpha}
+    + \frac12 \partial_\mu   \partial_\nu   g_{\beta\alpha}
+    \\ &\qquad
+    + \frac12 \partial_\alpha \partial_\mu   g_{\nu  \beta}
+    - \frac12 \partial_\alpha \partial_\mu   g_{\beta\nu}
+    + \frac12 \partial_\alpha \partial_\beta g_{\mu  \nu}
+    - \frac12 \partial_\alpha \partial_\beta g_{\nu  \mu}
+    + \frac12 \partial_\alpha \partial_\nu   g_{\beta\mu}
+    - \frac12 \partial_\alpha \partial_\nu   g_{\mu  \beta}
+    \\ &\qquad
+    + g_{\lambda\delta} \Gamma^\lambda_{\beta\mu  } \Gamma^\delta_{\nu  \alpha}
+    - g_{\lambda\delta} \Gamma^\lambda_{\mu  \beta} \Gamma^\delta_{\nu  \alpha}
+    + g_{\lambda\delta} \Gamma^\lambda_{\nu  \beta} \Gamma^\delta_{\mu  \alpha}
+    - g_{\lambda\delta} \Gamma^\lambda_{\beta\nu  } \Gamma^\delta_{\mu  \alpha}
+    + g_{\lambda\delta} \Gamma^\lambda_{\mu  \nu  } \Gamma^\delta_{\beta\alpha}
+    - g_{\lambda\delta} \Gamma^\lambda_{\nu  \mu  } \Gamma^\delta_{\beta\alpha}
+    \\ &= 0
 \end{align*}
 
 \IfFileExists{\bibliographyfile}{
