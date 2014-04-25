@@ -133,61 +133,59 @@ I will start with the $\mu\nu$ term and antisymmetrize that later.
     + \partial_\nu \nabla_\mu X^\rho
     + (\nabla_\mu X^\alpha) \Gamma^\rho_{\alpha\nu}
     + X^\alpha \nabla_\mu \Gamma^\rho_{\alpha\nu}
-\end{align*}
-%
-\begin{aside}
-    Until here, I am not even sure whether I have do differentiate the
-    $\partial$ again. Do I have to? Does $\nabla$ and $\partial$ even commute,
-    like I assumed? If I have to do the first and may not use the latter, how
-    would I even write this down?
-\end{aside}
-
-Now I have to use the definition of $\nabla$ again:
-\begin{multline*}
-    = (\partial_\mu \partial_\nu + \partial_\alpha \Gamma^\alpha_{\nu\mu})
+    \intertext{%
+        \begin{aside}
+            Until here, I am not even sure whether I have do differentiate the
+            $\partial$ again. Do I have to? Does $\nabla$ and $\partial$ even commute,
+            like I assumed? If I have to do the first and may not use the latter, how
+            would I even write this down?
+        \end{aside}
+        Now I have to use the definition of $\nabla$ again:
+    }
+    &= (\partial_\mu \partial_\nu + \partial_\alpha \Gamma^\alpha_{\nu\mu})
     X^\rho
     + \partial_\nu (\partial_\mu X^\rho + x^\alpha \Gamma^\rho_{\alpha\mu})
     + (\partial_\mu X^\alpha + X^\lambda \Gamma^\alpha_{\lambda\mu})
-    \Gamma^\rho_{\alpha\nu} \\
+    \Gamma^\rho_{\alpha\nu}
+    \\ &\qquad
     + X^\alpha (\partial_\mu \Gamma^\rho_{\alpha\nu} +
     \Gamma^\lambda_{\alpha\nu} \Gamma^\rho_{\lambda\nu} -
     \Gamma^\rho_{\lambda\nu} \Gamma^\lambda_{\alpha\mu} -
     \Gamma^\rho_{\alpha\lambda} \Gamma^\lambda_{\nu\mu})
-\end{multline*}
-
-Using the notation introduced earlier and using the symmetry of $\Gamma$ in its
-lower indices as well as the commutative property of multiplication, I can
-can indicate terms that are already symmetric or antisymmetric in $\mu$ and
-$\nu$. I hope that the partial derivatives commute, but I do not see a problem
-with that since they are orthogonal to each other.
-\begin{multline*}
-    = (\partial_{(\mu} \partial_{\nu)} + \partial_\alpha
+    \intertext{%
+        Using the notation introduced earlier and using the symmetry of $\Gamma$ in its
+        lower indices as well as the commutative property of multiplication, I can
+        can indicate terms that are already symmetric or antisymmetric in $\mu$ and
+        $\nu$. I hope that the partial derivatives commute, but I do not see a problem
+        with that since they are orthogonal to each other.
+    }
+    &= (\partial_{(\mu} \partial_{\nu)} + \partial_\alpha
     \Gamma^\alpha_{(\mu\nu)})
     X^\rho
     + \partial_\nu (\partial_\mu X^\rho + x^\alpha \Gamma^\rho_{\alpha\mu})
     + (\partial_\mu X^\alpha + X^\lambda \Gamma^\alpha_{\lambda\mu})
-    \Gamma^\rho_{\alpha\nu} \\
+    \Gamma^\rho_{\alpha\nu}
+    \\ &\qquad
     + X^\alpha (\partial_\mu \Gamma^\rho_{\alpha\nu}
     - 2 \Gamma^\lambda_{\alpha[\mu} \Gamma^\rho_{\nu]\lambda}
     - \Gamma^\rho_{\alpha\lambda} \Gamma^\lambda_{(\mu\nu)})
-\end{multline*}
-
-At this point, the first big summand was created because I differentiated
-$\partial$ again. That term is totally symmetric, so that it will not show up
-in the antisymmetric part that is asked in the problem anyway. The last summand
-in the last big summand will drop out as well. These terms are the interesting
-ones:
-\[
+    \intertext{
+        At this point, the first big summand was created because I differentiated
+        $\partial$ again. That term is totally symmetric, so that it will not show up
+        in the antisymmetric part that is asked in the problem anyway. The last summand
+        in the last big summand will drop out as well. These terms are the interesting
+        ones:
+    }
+    &=
     \partial_\nu (\partial_\mu X^\rho + x^\alpha \Gamma^\rho_{\alpha\mu})
     + (\partial_\mu X^\alpha + X^\lambda \Gamma^\alpha_{\lambda\mu})
     \Gamma^\rho_{\alpha\nu}
     + X^\alpha (\partial_\mu \Gamma^\rho_{\alpha\nu}
     - 2 \Gamma^\lambda_{\alpha[\mu} \Gamma^\rho_{\nu]\lambda})
-\]
-
-Now I will take (twice of) the antisymmetric part with respect to $\mu$ and
-$\nu$ of the above expression.
-\begin{align*}
+    \intertext{%
+        Now I will take (twice of) the antisymmetric part with respect to $\mu$ and
+        $\nu$ of the above expression.
+    }
     2 \nabla_{[\mu} \nabla_{\nu]} X^\rho
     &= 
     - 2 \partial_{[\mu} \partial_{\nu]} X^\rho
@@ -195,7 +193,8 @@ $\nu$ of the above expression.
     - \partial_\mu x^\alpha \Gamma^\rho_{\alpha\nu}
     + 2 \partial_{[\mu} X^\alpha \Gamma^\rho_{\nu]\alpha}
     + 2 X^\lambda \Gamma^\alpha_{\lambda[\mu} \Gamma^\rho_{\nu]\alpha}
-    + 2 X^\alpha \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}
+    + 2 X^\alpha \partial_{[\mu} \Gamma^\rho_{\nu]\alpha} \\
+    &\qquad
     -4 X^\alpha \Gamma^\lambda_{\alpha[\mu} \Gamma^\rho_{\nu]\lambda}
     \intertext{%
         Assuming that the partial derivatives commute, I can drop the first
@@ -212,18 +211,16 @@ $\nu$ of the above expression.
     \intertext{%
         The first three terms sum to zero. Using the product rule, the first
         two terms will give me
-    }
-    &=
-    2 (\partial_{[\nu}X^\alpha)\Gamma^\rho_{\mu]\alpha} + 2 x^\alpha
-    \partial_{[\nu} \Gamma^\rho_{\mu]\alpha},
-    \intertext{%
+        \[
+            2 (\partial_{[\nu}X^\alpha)\Gamma^\rho_{\mu]\alpha} + 2 x^\alpha
+            \partial_{[\nu} \Gamma^\rho_{\mu]\alpha},
+        \]
         the third term will have to be expanded using product rule as well,
         yielding
-    }
-    &=
-    2 (\partial_{[\mu}X^\alpha) \Gamma^\rho_{\nu]\alpha} + 2 X^\alpha
-    \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}.
-    \intertext{%
+        \[
+            2 (\partial_{[\mu}X^\alpha) \Gamma^\rho_{\nu]\alpha} + 2 X^\alpha
+            \partial_{[\mu} \Gamma^\rho_{\nu]\alpha}.
+        \]
         Those are the same as the two summands above, except that $\mu$ and
         $\nu$ are reversed in the brackets. Therefore, the two sets of summands
         sum two zero. The total expression now is:
