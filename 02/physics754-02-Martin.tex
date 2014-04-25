@@ -331,6 +331,24 @@ expanding everything. I have not noticed a shorter way.
 
 \subsection{Also show: $R_{\alpha[\beta\mu\nu]} = 0$}
 
+
+\newcommand\rdef[4]{%
+    \partial_#2 \partial_{[#3} g_{#4]#1}
+    + \partial_#1 \partial_{[#3} g_{#4]#2}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{#2[#3} \Gamma^\delta_{#4]#1}
+}
+
+I will start with the compressed definition of $R$, so that this can be done
+with just a few steps.
+\begin{align*}
+    R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta}
+    &= \rdef\alpha\beta\mu\nu \\
+    &\qquad
+    + \rdef\alpha\nu\beta\mu \\
+    &\qquad
+    + \rdef\alpha\mu\nu\beta \\
+\end{align*}
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
