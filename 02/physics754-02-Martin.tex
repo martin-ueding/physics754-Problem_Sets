@@ -259,6 +259,78 @@ I will start with the $\mu\nu$ term and antisymmetrize that later.
     R^\rho_{\alpha\mu\nu} X^\alpha
 \end{align*}
 
+\subsection{Verify the symmetry properties $R_{\alpha\beta\mu\nu} = -
+R_{\alpha\beta\nu\mu} = - R_{\beta\alpha\mu\nu} = R_{\mu\nu\alpha\beta}$}
+
+To avoid writing too much, I'll use the bracket notation first:
+\begin{align*}
+    R_{\alpha\beta\mu\nu}
+    &= \frac 12 (\partial_\beta \partial_\mu g_{\alpha\nu} + \partial_\alpha
+    \partial_\nu g_{\beta\mu} - \partial_\beta \partial_\nu g_{\alpha\mu} -
+    \partial_\alpha \partial_\mu g_{\beta\nu})
+    + g_{\lambda\delta} \cdot (
+    \Gamma^\lambda_{\beta\mu} \Gamma^\delta_{\alpha\nu}
+    - \Gamma^\lambda_{\beta\nu} \Gamma^\delta_{\alpha\mu}
+    ) \\
+    &= \partial_\beta \partial_{[\mu} g_{\nu]\alpha}
+    + \partial_\alpha \partial_{[\mu} g_{\nu]\beta}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\beta[\mu} \Gamma^\delta_{\nu]\alpha}
+\end{align*}
+
+From that, the antisymmetry in the first and last two indices, respectively,
+can be seen relatively easy: It is antisymmetric in $\mu$ and $\nu$ since they
+only appear paired up in brackets. The antisymmetry in $\alpha$ and $\beta$ can
+be seen as follows: When $\alpha$ and $\beta$ are exchanged, the summands and
+the $\Gamma$ factors each have to be exchanged. Now $\mu$ and $\nu$ are in the
+wrong order. To get them back, you have to exchange them, introducing the
+needed minus sign. Addition and multiplication commutes, but antisymmetrization
+anticommutes.
+
+The exchange of $(\alpha, \beta) \leftrightarrow (\mu, \nu)$ can be shown by
+expanding everything. I have not noticed a shorter way.
+\begin{align*}
+    R_{\alpha\beta\mu\nu}
+    &= \partial_\beta \partial_{[\mu} g_{\nu]\alpha}
+    + \partial_\alpha \partial_{[\mu} g_{\nu]\beta}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\beta[\mu} \Gamma^\delta_{\nu]\alpha}
+    \\
+    &=
+    \frac 12 \partial_\beta \partial_\mu g_{\alpha\nu}
+    + \frac 12 \partial_\alpha \partial_\nu g_{\beta\mu}
+    - \frac 12 \partial_\beta \partial_\nu g_{\alpha\mu}
+    - \frac 12 \partial_\alpha \partial_\mu g_{\beta\nu}
+    + g_{\lambda\delta} \cdot (
+    \Gamma^\lambda_{\beta\mu} \Gamma^\delta_{\alpha\nu}
+    - \Gamma^\lambda_{\beta\nu} \Gamma^\delta_{\alpha\mu}
+    ) \\
+    &=
+    \frac 12 \partial_\alpha \partial_\nu g_{\beta\mu}
+    + \frac 12 \partial_\beta \partial_\mu g_{\alpha\nu}
+    - \frac 12 \partial_\beta \partial_\nu g_{\alpha\mu}
+    - \frac 12 \partial_\alpha \partial_\mu g_{\beta\nu}
+    + g_{\lambda\delta} \cdot (
+    \Gamma^\delta_{\alpha\nu} \Gamma^\lambda_{\beta\mu} 
+    - \Gamma^\delta_{\alpha\mu} \Gamma^\lambda_{\beta\nu} 
+    ) \\
+    &=
+      \frac 12 \partial_\nu \partial_\alpha g_{\beta \mu}
+    - \frac 12 \partial_\nu \partial_\beta  g_{\alpha\mu}
+    + \frac 12 \partial_\mu \partial_\beta  g_{\alpha\nu}
+    - \frac 12 \partial_\mu \partial_\alpha g_{\beta \nu}
+    + g_{\lambda\delta} \cdot (
+    \Gamma^\delta_{\nu\alpha} \Gamma^\lambda_{\beta\mu} 
+    - \Gamma^\delta_{\mu\alpha} \Gamma^\lambda_{\beta\nu} 
+    ) \\
+    &= \partial_\nu \partial_{[\alpha} g_{\beta]\mu}
+    + \partial_\mu \partial_{[\alpha} g_{\beta]\nu}
+    + 2 g_{\lambda\delta} \Gamma^\lambda_{\nu[\alpha} \Gamma^\delta_{\beta]\mu}
+    \\
+    &=
+    R_{\mu\nu\alpha\beta}
+\end{align*}
+
+\subsection{Also show: $R_{\alpha[\beta\mu\nu]} = 0$}
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
