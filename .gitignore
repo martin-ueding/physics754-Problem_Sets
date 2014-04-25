@@ -1,3 +1,5 @@
+*.xoj.pdf
+missfont.log
 *Martin-blx.bib
 *Martin.aux
 *Martin.bbl
@@ -8,3 +10,4 @@
 *Martin.out
 *Martin.pdf
 *Martin.run.xml
+Drawing-*.pdf
