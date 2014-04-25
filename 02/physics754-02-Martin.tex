@@ -14,7 +14,7 @@
 \author{
     Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
 }
-\publishers{Group 5}
+\publishers{Group 5 -- Olaf Baake}
 
 \begin{document}
 
@@ -258,6 +258,33 @@ I will start with the $\mu\nu$ term and antisymmetrize that later.
     &=
     R^\rho_{\alpha\mu\nu} X^\alpha
 \end{align*}
+
+\subsection{Argue that $R^\rho_{\alpha\mu\nu}$ defines a tensor field $R$}
+
+$X$ from the previous problem is a (0, 1)-tensor. On the top of page three of
+the problem set, it says “The components of the \emph{gradient tensor} […]”,
+which is a Tensor therefore as well. So the left hand side of the equation that
+I have shown in the previous part is a tensor. As such, it also has to
+transform like one. The right side must also be a (2, 1)-tensor field. The
+contraction that is defined in (8) on the problem set seems to preserve the
+tensor property.
+
+If I contract a (0, 1)-tensor with something and yield a (2, 1)-tensor, I think
+it is safe to assume that that something was a (3, 1)-tensor to begin with.
+
+\subsection{Argue that $R(\varphi^*g) = \varphi^* R(g)$ must hold}
+
+The claim is that applying a coordinate transformation first and
+constructing the curvature tensor from the resulting metric second gives the
+same as constructing the curvature tensor first and applying the coordinate
+transformation second.
+
+Assuming that both $R$ and $g$ are tensor fields, they must transform like
+such. $R$ depends only on $g$, so that $R$ has to change when $g$ is
+transformed. Since both are tensors, it might not make a difference if the
+transformation is first or second, but this is vague at best.
+
+\subsection{Show that $R_{\alpha\beta\mu\nu} = \ldots$}
 
 \subsection{Verify the symmetry properties $R_{\alpha\beta\mu\nu} = -
 R_{\alpha\beta\nu\mu} = - R_{\beta\alpha\mu\nu} = R_{\mu\nu\alpha\beta}$}
