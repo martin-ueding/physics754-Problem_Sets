@@ -1,0 +1,85 @@
+\input{../header.tex}
+
+\newcommand\problemset{3}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section{Bianchi Identities}
+
+\subsection{Show the differential Bianchi identity}
+
+I have to show that:
+\[
+    R_{\alpha\beta\mu\nu;\lambda}
+    + R_{\alpha\beta\lambda\mu;\nu}
+    + R_{\alpha\beta\nu\lambda;\mu}
+    = 0.
+\]
+Since this tensor is antisymmetric in its last two indices, I think it is the
+same as $R_{\alpha\beta[\mu\nu;\lambda]} = 0$. The hint says that I only have
+to show
+\[
+    R_{\alpha\beta\mu\nu,\lambda}
+    + R_{\alpha\beta\lambda\mu,\nu}
+    + R_{\alpha\beta\nu\lambda,\mu}
+    = 0.
+\]
+
+Since $\Gamma(x) = 0$, this individual summands reduce to:
+\[
+    R^\alpha_{\beta\mu\nu,\lambda} = \Gamma^\alpha_{\beta\nu,\mu,\lambda}
+    - \Gamma^\alpha_{\beta\mu,\nu,\lambda}
+    \eqnsep
+    R^\alpha_{\beta\lambda\mu,\nu} = \Gamma^\alpha_{\beta\mu,\lambda,\nu}
+    - \Gamma^\alpha_{\beta\lambda,\mu,\nu}
+    \eqnsep
+    R^\alpha_{\beta\nu\lambda,\mu} = \Gamma^\alpha_{\beta\lambda,\nu,\mu}
+    - \Gamma^\alpha_{\beta\nu,\lambda,\mu}.
+\]
+
+Now I just add them all together and get
+\[
+    + \Gamma^\alpha_{\beta\nu,\mu,\lambda}
+    - \Gamma^\alpha_{\beta\mu,\nu,\lambda}
+    + \Gamma^\alpha_{\beta\mu,\lambda,\nu}
+    - \Gamma^\alpha_{\beta\lambda,\mu,\nu}
+    + \Gamma^\alpha_{\beta\lambda,\nu,\mu}
+    - \Gamma^\alpha_{\beta\nu,\lambda,\mu},
+\]
+which can be rearranged (last summand into second place) to
+\[
+    + \Gamma^\alpha_{\beta\nu,\mu,\lambda}
+    - \Gamma^\alpha_{\beta\nu,\lambda,\mu}
+    - \Gamma^\alpha_{\beta\mu,\nu,\lambda}
+    + \Gamma^\alpha_{\beta\mu,\lambda,\nu}
+    - \Gamma^\alpha_{\beta\lambda,\mu,\nu}
+    + \Gamma^\alpha_{\beta\lambda,\nu,\mu}
+\]
+which is 0 given the commutative property of the partial derivatives.
+
+\section{Normal Coordinates}
+
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
