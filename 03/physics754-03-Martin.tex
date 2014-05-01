@@ -41,7 +41,8 @@ to show
     = 0.
 \]
 
-Since $\Gamma(x) = 0$, this individual summands reduce to:
+Since $\vec\Gamma(\vec x) = \tens 0$ and only $\vec\partial \vec\Gamma(\vec x)
+\neq \tens 0$, this individual summands reduce to:
 \[
     R^\alpha_{\beta\mu\nu,\lambda} = \Gamma^\alpha_{\beta\nu,\mu,\lambda}
     - \Gamma^\alpha_{\beta\mu,\nu,\lambda}
@@ -72,6 +73,48 @@ which can be rearranged (last summand into second place) to
     + \Gamma^\alpha_{\beta\lambda,\nu,\mu}
 \]
 which is 0 given the commutative property of the partial derivatives.
+
+\subsection{Argument for equation (7)}
+
+It should be shown that $G^{\mu\nu}_{;\mu} = 0$ holds. Given the definition of
+$\tens G$, this is:
+\begin{align*}
+    \nabla_\mu G^{\mu\nu}
+    &= \nabla_\mu g^{\mu\alpha} g^{\nu\beta} R_{\alpha\beta} - \frac12
+    \nabla_\mu g^{\mu\nu} \mathcal R \\
+    \intertext{%
+        All the $\vnabla \tens g$ terms are 0.
+    }
+    &= g^{\mu\alpha} g^{\nu\beta} \nabla_\mu R_{\alpha\beta} - \frac12
+    g^{\mu\nu} \nabla_\mu \mathcal R \\
+    &= g^{\mu\alpha} g^{\nu\beta} \nabla_\mu R^\lambda_{\alpha\lambda\beta} + \nabla_\mu
+    g^{\beta\nu} R_{\beta\nu} \\
+    &= g^{\mu\alpha} g^{\nu\beta} \nabla_\mu R^\lambda_{\alpha\lambda\beta} + g^{\beta\nu}
+    \nabla_\mu R_{\beta\nu} \\
+    &= g^{\mu\alpha} g^{\nu\beta} \nabla_\mu R^\lambda_{\alpha\lambda\beta} + g^{\beta\nu}
+    \nabla_\mu R^\lambda_{\beta\lambda\nu} \\
+    \intertext{%
+        I found this easier without all the explicit occurrences of $\tens g$.
+        That and $\vnabla$ commute, so I can make this implicit by raising and
+        lowering the indices, keeping track of their order.
+    }
+    &= \nabla_\mu R^{\lambda\mu}{}_\lambda{}^\nu - \frac12 \nabla^\nu
+    R^{\lambda\rho}{}_{\lambda\rho} \\
+    &= R^{\lambda\mu}{}_\lambda{}^\nu{}_{;\mu} + \frac12
+    (R^{\lambda\rho\nu}{}_{\lambda;\rho} +
+    R^{\lambda\rho}{}_\rho{}^\nu{}_{;\lambda}) \\
+    &= R^{\lambda\mu}{}_\lambda{}^\nu{}_{;\mu} + \frac12
+    (R^{\lambda\rho\nu}{}_{\lambda;\rho} +
+    R^{\rho\lambda}{}_\lambda{}^\nu{}_{;\rho}) \\
+    &= R^{\lambda\mu}{}_\lambda{}^\nu{}_{;\mu} + \frac12
+    (R^{\lambda\rho\nu}{}_{\lambda;\rho} +
+    R^{\lambda\rho\nu}{}_{\lambda;\rho}) \\
+    &= R^{\lambda\mu}{}_\lambda{}^\nu{}_{;\mu} +
+    R^{\lambda\rho\nu}{}_{\lambda;\rho} \\
+    &= R^{\lambda\rho}{}_\lambda{}^\nu{}_{;\rho} -
+    R^{\lambda\rho}{}_\lambda{}^\nu{}_{;\rho} \\
+    &= 0
+\end{align*}
 
 \section{Normal Coordinates}
 
