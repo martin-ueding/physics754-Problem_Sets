@@ -118,6 +118,42 @@ $\tens G$, this is:
 
 \section{Normal Coordinates}
 
+\subsection{Conclusion}
+
+If all the geodesics are straight lines, that means that the covariant and
+partial derivative are equal. Since
+\[
+    \nabla_\mu \ev_i = \partial_\mu \ev_i + \Gamma^k_{\mu i} \ev_k,
+\]
+the Christoffel-symbols have to be zero in that case. If that is the case, the
+relation holds.
+
+I can construct the symbol from equation (16) like so:
+\[
+    (\nabla_\alpha y^\beta) y^\alpha = (\partial_\alpha y^\beta) y^\alpha
+    + \Gamma^\beta_{\alpha\lambda} y^\alpha y^\nabla.
+\]
+If I require that $\nabla \sim \partial$ holds in this case, the term with
+$\Gamma$ has to be zero. I can require that in this coordinate system, since
+geodesics are straight lines. I think that also means that we are in a sort of
+“inertial reference frame”, where the covariant derivatives are just the
+partial derivatives.
+
+\subsection{Implication}
+
+The Christoffel-symbol is given as
+\[
+    \Gamma^\gamma_{\alpha\beta}
+    = \frac12 g^{\gamma\delta} \del{
+        g_{\beta\delta,\alpha} + g_{\alpha\delta,\beta} +
+        g_{\alpha\beta,\delta}
+    }.
+\]
+
+The property that has to be shown is that there is no “slope” in $\tens g$ at
+the origin. I could not come up with a sound reason why this has to be the case
+if the previous relation holds.
+
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
