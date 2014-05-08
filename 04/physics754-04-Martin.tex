@@ -33,15 +33,17 @@ now to avoid confusion:
     \item
         $f_\tau \colon \R^4 \mapsto \R^4$ is a diffeomorphism.
     \item
-        $f \colon \R^4 \times \R \mapsto \R^4$ is a one parameter family of
+        $f \colon \R^4 \times \R \mapsto \R^4$ is a $\R$-parameter family of
         diffeomorphisms.
     \item
-        $\tilde y \colon \R^4 \times \R \mapsto \R^4$ is identical to
-        $f_\tau$. This is the use of some of the $y$ in the problem set.
+        $\tilde y \colon \R \times \R^4 \mapsto \R^4$ is a $\R^4$-parameter
+        family of trajectories starting at $x$. This is used by $f$ to
+        create a $\R$-parameter family of diffeomorphisms.
     \item
         $\hat y \in \R^4$ is a vector in the image of $\tilde y$.
     \item
-        $x \in \R^4$ is a vector in the domain of $\tilde y$.
+        $x \in \R^4$ is a vector in the domain of $\tilde y$, which is the
+        same as the image, since $y(0) = x$.
     \item
         $\tau \in \R$ is a scalar and parameter for $y$.
 \end{itemize}
@@ -63,7 +65,7 @@ With all that set, the first problem nearly does itself:
     &= \sbr{\dod{}\tau f_\tau} \del{f_\tau^{-1}(\hat y)} \\
     &= \sbr{\dod{}\tau \tilde y} \del{\tilde y^{-1}(\hat y)} \\
     \intertext{%
-        $y$ is a solution of (12) from the problem set. $\tilde y$ additinally
+        $y$ is a solution of (12) from the problem set. $\tilde y$ additionally
         solves (13) as well. So $\tilde y$ will solve (12). So
         \[
             \sbr{\dod{}\tau \tilde y} (x, \tau) = [X \circ \tilde y](x, \tau)
@@ -79,6 +81,101 @@ $f_0(x)$ is just $\tilde y(x, 0)$. Since $y(0) = x$, $\tilde y(x, 0)$ reduces
 to $x$. Therefore, $f_0$ is indeed the identity transformation. That shows
 $f_0 = \mathbb 1$.
 
+\subsection{}
+
+Show that for any $g$:
+\[
+    \eval{\dod{}\tau f_\tau^* g_{\mu\nu}}_{\tau=0} = 2 X_{(\mu;\nu)},
+\]
+where I have used the symmetrization parentheses.
+
+The right hand side is given by:
+\[
+    2 X_{(\mu;\nu)} = 2 X_{(\mu,\nu)} - 2 \Gamma^\lambda_{(\mu\nu)} X_\lambda
+\]
+
+Now I will turn to the left hand side, where I will evaluate it at $x$.
+\begin{align*}
+    \text{RHS}
+    &= \eval{\dod{}\tau f_\tau^* g_{\mu\nu}}_{\tau=0} (x) \\
+    \intertext{%
+        Now I will apply the transformation to $g$.
+    }
+    &= \eval{\dod{}\tau
+    g_{\alpha\beta}\del{f_\tau(x)} \; f_\tau^\alpha{}_{,\mu}(x) \;
+    f_\tau^\beta{}_{,\nu}(x)
+    }_{\tau=0} \\
+    \intertext{%
+        The lower index $\tau$ is a little messy, so I will expand $f$ in terms
+        of $\tilde y$, introducing even more explicit parameters.
+    }
+    &= \eval{\dod{}\tau
+    g_{\alpha\beta}\del{\tilde y(x, \tau)} \; \tilde y^\alpha_{,\mu}(x, \tau) \;
+    \tilde y^\beta_{,\nu}(x, \tau)
+    }_{\tau=0} \\
+    \intertext{%
+        Total differentiation will act on all three factors, since all of them
+        depend on $\tau$. This gives three terms:
+    }
+    &= 
+    \sbr{
+        \dod{}\tau
+        g_{\alpha\beta}\del{\tilde y(x, \tau)}
+    }
+    \; \tilde y^\alpha_{,\mu}(x, \tau)
+    \; \tilde y^\beta_{,\nu}(x, \tau)
+    +
+    g_{\alpha\beta}\del{\tilde y(x, \tau)}
+    \;
+    \sbr{
+        \dod{}\tau
+        \tilde y^\alpha_{,\mu}(x, \tau)
+    }
+    \; \tilde y^\beta_{,\nu}(x, \tau)
+    \\ &\quad
+    +
+    g_{\alpha\beta}\del{\tilde y(x, \tau)}
+    \; \tilde y^\alpha_{,\mu}(x, \tau)
+    \;
+    \sbr{
+        \dod{}\tau
+        \tilde y^\beta_{,\nu}(x, \tau)
+    }
+    \Bigg|_{\tau=0} \\
+    \intertext{%
+        To simplify, I will now apply the $\tau = 0$ to all the terms that make
+        it possible at this stage. $\tilde y(x, 0)$ is just $y(0)$, which was
+        defined to be $x$. This simplification will be in the $g(\ldots)$. The
+        other thing I can do right now is to look at $\tilde y^\alpha_{,\mu}(x,
+        \tau)$: When $\tau = 0$, $\tilde y$ reduces to $x$, so that will be a
+        $\delta^\alpha_\mu$.
+    }
+    &=
+    \sbr{
+        \dod{}\tau
+        g_{\alpha\beta}\del{\tilde y(x, \tau)}
+    } \Bigg|_{\tau=0}
+    \; \delta^\alpha_\mu
+    \; \delta^\beta_\nu
+    +
+    g_{\alpha\beta}(x)
+    \;
+    \sbr{
+        \dod{}\tau
+        \tilde y^\alpha_{,\mu}(x, \tau)
+    } \Bigg|_{\tau=0}
+    \; \delta^\beta_\nu
+    \\ &\quad
+    +
+    g_{\alpha\beta}(x)
+    \; \delta^\alpha_\mu
+    \;
+    \sbr{
+        \dod{}\tau
+        \tilde y^\beta_{,\nu}(x, \tau)
+    } \Bigg|_{\tau=0}
+    \\
+\end{align*}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
