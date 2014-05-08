@@ -175,6 +175,53 @@ Now I will turn to the left hand side, where I will evaluate it at $x$.
         \tilde y^\beta_{,\nu}(x, \tau)
     } \Bigg|_{\tau=0}
     \\
+    \intertext{%
+        The $\tau$-differentiation for $\tilde y$ are given via the
+        differential equation that defines $y$.
+        \[
+            \dod{}\tau \tilde y^\alpha_{,\mu}(x, \tau)
+        \]
+        can be written as
+        \[
+            \dod{}\tau
+            \dpd{}{{x^\mu}}
+            \tilde y^\alpha(x, \tau).
+        \]
+        The derivatives should commute, so this becomes
+        \[
+            \dpd{}{{x^\mu}}
+            \dod{}\tau
+            \tilde y^\alpha(x, \tau)
+            =
+            \dpd{}{{x^\mu}}
+            X^\alpha\del{y(\tau)}
+        \]
+        via the differential equation (12). There is no problem with setting
+        $\tau = 0$ here. $y(\tau)$ becomes $x$. I will write the result as
+        $X^\alpha_{,\mu}(x)$.
+    }
+    &=
+    \sbr{
+        \dod{}\tau
+        g_{\mu\nu}\del{\tilde y(x, \tau)}
+    } \Bigg|_{\tau=0}
+    +
+    g_{\alpha\nu}(x)
+    \;
+    X^\alpha_{,\mu}(x)
+    +
+    g_{\mu\beta}(x)
+    \;
+    X^\beta_{,\nu}(x)
+    \\
+    &=
+    \sbr{
+        \dod{}\tau
+        g_{\mu\nu}\del{\tilde y(x, \tau)}
+    } \Bigg|_{\tau=0}
+    +
+    2 X_{(\mu,\nu)}(x)
+    \\
 \end{align*}
 
 \IfFileExists{\bibliographyfile}{
