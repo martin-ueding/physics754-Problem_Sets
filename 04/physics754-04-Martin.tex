@@ -352,7 +352,7 @@ integration.
         this can be written as
         \[
             \sbr{\dod{}\tau f^*_\tau g^{\alpha\eta}}_{\tau = 0}
-            = - 2 X^{(\mu;\nu)}.
+            = - 2 X^{(\alpha;\eta)}.
         \]
         The $^{;\eta}$ includes the metric tensor. Now this goes back into the
         dragged along expression. Since the line is long enough, I included the
@@ -361,8 +361,14 @@ integration.
         lecture so far.
     }
     &= \frac2{\sqrt{|g|}} g^{\mu\nu} \mathcal R(g) X_{(\mu;\nu)}
-    -2 \sqrt{|g|} R^{\mu\nu}(g) X_{\alpha;\eta}
+    -2 \sqrt{|g|} R^{\mu\nu}(g) X_{(\mu;\nu)}
     + \sqrt{|g|} g^{\mu\nu} \sbr{\dod{}\tau R_{\mu\nu}(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        The middle summand is the part with $R$ within $G$. It has the correct
+        sign and prefactor. Now the first and last term have to turn out to be
+        $\sqrt{|g|} \mathcal R g X$. The factor $\frac12$ that is within $G$
+        will be supplied by the symmetrization of $X$.
+    }
 \end{align*}
 
 \IfFileExists{\bibliographyfile}{
