@@ -365,11 +365,47 @@ integration.
     + \sqrt{|g|} g^{\mu\nu} \sbr{\dod{}\tau R_{\mu\nu}(f^*_\tau g)}_{\tau=0}
     \intertext{%
         The middle summand is the part with $R$ within $G$. It has the correct
-        sign and prefactor. Now the first and last term have to turn out to be
-        $\sqrt{|g|} \mathcal R g X$. The factor $\frac12$ that is within $G$
-        will be supplied by the symmetrization of $X$.
+        sign and prefactor, note the sign change from the definition to the
+        result. Now the first and last term have to turn out to be $\sqrt{|g|}
+        \mathcal R g X$. The factor $\frac12$ that is within $G$ will be
+        supplied by the symmetrization of $X$. Omitting the first two summands
+        …
     }
+    &= \ldots + \sqrt{|g|} g^{\mu\nu} \sbr{\dod{}\tau R_{\mu\nu}(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        Let $\tilde g := f^*_\tau g$. With that, I attempt to use chain rule
+        for the last term. $R$ depends on all 16 components of $g$. The chain
+        rule would have to reflect that. With the following, I indeed sum over
+        16 entries, which seems like the right direction.
+    }
+    &= \ldots + \sqrt{|g|} g^{\mu\nu} \sbr{\dpd{{R_{\mu\nu}}}{{\tilde
+    g_{\alpha\beta}}} \dod{{\tilde g_{\alpha\beta}}}\tau}_{\tau=0} \\
+    \intertext{%
+        In the last partial derivative, the definition of $\tilde g$ can be
+        expanded again:
+    }
+    &= \ldots + \sqrt{|g|} g^{\mu\nu} \sbr{\dpd{{R_{\mu\nu}}}{{\tilde
+    g_{\alpha\beta}}} \dod{}\tau f^*_\tau g_{\alpha\beta}}_{\tau=0}
+    \intertext{%
+        That derivative was used often now, and is given by $2
+        X_{(\alpha;\beta)}$.
+    }
+    &= \ldots + \sqrt{|g|} g^{\mu\nu} \sbr{\dpd{{R_{\mu\nu}}}{{\tilde
+    g_{\alpha\beta}}}}_{\tau=0} X_{(\alpha;\beta)}
 \end{align*}
+
+\subsection{}
+
+In exercise H.6, part (b), I have shown that $G^{\mu\nu}_{;\mu}$ vanishes. The
+Einstein tensor is symmetric, since both $g$ and the Ricci tensor $R$ are
+symmetric. Therefore $G^{\mu\nu}_{;\mu}$ = $G^{\mu\nu}_{;\nu}$ if you use the
+symmetry and relabel the indices. Since $G \propto T$, the
+vanishing divergence must apply for $T$ as well.
+
+This seems a little unrelated to the previous problems, so I think that there
+is another way to show this using the relations given. The action should be
+invariant under any diffeomorphism. Therefore, the derivative of the action
+with respect to the parameter $\tau$ should vanish.
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
