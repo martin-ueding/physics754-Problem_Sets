@@ -1,0 +1,85 @@
+\input{../header.tex}
+
+\newcommand\problemset{4}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section{Diffeomorphisms and vector fields}
+
+The various uses of $y$ are not defined in the problem set, so I will do that
+now to avoid confusion:
+
+\begin{itemize}
+    \item
+        $X \colon \R^4 \mapsto \R^4$ is a vector field.
+    \item
+        $y \colon \R \mapsto \R^4$ is a trajectory.
+    \item
+        $f_\tau \colon \R^4 \mapsto \R^4$ is a diffeomorphism.
+    \item
+        $f \colon \R^4 \times \R \mapsto \R^4$ is a one parameter family of
+        diffeomorphisms.
+    \item
+        $\tilde y \colon \R^4 \times \R \mapsto \R^4$ is identical to
+        $f_\tau$. This is the use of some of the $y$ in the problem set.
+    \item
+        $\hat y \in \R^4$ is a vector in the image of $\tilde y$.
+    \item
+        $x \in \R^4$ is a vector in the domain of $\tilde y$.
+    \item
+        $\tau \in \R$ is a scalar and parameter for $y$.
+\end{itemize}
+
+The ambiguity of round parentheses arising because they are used for both
+scoping and function application makes the equation a bit hard to read. I will
+use a Mathematica inspired notation that does not contradict the usual
+notation: Round parentheses are used only for function application, square
+brackets are used for scoping and grouping.
+
+I can now safely omit using different fonts for scalars, vectors and tensors
+of higher rank since every symbol is defined.
+
+\subsection{}
+
+With all that set, the first problem nearly does itself:
+\begin{align*}
+    X(\hat y)
+    &= \sbr{\dod{}\tau f_\tau} \del{f_\tau^{-1}(\hat y)} \\
+    &= \sbr{\dod{}\tau \tilde y} \del{\tilde y^{-1}(\hat y)} \\
+    \intertext{%
+        $y$ is a solution of (12) from the problem set. $\tilde y$ additinally
+        solves (13) as well. So $\tilde y$ will solve (12). So
+        \[
+            \sbr{\dod{}\tau \tilde y} (x, \tau) = [X \circ \tilde y](x, \tau)
+        \]
+        and therefore
+    }
+    &= [X \circ \tilde y] \del{\tilde y^{-1}(\hat y)} \\
+    &= [X \circ \tilde y \circ \tilde y^{-1}] (\hat y) \\
+    &= X(\hat y) \\
+\end{align*}
+
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
