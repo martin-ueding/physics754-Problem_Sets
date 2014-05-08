@@ -257,13 +257,14 @@ Given
 \]
 I have to show that
 \[
-    \eval{\dod{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0} = \frac{1}{8\piup G}
+    \eval{\dod{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0} = \frac{2}{16\piup G}
     \intop_{\R^4} \dif{^4 x} \, \sqrt{|g|} G^{\mu\nu} X_{(\mu;\nu)}.
 \]
 
 The various forks induced by the product rule will make this calculation
-nonlinear, I will try to perform an in-order traversal of all the steps. First
-I will put the transformed $g$ into the definition of the action.
+nonlinear, I will try to perform an in-order traversal of all the steps while
+dragging intermediate results along. First I will put the transformed $g$ into
+the definition of the action.
 \[
     \eval{\dod{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0}
     = - \frac{1}{16\piup G} \eval{\dod{}\tau \intop_{\R^4} \dif{^4 x} \,
@@ -309,9 +310,59 @@ integration.
     \intertext{%
         That trace will totally contract the $g$ and the $X$, giving a scalar:
     }
-    &=
-    \frac2{\sqrt{|g|}} g^{\mu\nu} X_{(\mu;\nu)} \mathcal R(g)
+    &= \frac2{\sqrt{|g|}} g^{\mu\nu} \mathcal R(g) X_{(\mu;\nu)}
     + \sqrt{|g|} \sbr{\dod{}\tau \mathcal R(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        I swapped the $g$ and the $X$ in the first summand, since I want to
+        factor out $X$ later on since $g \mathcal R$ appear in the Einstein
+        tensor which gets contracted with $X$ in the final expression. The next
+        work will be done on the second summand. First, I expand the Ricci
+        scalar in terms of the Ricci tensor.
+    }
+    &= \frac2{\sqrt{|g|}} g^{\mu\nu} \mathcal R(g) X_{(\mu;\nu)}
+    + \sqrt{|g|} \sbr{\dod{}\tau \sbr{f^*_\tau g^{\mu\nu}} R_{\mu\nu}(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        While I apply product rule, I will evaluate at $\tau = 0$ in this step
+        as well. The ellipsis stands for the first summand of the above
+        expression.
+    }
+    &= \ldots
+    + \sqrt{|g|} \sbr{\dod{}\tau f^*_\tau g^{\mu\nu}}_{\tau=0} R_{\mu\nu}(g)
+    + \sqrt{|g|} g^{\mu\nu} \sbr{\dod{}\tau R_{\mu\nu}(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        The dual metric tensor is defined as $g^{\alpha\beta} g_{\beta\gamma} =
+        \delta^\alpha_\gamma$. This also holds for the transformed metric
+        tensor. \begin{aside}The $\delta$ is not transformed since it is a
+        symbol and not a tensor?\end{aside} Transforming that identity yields
+        \[
+            \sbr{f^*_\tau g^{\alpha\beta}} \sbr{f^*_\tau g_{\beta\gamma}} =
+            \delta^\alpha_\gamma.
+        \]
+        The derivative with respect to $\tau$ gives, applying the product rule
+        right away and evaluating at $\tau = 0$:
+        \[
+            \sbr{\dod{}\tau f^*_\tau g^{\alpha\beta}}_{\tau = 0}
+            g_\beta\gamma
+            +
+            g^{\alpha\beta}
+            \sbr{\dod{}\tau f^*_\tau g_{\beta\gamma}}_{\tau = 0}
+            = 0.
+        \]
+        Using the known expression for the derivative in the second summand,
+        this can be written as
+        \[
+            \sbr{\dod{}\tau f^*_\tau g^{\alpha\eta}}_{\tau = 0}
+            = - 2 X^{(\mu;\nu)}.
+        \]
+        The $^{;\eta}$ includes the metric tensor. Now this goes back into the
+        dragged along expression. Since the line is long enough, I included the
+        omitted part again. I also raised and lowered the indices on $R$ and
+        $X$ respectively, to remove the $^{;\eta}$ that was not featured in the
+        lecture so far.
+    }
+    &= \frac2{\sqrt{|g|}} g^{\mu\nu} \mathcal R(g) X_{(\mu;\nu)}
+    -2 \sqrt{|g|} R^{\mu\nu}(g) X_{\alpha;\eta}
+    + \sqrt{|g|} g^{\mu\nu} \sbr{\dod{}\tau R_{\mu\nu}(f^*_\tau g)}_{\tau=0}
 \end{align*}
 
 \IfFileExists{\bibliographyfile}{
