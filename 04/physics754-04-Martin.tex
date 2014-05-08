@@ -31,7 +31,8 @@ now to avoid confusion:
     \item
         $y \colon \R \mapsto \R^4$ is a trajectory.
     \item
-        $f_\tau \colon \R^4 \mapsto \R^4$ is a diffeomorphism.
+        $f_\tau \colon \R^4 \mapsto \R^4$ is a diffeomorphism $\forall \tau \in
+        \R$.
     \item
         $f \colon \R^4 \times \R \mapsto \R^4$ is a $\R$-parameter family of
         diffeomorphisms.
@@ -43,7 +44,7 @@ now to avoid confusion:
         $\hat y \in \R^4$ is a vector in the image of $\tilde y$.
     \item
         $x \in \R^4$ is a vector in the domain of $\tilde y$, which is the
-        same as the image, since $y(0) = x$.
+        same space as the image, since $y(0) = x$.
     \item
         $\tau \in \R$ is a scalar and parameter for $y$.
 \end{itemize}
@@ -180,9 +181,7 @@ Now I will turn to the left hand side, where I will evaluate it at $x$.
         differential equation that defines $y$.
         \[
             \dod{}\tau \tilde y^\alpha_{,\mu}(x, \tau)
-        \]
-        can be written as
-        \[
+            =
             \dod{}\tau
             \dpd{}{{x^\mu}}
             \tilde y^\alpha(x, \tau).
@@ -333,7 +332,9 @@ integration.
         The dual metric tensor is defined as $g^{\alpha\beta} g_{\beta\gamma} =
         \delta^\alpha_\gamma$. This also holds for the transformed metric
         tensor. \begin{aside}The $\delta$ is not transformed since it is a
-        symbol and not a tensor?\end{aside} Transforming that identity yields
+        symbol and not a tensor in general? Here, I want the two terms to be
+        the inverse map of each other, so that is a special case,
+        right?\end{aside} Transforming that identity yields
         \[
             \sbr{f^*_\tau g^{\alpha\beta}} \sbr{f^*_\tau g_{\beta\gamma}} =
             \delta^\alpha_\gamma.
@@ -390,9 +391,34 @@ integration.
         That derivative was used often now, and is given by $2
         X_{(\alpha;\beta)}$.
     }
-    &= \ldots + \sqrt{|g|} g^{\mu\nu} \sbr{\dpd{{R_{\mu\nu}}}{{\tilde
+    &= \ldots + 2 \sqrt{|g|} g^{\mu\nu} \sbr{\dpd{{R_{\mu\nu}}}{{\tilde
     g_{\alpha\beta}}}}_{\tau=0} X_{(\alpha;\beta)}
+    \intertext{%
+        I do not see anything holding me back from evaluating that at $\tau =
+        0$ now and getting plain $g$ back.
+    }
+    &= \frac2{\sqrt{|g|}} g^{\mu\nu} \mathcal R(g) X_{(\mu;\nu)}
+    - 2 \sqrt{|g|} R^{\mu\nu}(g) X_{(\mu;\nu)}
+    + 2 \sqrt{|g|} g^{\mu\nu} \dpd{{R_{\mu\nu}}}{{g_{\alpha\beta}}}
+    X_{(\alpha;\beta)}
 \end{align*}
+
+\begin{aside}
+    This is the part where I finally got stuck. I have tried to expand $R$ in
+    terms of $\Gamma$ and to expand those in terms of $g$ again. The
+    derivatives of $g$ with respect to $g$ only give me $\delta$-symbols. Since
+    within the $\Gamma$, there are derivatives of $g$, I tried to interchange
+    the derivatives. But $\partial_mu \delta = 0$, so the terms vanished.
+
+    There were also terms where I had to differentiate the dual metric with
+    respect to the metric, and I have no idea how I could gain the elements of
+    that (0, 4)-tensor.
+
+    I assume that what I have tried is either a dead end or relatively close to
+    the correct way of doing it, I will stop here and wait to see this in the
+    exercise group.
+\end{aside}
+
 
 \subsection{}
 
