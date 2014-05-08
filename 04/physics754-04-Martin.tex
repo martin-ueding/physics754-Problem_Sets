@@ -201,10 +201,10 @@ Now I will turn to the left hand side, where I will evaluate it at $x$.
         $X^\alpha_{,\mu}(x)$.
     }
     &=
-    \sbr{
+    \eval{
         \dod{}\tau
         g_{\mu\nu}\del{\tilde y(x, \tau)}
-    } \Bigg|_{\tau=0}
+    }_{\tau=0}
     +
     g_{\alpha\nu}(x)
     \;
@@ -214,15 +214,52 @@ Now I will turn to the left hand side, where I will evaluate it at $x$.
     \;
     X^\beta_{,\nu}(x)
     \\
-    &=
-    \sbr{
+    &= \eval{
         \dod{}\tau
         g_{\mu\nu}\del{\tilde y(x, \tau)}
-    } \Bigg|_{\tau=0}
-    +
-    2 X_{(\mu,\nu)}(x)
-    \\
+    }_{\tau=0}
+    + 2 X_{(\mu,\nu)}(x) \\
+    \intertext{%
+        Now comes the part where the $\Gamma$ have to appear to make it fit.
+        Let $\hat y := \tilde y(x, \tau)$ from this point. That lets me write
+        the chain rule:
+    }
+    &= \eval{
+        \frac{\partial g_{\mu\nu}}{\partial \hat y^\lambda}
+        \dpd{{{\hat y}^\lambda}}\tau
+    }_{\tau=0} (x)
+    + 2 X_{(\mu,\nu)}(x) \\
+    \intertext{%
+        The $\tau$-derivative of $\hat y$ can be expressed by the differential
+        equation. $g$ will be differentiated with respect to $x^\lambda$ in the
+        $\tau = 0$ case.
+    }
+    &=
+    g_{\mu\nu,\lambda}(x)
+    \; X^\lambda(x)
+    + 2 X_{(\mu,\nu)}(x) \\
+    &=
+    \sbr{
+        g_{\mu\nu,\lambda}
+        \; X^\lambda
+        + 2 X_{(\mu,\nu)}
+    }(x)
 \end{align*}
+
+The $\Gamma$ terms are missing, since there is only derivative of $g$.
+
+\subsection{Action}
+
+Given
+\[
+    S_\text{gr}(g) := - \frac{1}{16\piup G} \intop_{\R^4} \dif{^4 x} \,
+    \sqrt{|g|} \mathcal R(g)
+\]
+I have to show that
+\[
+    \eval{\dpd{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0} = \frac{1}{8\piup G} \intop_{\R^4} \dif{^4 x} \,
+    \sqrt{|g|} G^{\mu\nu} X_{(\mu;\nu)}
+\]
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
