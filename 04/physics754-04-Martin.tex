@@ -257,9 +257,62 @@ Given
 \]
 I have to show that
 \[
-    \eval{\dpd{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0} = \frac{1}{8\piup G} \intop_{\R^4} \dif{^4 x} \,
-    \sqrt{|g|} G^{\mu\nu} X_{(\mu;\nu)}
+    \eval{\dod{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0} = \frac{1}{8\piup G}
+    \intop_{\R^4} \dif{^4 x} \, \sqrt{|g|} G^{\mu\nu} X_{(\mu;\nu)}.
 \]
+
+The various forks induced by the product rule will make this calculation
+nonlinear, I will try to perform an in-order traversal of all the steps. First
+I will put the transformed $g$ into the definition of the action.
+\[
+    \eval{\dod{}\tau S_\text{gr}(f^*_\tau g)}_{\tau=0}
+    = - \frac{1}{16\piup G} \eval{\dod{}\tau \intop_{\R^4} \dif{^4 x} \,
+    \sqrt{|f^*_\tau g|} \mathcal R(f^*_\tau g)}_{\tau=0}
+\]
+Given that the result has a similar prefactor and an integration, I will focus
+my attention to the integrand. If some summand will be left that does not fit
+into the result, I will see whether the integral over it does vanish. First I
+will assume that I can interchange the limit, the differentiation and the
+integration.
+\begin{align*}
+    &
+    \eval{\dod{}\tau \sqrt{|f^*_\tau g|} \mathcal R(f^*_\tau g)}_{\tau=0} \\
+    &= 
+    \eval{\sbr{\dod{}\tau \sqrt{|f^*_\tau g|}} \mathcal R(f^*_\tau g)}_{\tau=0}
+    +
+    \eval{\sqrt{|f^*_\tau g|} \dod{}\tau \mathcal R(f^*_\tau g)}_{\tau=0}
+    \\
+    \intertext{%
+        The terms that are not differentiated to not have to wait until $\tau$
+        is set to zero. Once this is done $f$ will become the identity
+        transformation, leaving the $g$ untouched.
+    }
+    &=
+    \sbr{\dod{}\tau \sqrt{|f^*_\tau g|}}_{\tau=0} \mathcal R(g)
+    + \sqrt{|g|} \sbr{\dod{}\tau \mathcal R(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        Using Jacobi's formula for the derivative of determinants that we
+        proved on an earlier exercise set I will work on the first term in
+        square brackets.
+    }
+    &=
+    \sbr{\frac1{\sqrt{|f^*_\tau g|}} \Tr\del{[f^*_\tau g]^\dagger \dod{}\tau
+    f^*_\tau g}}_{\tau=0} \mathcal R(g)
+    + \sqrt{|g|} \sbr{\dod{}\tau \mathcal R(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        The first part can be evaluated at $\tau = 0$ now. The last derivative
+        was derived in the prior parts, so that I just plug that in.
+    }
+    &=
+    \frac1{\sqrt{|g|}} \Tr\del{g^\dagger 2 X_{(\mu;\nu)}} \mathcal R(g)
+    + \sqrt{|g|} \sbr{\dod{}\tau \mathcal R(f^*_\tau g)}_{\tau=0}
+    \intertext{%
+        That trace will totally contract the $g$ and the $X$, giving a scalar:
+    }
+    &=
+    \frac2{\sqrt{|g|}} g^{\mu\nu} X_{(\mu;\nu)} \mathcal R(g)
+    + \sqrt{|g|} \sbr{\dod{}\tau \mathcal R(f^*_\tau g)}_{\tau=0}
+\end{align*}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
