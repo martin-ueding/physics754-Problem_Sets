@@ -1,0 +1,188 @@
+\input{../header.tex}
+
+\newcommand\problemset{6}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+\let\Call\del
+\let\Group\sbr
+
+\newcommand\call[1]{(#1)}
+\newcommand\group[1]{(#1)}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section*{H.9: Schwarzschild trajectories given by the Jacobi method}
+
+I will omit the subscript $q$ since there are no other velocities. Vectors in
+$\R^3$ are typeset in bold serif italics.
+
+\subsection*{(a) Canonical momenta}
+
+The canonical momenta are:
+\[
+    p_i = \dpd L{{v^i}} = - m \frac{1}{2f(\vec q, \vec v, q^0)} \Group{
+    2 g_{0i}(q^0, \vec q) + 2 g_{ij}(q^0, \vec q) v^j}.
+\]
+
+I will assemble the hamiltonian from that. Since the function arguments to do
+change within the following calculations, I will just omit them. $f$ and $g$
+are still functions.
+\begin{align*}
+    H(\vec q, \vec p)
+    &= \Group{p_i v^i - L}_{v = v(\vec q, \vec p)} \\
+    %
+    &= - \Group{\frac{m}{2f} \sbr{ 2 g_{0i} +
+    2 g_{ij} v^j} v^i - L}_{\vec v = \vec v(\vec q, \vec p)} \\
+    %
+    &= - \Group{\frac{m}{f} \sbr{ g_{0i} +
+    g_{ij} v^j} v^i - L}_{\vec v = \vec v(\vec q, \vec p)} \\
+    %
+    &= - \Group{\frac{m}{f} \Group{ g_{0i}
+    v^i + g_{ij} v^i v^j - g_{00} - 2 g_{0i} v^i - g_{ik} v^i
+    v^k}}_{\vec v = \vec v(\vec q, \vec p)} \\
+    %
+    &= - \Group{\frac{m}{f} \Group{ - g_{0i}
+    v^i + g_{ij} v^i v^j - g_{00} }}_{\vec v = \vec v(\vec q, \vec
+    p)} \\
+    %
+    &= \Group{\frac{m}{f} \Group{ g_{00} + g_{0i} v^i}}_{\vec v = \vec v(\vec q, \vec p)}
+\end{align*}
+
+And that is the result from the problem set.
+
+\subsection*{(b) Differential equation for $W$}
+
+\begin{align*}
+    m^2
+    &\overset != 
+    \bracket{\tens \partial W, \tens \partial W} \\
+    %
+    &= g^{00} [\partial_0 W] [\partial_0 W]
+    + 2 g^{0i} [\partial_0 W] [\partial_i W]
+    + 2 g^{ij} [\partial_i W] [\partial_j W]
+    \\
+    &= g^{00} H^2 - 2 g^{0i} H p_i + g^{ij} p_i p_j \\
+    \intertext{%
+        I will now insert all the $H$ and $\vec p$.
+    }
+    &= \frac{m^2}{f^2} \left\{ g^{00} \Group{g_{00} + g_{0i} v^i}^2 + 2 g^{0j}
+    \Group{g_{00} + g_{0i} v_i}\Group{g_{0j} + g_{ij} v^i}
++ g^{ij} \Group{g_{0i} +
+g_{ki} v^k} \Group{g_{0j} + g_{kj} v^k} \right\} \\
+\intertext{%
+    The terms in the big group have to equal $f^2$ so that the result really
+    becomes $m^2$. I will expand everything and see what cancels.
+}
+&= \frac{m^2}{f^2} \left\{ g^{00} \Group{ [g_{00}]^2 + 2 g_{00} g_{0i} v^i + \Group{
+g_{0i} v^i }^2 } \right.
++ 2 g^{0j} \Group{ g_{00} g_{0j} +
+g_{00} g_{ij} v^i + g_{0j} g_{0i} v^i + g_{0i} v^i g_{kj} v^k }
+\\ &\quad
+\left. + g^{ij} \Group{ g_{0i} g_{0j} + g_{0i} g_{kj} v^k + g_{0j}
+g_{ki} v^k + g_{ki} v^k g_{lj} v^l} \right\} \\
+%
+\intertext{%
+    Indices can now be raised, and some combinations of $\tens g$ become $\tens
+    \delta$.
+}
+&= \frac{m^2}{f^2} \Group{ g_{00} + 2 g_{0i} v^i + g^{00} \Group{ g_{0i} v^i }^2 
++ 2 g_{00} + g_{00} v^0 + 2 g_{0i} v^i + 2 g_{0i} v^i v^0
++ g_{00} + g_{k0} v^k + g_{k0} v^k + g_{kl} v^k v^l } \\
+%
+\intertext{%
+    Using that $v^0 = 1$ and renaming the dummy indices, a lot of this can be
+    written more compact:
+}
+&= \frac{m^2}{f^2} \Group{ 5 g_{00} + 8 g_{0i} v^i + g^{00} \Group{ g_{0i} v^i
+}^2 + g_{kl} v^k v^l }
+\end{align*}
+
+That is getting kind of into the desired direction, but not close enough.
+
+\subsection*{(c) Differential equation for $S(r)$}
+
+$\tens g$ is now diagonal. That makes the previous differential equation much
+easier.
+\begin{align*}
+    m^2
+    &= \bracket{\tens \partial W, \tens \partial W} \\
+    &= g^{00} \Group{ \dpd Wt }^2
+    + g^{11} \Group{ \dpd Wr }^2
+    + g^{22} \Group{ \dpd W\theta }^2
+    + g^{33} \Group{ \dpd W\phi }^2 \\
+    \intertext{%
+        The separation ansatz \[ W(t, r, \theta, \phi) = - Et + S(r) + l
+        \arccos\Call{y\call{\theta, \phi}} \] with \[ y(\theta, \phi) =
+        \cos(\alpha) \cos(\theta) + \sin(\alpha) \sin(\theta) \sin(\phi) \] and
+        $\alpha$ being a constant will give me chain rule contributions for the
+        last two summands. I factor those out.
+    }
+    &= g^{00} E^2
+    + g^{11} \Group{ \dpd Sr }^2
+    + \Group{ \dpd Wy }^2 \Group { g^{22} \Group{ \dpd y\theta }^2 + g^{33} \Group{
+\dpd y\phi }^2 } \\
+\intertext{%
+    The derivative of $\arccos$ is given as:
+    \[
+        \arccos'(x) = - \frac{1}{\sqrt{1-x^2}}.
+    \]
+    With that:
+}
+    &= g^{00} E^2
+    + g^{11} \Group{ \dpd Sr }^2
+    + \frac{l}{1-y^2} \Group { g^{22} \Group{ \dpd y\theta }^2 + g^{33} \Group{
+\dpd y\phi }^2 } \\
+\intertext{%
+    The problems asks for a differential equation for $S(r)$. This can be
+    obtained by isolating $S$:
+}
+    \Group{ \dpd Sr }^2
+    &= g_{11} \Group{ m^2 - g^{00} E^2
+    - \frac{l}{1-y^2} \Group { g^{22} \Group{ \dpd y\theta }^2 + g^{33} \Group{
+\dpd y\phi }^2 } } \\
+\intertext{%
+    The last step would be to take the square root and perform $\int_0^r \dif
+    r'$. However, the current representation still looks like it could be
+    simplified. I will now insert most of the known terms, which will make the
+    formula explode, again.
+}
+&= - \frac{1}{1 - \frac{r_\text S}{r}} \left\{ m^2 - \Group{1 - \frac{r_S}{r}} E^2
+- \frac{l}{1-y^2} \Group { -r^2 \Group{ \dpd y\theta }^2 -r^2 \sin(\theta)^2 \Group{
+\dpd y\phi }^2 } \right\} \\
+\intertext{Factor out $r^2$.}
+&= - \frac{1}{1 - \frac{r_\text S}{r}} \left\{ m^2 - \Group{1 - \frac{r_S}{r}} E^2
++ \frac{r^2}{1-y^2} \Group { \Group{ \dpd y\theta }^2 + \sin(\theta)^2 \Group{
+\dpd y\phi }^2 } \right\} \\
+%
+\intertext{Expand the derivatives.}
+&= - \frac{1}{1 - \frac{r_\text S}{r}} \left\{ m^2 - \Group{1 - \frac{r_S}{r}}
+E^2 + \frac{r^2}{1-y^2} \bigg[ \right.
+    \\&\quad
+    \left. \Group{ -\cos(\alpha) \sin(\theta) + \sin(\alpha) \cos(\theta)
+    \sin(\phi) }^2 + \sin(\theta)^2
+    \Group{ \sin(\alpha) \sin(\theta) \sin(\phi) }^2
+\bigg] \right\} \\
+\end{align*}
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
