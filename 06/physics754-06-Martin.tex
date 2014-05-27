@@ -197,7 +197,36 @@ I am supposed to calculate $P_2$. I do not even know which of my parameters is
 $Q_2$. So my parameters are $E$, $c_1$ and I think that the $l$ is yet another
 one of those parameters. But it could also be $\alpha$. One of those parameters
 is meaningless, and I should only get 3. That is what I read in
-\parencite{Kuypers/Mechanik}
+\parencite{Kuypers/Mechanik}.
+
+So I will just start with $l$. That might be $Q_3$ or so.
+\begin{align*}
+    \dpd Wl = \arccos(y) &= -P_3 \\
+    y &= \cos(-P_3) \\
+    y &= \cos(P_3) \\
+    \cos(\alpha) \cos(\theta) + \sin(\alpha) \sin(\theta) \sin(\phi) &= \cos(P_3) \\
+    \intertext{%
+        I can now separate $\theta$ and $\phi$ to either side of the equation.
+    }
+    \sin(\phi) &= \cos(P_3) \sin(\alpha) \sin(\theta) - \cot(\alpha)
+    \cot(\theta)
+\end{align*}
+
+That gives me a relationship between $\theta$ and $\phi$, but nothing with
+respect to $r$.
+
+Then I tried to use $c_1$ as the $Q_2$. The problem is that $c_1$ does not
+occur in the angular term. So this will give me only a relationship from $r$
+with $t$ at best.
+\begin{align*}
+    \dpd W{{c_1}} &= -P_2 \\
+    - \int \dif r\, \frac{1}{\sqrt{ \frac{E^2}{\Group{1 - \frac{r_\text S}r}^2} -
+        \frac{c_1}{r^2 \Group{1 - \frac{r_\text S}r}} - \frac{m^2}{1 - \frac{r_\text
+    S}{r}}}} \frac{1}{r^2 \sbr{1 - \frac{r_\text S}{r}}} &= -P_2
+\end{align*}
+
+Even if I could solve this with respect to $r$, there would not be any angular
+part.
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
