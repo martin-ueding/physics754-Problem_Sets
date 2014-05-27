@@ -26,6 +26,9 @@
 
 \maketitle
 
+Sorry for the landscape printing. The equations got pretty long and I did not
+want to break them all into several lines since they have so many parentheses.
+
 \section*{H.9: Schwarzschild trajectories given by the Jacobi method}
 
 I will omit the subscript $q$ since there are no other velocities. Vectors in
@@ -143,48 +146,58 @@ easier.
     \]
     With that:
 }
-    &= g^{00} E^2
+    m^2 &= g^{00} E^2
     + g^{11} \Group{ \dpd Sr }^2
     + \frac{l}{1-y^2} \Group { g^{22} \Group{ \dpd y\theta }^2 + g^{33} \Group{
 \dpd y\phi }^2 } \\
-\intertext{%
-    The problems asks for a differential equation for $S(r)$. This can be
-    obtained by isolating $S$:
-}
-    \Group{ \dpd Sr }^2
-    &= g_{11} \Group{ m^2 - g^{00} E^2
-    - \frac{l}{1-y^2} \Group { g^{22} \Group{ \dpd y\theta }^2 + g^{33} \Group{
-\dpd y\phi }^2 } } \\
-\intertext{%
-    The last step would be to take the square root and perform $\int_0^r \dif
-    r'$. However, the current representation still looks like it could be
-    simplified. I will now insert most of the known terms, which will make the
-    formula explode, again.
-}
-&= - \frac{1}{1 - \frac{r_\text S}{r}} \left\{ m^2 - \Group{1 - \frac{r_S}{r}} E^2
-- \frac{l}{1-y^2} \Group { -r^2 \Group{ \dpd y\theta }^2 -r^2 \sin(\theta)^2 \Group{
-\dpd y\phi }^2 } \right\} \\
-\intertext{Factor out $r^2$.}
-&= - \frac{1}{1 - \frac{r_\text S}{r}} \left\{ m^2 - \Group{1 - \frac{r_S}{r}} E^2
-+ \frac{r^2}{1-y^2} \Group { \Group{ \dpd y\theta }^2 + \sin(\theta)^2 \Group{
-\dpd y\phi }^2 } \right\} \\
-%
-\intertext{Expand the derivatives.}
-&= - \frac{1}{1 - \frac{r_\text S}{r}} \Group{ m^2 - \Group{1 - \frac{r_S}{r}}
-E^2 + \frac{r^2}{1-y^2} \Group{
-    \Group{ -\cos(\alpha) \sin(\theta) + \sin(\alpha) \cos(\theta)
-    \sin(\phi) }^2 + \sin(\theta)^2
-\Group{ \sin(\alpha) \sin(\theta) \sin(\phi) }^2 }
- } \\
-\intertext{Now expand $y$.}
-&= - \frac{1}{1 - \frac{r_\text S}{r}} \Group{ m^2 - \Group{1 - \frac{r_S}{r}}
-E^2 + r^2 \frac{\Group{ -\cos(\alpha) \sin(\theta) + \sin(\alpha) \cos(\theta)
-    \sin(\phi) }^2 + \sin(\theta)^2
-\Group{ \sin(\alpha) \sin(\theta) \sin(\phi) }^2}{1-\Group{\cos(\alpha) \cos(\theta) + \sin(\alpha) \sin(\theta) \sin(\phi)}^2} 
- }
+m^2 &= \frac{1}{1-\frac{r_\text S}{r}} E^2 - \Group{ 1 - \frac{r_\text S}r }
+\Group{ \dpd Sr }^2 + \frac{1}{r^2} \frac{l}{1-y^2} \Group { \Group{ \dpd
+y\theta }^2 + \csc(\theta)^2 \Group{ \dpd y\phi }^2 } \\
+m^2 r^2 &= \frac{r^2}{1-\frac{r_\text S}{r}} E^2 - r^2 \Group{ 1 - \frac{r_\text S}r }
+\Group{ \dpd Sr }^2 - \frac{l}{1-y^2} \Group { \Group{ \dpd
+y\theta }^2 + \csc(\theta)^2 \Group{ \dpd y\phi }^2 }
 \end{align*}
 
+Now I separate the radial and angular parts.
+\[
+  \frac{r^2}{1-\frac{r_\text S}{r}} E^2 - r^2 \Group{ 1 - \frac{r_\text S}r }
+  \Group{ \dpd Sr }^2 - m^2 r^2 = \frac{l}{1-y^2} \Group { \Group{ \dpd y\theta
+  }^2 + \csc(\theta)^2 \Group{ \dpd y\phi }^2 }
+\]
 
+Since both sides depend on different variables, they both have to equal a
+constant, that I will name $c_1$.
+\begin{align*}
+  \frac{r^2}{1-\frac{r_\text S}{r}} E^2 - r^2 \Group{ 1 - \frac{r_\text S}r }
+  \Group{ \dpd Sr }^2 - m^2 r^2 &= c_1 \\
+  \intertext{%
+      Now I can isolate $S$:
+  }
+  \Group{ \dpd Sr }^2 &= \frac{E^2}{\Group{1 - \frac{r_\text S}r}^2} -
+  \frac{c_1}{r^2 \Group{1 - \frac{r_\text S}r}} - \frac{m^2}{1 - \frac{r_\text
+  S}{r}}
+  \intertext{%
+      Taking the square root, integrating ...
+  }
+  S(r') &= \int_0^r \dif{r'} \, \sqrt{ \frac{E^2}{\Group{1 - \frac{r_\text S}r}^2} -
+  \frac{c_1}{r^2 \Group{1 - \frac{r_\text S}r}} - \frac{m^2}{1 - \frac{r_\text
+  S}{r}}}
+\end{align*}
+
+So the whole $W$ now looks like this:
+\[
+    W = - Et + \int_0^r \dif{r'} \, \sqrt{ \frac{E^2}{\Group{1 - \frac{r_\text S}r}^2} -
+        \frac{c_1}{r^2 \Group{1 - \frac{r_\text S}r}} - \frac{m^2}{1 - \frac{r_\text
+    S}{r}}} - l \arccos\del{y(\theta, \phi)}.
+\]
+
+\subsection*{(d) Trajectories}
+
+I am supposed to calculate $P_2$. I do not even know which of my parameters is
+$Q_2$. So my parameters are $E$, $c_1$ and I think that the $l$ is yet another
+one of those parameters. But it could also be $\alpha$. One of those parameters
+is meaningless, and I should only get 3. That is what I read in
+\parencite{Kuypers/Mechanik}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
