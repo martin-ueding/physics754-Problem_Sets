@@ -1,0 +1,68 @@
+\input{../header.tex}
+
+\newcommand\problemset{7}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+\let\Call\del
+\let\Group\sbr
+
+\newcommand\call[1]{(#1)}
+\newcommand\group[1]{(#1)}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section*{H.10: Precession of perhelia}
+
+I assume that $u$ and $\phi$ are both functions of the curve parameter $\tau$,
+which is the proper time.
+
+\subsection*{(a) Derive stuff}
+
+The derivatives of $r$ transform like this:
+\[
+    \dod r\tau = \dod u\tau \dod ru = - \frac{1}{u^2} \dod u\tau.
+\]
+Also
+\[
+    \frac{\dot x}{\dot y} = \dod xy,
+\]
+which can be obtained by canceling the $\dif \tau$ that is implicit in $\dot x$
+and $\dot y$.
+
+\newcommand\rS{r_\text S}
+
+With that, I will start:
+\begin{align*}
+    \alpha^2 - 1 - \dot r^2 + \frac \rS r - \frac{l^2}{r^2} \sbr{1 - \frac \rS
+    r} &= 0 \\
+        \alpha^2 - 1 - \frac{\dot u^2}{u^4} + \rS u - l^2 u^2 \sbr{1 - \rS u}
+        &= 0 \\
+        \intertext{%
+        Divide by $l^2$.
+    }
+    \frac{\alpha^2 - 1}{l^2} - \frac{\dot u^2}{l^2 u^4} + \frac{\rS u}{l^2} - u^2 \sbr{1 - \rS u}
+        &= 0 \\
+\end{align*}
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
