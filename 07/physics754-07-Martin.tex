@@ -50,29 +50,29 @@ With that, I will start:
 \begin{align*}
     \alpha^2 - 1 - \dot r^2 + \frac \rS r - \frac{l^2}{r^2} \sbr{1 - \frac \rS
     r} &= 0 \\
-        \alpha^2 - 1 - \frac{\dot u^2}{u^4} + \rS u - l^2 u^2 \sbr{1 - \rS u}
+        \iff\quad \alpha^2 - 1 - \frac{\dot u^2}{u^4} + \rS u - l^2 u^2 \sbr{1 - \rS u}
         &= 0 \\
         \intertext{%
         Divide by $l^2$.
     }
-    \frac{\alpha^2 - 1}{l^2} - \frac{\dot u^2}{l^2 u^4} + \frac{\rS u}{l^2} - u^2 \sbr{1 - \rS u}
+    \iff\quad \frac{\alpha^2 - 1}{l^2} - \frac{\dot u^2}{l^2 u^4} + \frac{\rS u}{l^2} - u^2 \sbr{1 - \rS u}
         &= 0 \\
     \intertext{%
         Shuffle terms around.
     }
-    \frac{\dot u^2}{l^2 u^4} + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
+    \iff\quad \frac{\dot u^2}{l^2 u^4} + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
 u}{l^2} + \rS u^3 \\
 \intertext{%
     In the first summand, I will replace the $l^2$ with its definition, $l =
     r^2 \dot \phi$.
 }
-    \frac{\dot u^2}{\dot \phi^2} + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
+    \iff\quad \frac{\dot u^2}{\dot \phi^2} + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
 u}{l^2} + \rS u^3 \\
 \intertext{%
     Using the lemma (assertion would rather cut it) from above, this first
     summand can be changed to:
 }
-\sbr{\dod u\phi}^2 + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
+\iff\quad \sbr{\dod u\phi}^2 + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
 u}{l^2} + \rS u^3,
 \end{align*}
 which is the equation (9) from the problem set.
@@ -82,11 +82,17 @@ previous equation. $l$ can be regarded as a constant since it is the angular
 momentum, which is invariant under $\phi$ since the lagrangian is invariant to
 $\phi$.
 \begin{align*}
-    2 \dod u\phi \dod[2] u\phi + 2 u \dod u\phi &= \frac{\rS}{l^2} \dod u\phi +
+    \iff\quad 2 \dod u\phi \dod[2] u\phi + 2 u \dod u\phi &= \frac{\rS}{l^2} \dod u\phi +
     3 \rS u^2 \dod u\phi \\
-    2 \dod u\phi \dod[2] u\phi + 2 u \dod u\phi - \frac{\rS}{l^2} \dod u\phi -
+    \intertext{%
+        Just everything to one side.
+    }
+    \iff\quad 2 \dod u\phi \dod[2] u\phi + 2 u \dod u\phi - \frac{\rS}{l^2} \dod u\phi -
     3 \rS u^2 \dod u\phi &= 0 \\
-    2 \dod u\phi \sbr{ \dod[2] u\phi + u  - \frac{\rS}{2l^2}  -
+    \intertext{%
+        Factoring out the common parts.
+    }
+    \iff\quad 2 \dod u\phi \sbr{ \dod[2] u\phi + u  - \frac{\rS}{2l^2}  -
     \frac 32 \rS u^2  } &= 0 \\
         \intertext{%
             I cannot assert that $\dif u/ \dif \phi \neq 0$ for all possible
@@ -106,6 +112,44 @@ And this is again the equation from the problem set.
     metric $\tens g$, the conserved quantity implied by the continuous
     rotational symmetry might be a little different.
 \end{aside}
+
+\subsection*{(b) Pertubations}
+
+I'll skip putting in the numbers to see that $\epsilon$ is small. I just regard
+$\epsilon$ as a small parameter as written on the problem set. I just insert
+the pertubation expansion of $u$ into the previous equation:
+\begin{align*}
+    \implies\quad\dod[2]{{u_0}}\phi + \epsilon \dod[2]{{u_1}}\phi + u_0 + \epsilon u_1
+    - \frac\rS{2l^2} - \frac 32 \rS \sbr{u_0^2 + 2 \epsilon u_0 u_1 + \mathcal
+    O(\epsilon^2)} &= 0 \\
+    \iff\quad \dod[2]{{u_0}}\phi + u_0 - \frac\rS{2l^2} + \epsilon \dod[2]{{u_1}}\phi + \epsilon u_1 
+    + \frac 32 \rS u_0^2 + 3 \epsilon \rS u_0 u_1 + \mathcal O(\epsilon^2) &= 0 \\
+    \intertext{%
+        $\rS$ can be written in terms of $\epsilon$:
+        \[
+            \frac 32 \rS = \frac{2l^2}\rS \epsilon.
+        \]
+        Inserting this will make one term contain an $\epsilon^2$, so I will
+        just hand it over to the $\mathcal O$.
+    }
+    \iff\quad \dod[2]{{u_0}}\phi + u_0 - \frac\rS{2l^2} + \epsilon \dod[2]{{u_1}}\phi + \epsilon u_1 
+    + \frac{2l^2}\rS \epsilon u_0^2 + \mathcal O(\epsilon^2) &= 0 \\
+    \intertext{%
+        Grouping by $\epsilon$.
+    }
+    \iff\quad \sbr{\dod[2]{{u_0}}\phi + u_0 - \frac\rS{2l^2}} + \epsilon \sbr{\dod[2]{{u_1}}\phi + u_1 
+    + \frac{2l^2}\rS u_0^2} + \mathcal O(\epsilon^2) &= 0 \\
+\end{align*}
+This relation has to hold for any (sufficiently small) value of
+$\epsilon$. The brackets have to vanish independently. That gives
+the two equations that were asked for:
+\[
+    \Longleftarrow\quad
+    \dod[2]{{ u_0 }}\phi + u_0 = \frac{\rS}{2l^2}
+    \quad\land\quad
+    \dod[2]{{ u_1 }}\phi + u_1 = \frac{2l^2}{\rS} u_0^2
+\]
+
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
