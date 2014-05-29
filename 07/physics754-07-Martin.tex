@@ -57,7 +57,55 @@ With that, I will start:
     }
     \frac{\alpha^2 - 1}{l^2} - \frac{\dot u^2}{l^2 u^4} + \frac{\rS u}{l^2} - u^2 \sbr{1 - \rS u}
         &= 0 \\
+    \intertext{%
+        Shuffle terms around.
+    }
+    \frac{\dot u^2}{l^2 u^4} + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
+u}{l^2} + \rS u^3 \\
+\intertext{%
+    In the first summand, I will replace the $l^2$ with its definition, $l =
+    r^2 \dot \phi$.
+}
+    \frac{\dot u^2}{\dot \phi^2} + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
+u}{l^2} + \rS u^3 \\
+\intertext{%
+    Using the lemma (assertion would rather cut it) from above, this first
+    summand can be changed to:
+}
+\sbr{\dod u\phi}^2 + u^2 &= \frac{\alpha^2 - 1}{l^2} + \frac{\rS
+u}{l^2} + \rS u^3,
 \end{align*}
+which is the equation (9) from the problem set.
+
+From that, I will just take the derivative with respect to $\phi$ of the
+previous equation. $l$ can be regarded as a constant since it is the angular
+momentum, which is invariant under $\phi$ since the lagrangian is invariant to
+$\phi$.
+\begin{align*}
+    2 \dod u\phi \dod[2] u\phi + 2 u \dod u\phi &= \frac{\rS}{l^2} \dod u\phi +
+    3 \rS u^2 \dod u\phi \\
+    2 \dod u\phi \dod[2] u\phi + 2 u \dod u\phi - \frac{\rS}{l^2} \dod u\phi -
+    3 \rS u^2 \dod u\phi &= 0 \\
+    2 \dod u\phi \sbr{ \dod[2] u\phi + u  - \frac{\rS}{2l^2}  -
+    \frac 32 \rS u^2  } &= 0 \\
+        \intertext{%
+            I cannot assert that $\dif u/ \dif \phi \neq 0$ for all possible
+            values of $\tau$. So I cannot just divide by that. However, since
+            this has to hold for all possible values of $\tau$, the square
+            brackets have to be equal to zero. Looking at that equation will be
+            enough then.
+        }
+        \dod[2] u\phi + u &= \frac{\rS}{2l^2} + \frac 32 \rS u^2
+\end{align*}
+And this is again the equation from the problem set.
+
+
+\begin{aside}
+    Is the angular momentum with GR mechanics just the same $r^2 \dot \phi$
+    that was already obtained for non-GR mechanics? The lagrangian contains the
+    metric $\tens g$, the conserved quantity implied by the continuous
+    rotational symmetry might be a little different.
+\end{aside}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
