@@ -150,6 +150,74 @@ the two equations that were asked for:
     \dod[2]{{ u_1 }}\phi + u_1 = \frac{2l^2}{\rS} u_0^2
 \]
 
+\subsection*{(c) Solutions to differential equations}
+
+I just insert the solutions into the different equations. The second derivative
+of $u_0$ is:
+\[
+    \dod[2]{{u_0}}\phi = - \frac\rS{2l^2} a \cos(\phi)
+\]
+Inserting that into the first different equation solves it. For the second one,
+I take the first derivative of $u_1$:
+\[
+    \dod{{u_1}}\phi = B \sin(\phi) + B \phi \cos(\phi) - 2 C \sin(2\phi).
+\]
+The next derivative is:
+\[
+    \dpd[2]{{u_1}}\phi = B \cos(\phi) - B \phi \sin(\phi) + B \cos(\phi) - 4 C
+    \cos(2 \phi).
+\]
+
+Plugging those two into the second equation gives me after some grouping:
+\begin{align*}
+    A + 2 B \cos(\phi) - 3 C \cos(2 \phi) &= \frac{\rS}{2l^2}
+    + \frac{\rS a}{l^2} \cos(\phi) + \frac{\rS a^2}{2 l^2} \cos(\phi)^2 \\
+    \intertext{%
+        I use the double angle formula.
+    }
+    A + 2 B \cos(\phi) - 3 C \cos(2 \phi) &= \frac{\rS}{2l^2} + \frac{\rS
+    a}{l^2} \cos(\phi) + \frac{\rS a^2}{4 l^2} \sbr{1 + \cos(2\phi)} \\
+    \intertext{%
+        I can recognize the definitions of $A$, $B$ and $C$ in the above
+        expression. By grouping and substituting I get:
+    }
+    A + 2 B \cos(\phi) - 3 C \cos(2 \phi) &= A + B \cos(\phi) - 3 C
+    \cos(2\phi) \\
+\end{align*}
+And that solves the second different equation.
+
+\subsection*{(d) Limits}
+
+For large $\phi$, the bounded terms in $u_1$ become irrelevant. This leaves the
+middle term:
+\[
+    u_1 = \frac\rS{2l^2} a \phi \sin(\phi).
+\]
+With that, I can write:
+\begin{align*}
+    u_0 + \epsilon u_1
+    &= \frac{\rS}{2l^2} \sbr{1 + a \sbr{ \cos(\phi) + \epsilon \phi \sin(\phi)
+    }} \\
+    \intertext{%
+        Knowing the desired result, I can invent the needed steps here to make it
+        fit. Since $\epsilon$ is small, I can use that the sine is the identity
+        right around the origin, except for $\mathcal O(\epsilon^3)$. The
+        cosine is constant 1 around the origin, except for $\mathcal
+        O(\epsilon^2)$.
+    }
+    &= \frac{\rS}{2l^2} \sbr{1 + a \sbr{ \cos(\phi) \cos(\epsilon\phi) +
+    \sin(\phi) \sin(\epsilon \phi) }} \\
+    \intertext{%
+        Using the difference formula for the cosine, I yield:
+    }
+    &= \frac{\rS}{2l^2} \sbr{1 + a \cos\del{[1 + \epsilon]\phi }}.
+\end{align*}
+
+The interpretation is that the minima of the radius, i.\,e. the maxima of $u$
+are shifted by a factor $1-\epsilon$ on each rotation. One maxima is at $\phi =
+0$. The next one is not at $\phi = 2 \piup$ as a regular ellipse would have,
+but rather $\phi = 2 \piup / [1 - \epsilon]$. One could insert the value for
+$\epsilon$ and get the angle that the perihelia moves each mercury year.
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
