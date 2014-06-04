@@ -22,7 +22,7 @@
 
 \section*{H.11: Matchine the dust cloud to the exterior Schwarzschild metric}
 
-\subsection*{(a) Equal at certain point}
+\subsection*{(b) Equal at certain point}
 
 The metric $\tilde{\tens g}$ is defined by:
 \[
@@ -34,6 +34,93 @@ The metric $\tilde{\tens g}$ is defined by:
     \eqnsep
     \tilde g_{33} = - r^2 f(t)^2 \sin(\theta)^2
 \]
+
+\subsubsection*{Computing the jacobian}
+
+The derivatives of the zeroth coordinate are the most complicated. In order to
+take the derivative of the integral, I will use the following formula. Let
+\[
+    f(t) := \int_{g_1(t)}^{g_2(t)} \dif \tau \, h(t, \tau).
+\]
+Then the derivative is given by
+\[
+    f'(t) = g_2'(t) h\del{t, g_2(t)} - g_1'(t) h\del{t, g_1(t)} +
+    \int_{g_1(t)}^{g_2(t)} \dif \tau \, \dpd h t(t, \tau).
+\]
+
+\newcommand\WW{\sqrt{\frac{1-ar^2}{1-ar_0^2}}}
+
+Since I will need them later on, I will first write down the derivatives of
+$S$:
+\[
+    \dpd St = \WW f'(t)
+    \eqnsep
+    \dpd Sr = - \frac{ar}\WW \sbr{1-f(t)}
+\]
+
+For the derivatives of the zeroth coordinate, I came up with:
+\[
+    \dpd{{y^0}}{{x^0}} = \sqrt{\frac{1-ar_0^2}a} \WW f'(t)
+    \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S}
+\]
+and
+\[
+    \dpd{{y^0}}{{x^1}} = \sqrt{\frac{1-ar_0^2}a} \frac{ar}\WW \sbr{1-f(t)}
+    \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S},
+\]
+where $S$ is just a sloppy shorthand for $S(t, r)$.
+
+
+The non-vanishing derivatives of the first coordinate are given as:
+\[
+    \dpd{{y^1}}{{x^1}} = f(t)
+    \eqnsep
+    \dpd{{y^1}}{{x^0}} = r f'(t)
+\]
+
+The last two elements of the jacobian are equal since the coordinates did not
+change:
+\[
+    \dpd{{y^2}}{{x^2}} = 1
+    \eqnsep
+    \dpd{{y^3}}{{x^3}} = 1.
+\]
+
+All other components are zero.
+
+\subsubsection*{Computing the transformed metric}
+
+Since $\tilde{\tens g}$ is diagonal, and most components of the jacobian are
+zero, the transformations only consist of two summands at most.
+
+\begin{align*}
+    g_{00}
+    &= \tilde g_{\mu\nu} \dpd{{y^\mu}}{{x^0}} \dpd{{y^\nu}}{{x^0}}
+    \intertext{%
+        Since the metric $\tilde{\tens g}$ is diagonal, only $\mu = \nu$ equals
+        non-vanishing components. Therefore, I write it like this, still having
+        a single summation over $\mu$ implicitly.
+    }
+    &= \tilde g_{\mu\mu} \sbr{\dpd{{y^\mu}}{{x^0}}}^2
+    \intertext{%
+        Non-vanishing contributions are given by $\mu = 0$ and $\mu = 1$. I
+        write those down explicitly:
+    }
+    &= - B \sbr{\sqrt{\frac{1-ar^2}a} f'(t)
+    \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S}}^2 - A \sbr{r f'(t)}^2 \\
+    &= - B \frac{1-ar^2}a f'(t)^2
+    \frac{\frac{S}{1-S}}{\sbr{1-\frac{ar_0^2}S}^2} - A r^2 f'(t)^2 \\
+\end{align*}
+
+Due to the identity of $x^2$ and $x^3$ and the diagonal metric, those entries
+transform identically:
+\[
+    g_{22} = \tilde g_{22}
+    \eqnsep
+    g_{33} = \tilde g_{33}.
+\]
+
+% TODO What happens to g_{01} for instance?
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
