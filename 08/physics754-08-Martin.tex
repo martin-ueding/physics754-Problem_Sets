@@ -1,0 +1,44 @@
+\input{../header.tex}
+
+\newcommand\problemset{8}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section*{H.11: Matchine the dust cloud to the exterior Schwarzschild metric}
+
+\subsection*{(a) Equal at certain point}
+
+The metric $\tilde{\tens g}$ is defined by:
+\[
+    \tilde g_{00} = B
+    \eqnsep
+    \tilde g_{11} = - A
+    \eqnsep
+    \tilde g_{22} = - r^2 f(t)^2
+    \eqnsep
+    \tilde g_{33} = - r^2 f(t)^2 \sin(\theta)^2
+\]
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
