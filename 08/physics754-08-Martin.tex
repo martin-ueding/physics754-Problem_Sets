@@ -22,7 +22,51 @@
 
 \section*{H.11: Matchine the dust cloud to the exterior Schwarzschild metric}
 
-\subsection*{(b) Equal at certain point}
+\subsection*{(a) Equal at certain point}
+
+At $r_0$, $S$ is simply
+\[
+    S(t, r_0) = f(t).
+\]
+Then $A$ is
+\[
+    A(t, r_0) = \sbr{1 - \frac{a r_0^2}{f(t)}}^{-1}.
+\]
+In $B$, the first two term become 1, which leaves the last term. There, the
+numerator is just the square of the denominator, leaving
+\[
+    B(t, r_0) = 1 - \frac{ar_0^2}{f(t)}
+\]
+as a final result.
+
+From that, $f$ is expressed with $\bar r$:
+\[
+    f(t) = \frac{\bar r(t, r_0)}{r_0}.
+\]
+I insert this into $A$ and $B$:
+\[
+    A(t, r_0) = \sbr{1 - \frac{a r_0^3}{\bar r(t, r_0)}}^{-1}
+    \eqnsep
+    B(t, r_0) = 1 - \frac{ar_0^3}{\bar r(t, r_0)}.
+\]
+
+Since $r_g = a r_0^3$ is a bijective relation, the following really does imply
+an “iff” like required in the problem. So iff $r_g = a r_0^3$ holds, then
+\[
+    A(t, r_0) = \sbr{1 - \frac{r_g}{\bar r(t, r_0)}}^{-1}
+    \eqnsep
+    B(t, r_0) = 1 - \frac{r_g}{\bar r(t, r_0)}.
+\]
+
+Using all the definitions, I can get
+\[
+    M = \frac 43 \piup \rho(0) r_0^3.
+\]
+The mass $M$ is the mass of a sphere with radius $r_0$ and average density
+$\rho(0)$. This mass that generates the gravitational field at the $t = 0$ is
+distributed equally within that sphere.
+
+\subsection*{(b) Transformation}
 
 The metric $\tilde{\tens g}$ is defined by:
 \[
@@ -106,10 +150,71 @@ zero, the transformations only consist of two summands at most.
         Non-vanishing contributions are given by $\mu = 0$ and $\mu = 1$. I
         write those down explicitly:
     }
-    &= - B \sbr{\sqrt{\frac{1-ar^2}a} f'(t)
+    &= B \sbr{\sqrt{\frac{1-ar^2}a} f'(t)
     \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S}}^2 - A \sbr{r f'(t)}^2 \\
-    &= - B \frac{1-ar^2}a f'(t)^2
+    \intertext{%
+        Simplifying …
+    }
+    &= B \frac{1-ar^2}a f'(t)^2
     \frac{\frac{S}{1-S}}{\sbr{1-\frac{ar_0^2}S}^2} - A r^2 f'(t)^2 \\
+    \intertext{%
+        Now I use the derivative of $f$ that is given by $f'(t)^2 = a
+        [f(t)^{-1} - 1]$.
+    }
+    &= B \sbr{1-ar^2} \sbr{f(t)^{-1}-1}
+    \frac{\frac{S}{1-S}}{\sbr{1-\frac{ar_0^2}S}^2} - A r^2 f'(t)^2 \\
+    \intertext{%
+        I now insert $B$.
+    }
+    &= \frac{f(t)}{S} \WW \sbr{1 - \frac{ar_0^2}S}^2 A \sbr{1-ar^2}
+    \sbr{f(t)^{-1}-1} \frac{\frac{S}{1-S}}{\sbr{1-\frac{ar_0^2}S}^2} - A r^2
+    f'(t)^2 \\
+    \intertext{%
+        I cancel $S$ and the very last denominator in the first summand.
+    }
+    &= f(t) \WW A \sbr{1-ar^2} \sbr{f(t)^{-1}-1} \frac{1}{1-S} - A r^2 f'(t)^2
+    \\
+    &= \WW A \sbr{1-ar^2} \sbr{1 - f(t)} \frac{1}{1-S} - A r^2 f'(t)^2
+    \\
+    \intertext{%
+        The $1 - S$ is just
+        \[
+            \WW \sbr{1 - f(t)}.
+        \]
+        This can be cancelled with the other factors.
+    }
+    &= A \sbr{1-ar^2} - A r^2 f'(t)^2 \\
+    &= A - A ar^2 - A r^2 a \sbr{f(t)^{-1} - 1} \\
+    &= A - A ar^2 - A r^2 a f(t)^{-1} + A r^2 a \\
+    &= A - A r^2 a f(t)^{-1} \\
+    &= A \sbr{1 - r^2 a f(t)^{-1}} \\
+    \intertext{%
+        Using the definition of $A$, this is just
+    }
+    &= 1.
+\end{align*}
+This is the desired result.
+
+Now I will turn to the first diagonal entry:
+\begin{align*}
+    g_{11}
+    &= \tilde g_{\mu\mu} \sbr{\dpd{{y^\mu}}{{x^1}}}^2 \\
+    \intertext{%
+        Here again, the interesting components are $\mu = 0$ and $\mu = 1$.
+        Expanding all those directly gives:
+    }
+    &= B \frac{\sbr{1 - ar_0^2}^2}{1 - ar^2} ar^2 \sbr{1 - f(t)}^2 - A f(t)^2
+    \\
+    \intertext{%
+        Expanding $B$ again.
+    }
+    &= \frac{f(t)^2}S \WW \sbr{1 - \frac{ar_0^2}S}^2 A \frac{\sbr{1 -
+    ar_0^2}^2}{1 - ar^2} ar^2 \sbr{1 - f(t)}^2 - A f(t)^2 \\
+    \intertext{%
+        I can factor out $f(t)^2$ and $A$.
+    }
+    &= f(t)^2 A \sbr{ \frac{1}S \WW \sbr{1 - \frac{ar_0^2}S}^2 \frac{\sbr{1 -
+    ar_0^2}^2}{1 - ar^2} ar^2 \sbr{1 - f(t)}^2 - 1} \\
 \end{align*}
 
 Due to the identity of $x^2$ and $x^3$ and the diagonal metric, those entries
