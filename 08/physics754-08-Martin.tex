@@ -215,6 +215,12 @@ Now I will turn to the first diagonal entry:
     }
     &= f(t)^2 A \sbr{ \frac{1}S \WW \sbr{1 - \frac{ar_0^2}S}^2 \frac{\sbr{1 -
     ar_0^2}^2}{1 - ar^2} ar^2 \sbr{1 - f(t)}^2 - 1} \\
+    \intertext{%
+        I can factor out a $1 - ar^2$ since I will need it for the desired
+        result.
+    }
+    &= \frac{f(t)^2}{1 - ar^2} A \sbr{ \frac{1}S \WW \sbr{1 - \frac{ar_0^2}S}^2
+\sbr{1 - ar_0^2}^2 ar^2 \sbr{1 - f(t)}^2 - \sbr{1 - ar^2}} \\
 \end{align*}
 
 Due to the identity of $x^2$ and $x^3$ and the diagonal metric, those entries
