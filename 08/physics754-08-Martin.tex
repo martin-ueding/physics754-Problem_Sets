@@ -81,7 +81,7 @@ The metric $\tilde{\tens g}$ is defined by:
     \tilde g_{33} = - r^2 f(t)^2 \sin(\theta)^2
 \]
 
-\subsubsection*{Computing the jacobian}
+\subsubsection*{Computing the Jacobian}
 
 The derivatives of the zeroth coordinate are the most complicated. In order to
 take the derivative of the integral, I will use the following formula. Let
@@ -119,12 +119,12 @@ where $S$ is just a sloppy shorthand for $S(t, r)$.
 
 The non-vanishing derivatives of the first coordinate are given as:
 \[
-    \dpd{{y^1}}{{x^1}} = f(t)
-    \eqnsep
     \dpd{{y^1}}{{x^0}} = r f'(t)
+    \eqnsep
+    \dpd{{y^1}}{{x^1}} = f(t)
 \]
 
-The last two elements of the jacobian are equal since the coordinates did not
+The last two elements of the Jacobian are equal since the coordinates did not
 change:
 \[
     \dpd{{y^2}}{{x^2}} = 1
@@ -136,7 +136,7 @@ All other components are zero.
 
 \subsubsection*{Computing the transformed metric}
 
-Since $\tilde{\tens g}$ is diagonal, and most components of the jacobian are
+Since $\tilde{\tens g}$ is diagonal, and most components of the Jacobian are
 zero, the transformations only consist of two summands at most.
 
 \paragraph{Computation of $g_{00}$}
@@ -243,7 +243,39 @@ transform identically:
     g_{33} = \tilde g_{33}.
 \]
 
-% TODO What happens to g_{01} for instance?
+\paragraph{Computation of $g_{01}$}
+
+It is not trivial that $g_{01} = 0$, it has to be shown as well:
+\begin{align*}
+    g_{01}
+    &= \tilde g_{00} \dpd{{y^0}}{{x^0}} \dpd{{y^0}}{{x^1}} + g_{11}
+    \dpd{{y^1}}{{x^0}} \dpd{{y^1}}{{x^1}} \\
+    &= B \sqrt{\frac{1-ar_0^2}a} \WW f'(t)
+    \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S} \sqrt{\frac{1-ar_0^2}a}
+    \frac{ar}\WW \sbr{1-f(t)} \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S} \\
+    &\quad - A r f'(t) f(t) \\
+    &= B \sbr{1-ar_0^2} f'(t)
+    \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S} 
+    r \sbr{1-f(t)} \frac{\sqrt{\frac{S}{1-S}}}{1-\frac{ar_0^2}S} - A
+    r f'(t) f(t) \\
+    &= B \sbr{1-ar_0^2} f'(t)
+    \frac{\frac{S}{1-S}}{\sbr{1-\frac{ar_0^2}S}^2}
+    r \sbr{1-f(t)}  - A
+    r f'(t) f(t) \\
+    \intertext{%
+        Expand $B$.
+    }
+    &= \frac{f(t)}{S} \WW \sbr{1 - \frac{ar_0^2}S}^2 A \sbr{1-ar_0^2} f'(t)
+    \frac{\frac{S}{1-S}}{\sbr{1-\frac{ar_0^2}S}^2} r \sbr{1-f(t)} \\ &\quad - A
+    r f'(t) f(t) \\
+    &= f(t) A \sbr{1-ar_0^2} f'(t) r - A r f'(t) f(t) \\
+    &= A r f'(t) f(t) \sbr{ \sbr{1-ar_0^2} - 1}  \\
+    &= - A a r r_0^2 f'(t) f(t)
+\end{align*}
+I just do not see why this is $0$, though.
+
+The other off-diagonal components vanish since the Jacobian is zero off the
+diagonal for indices 2 and 3.
 
 \subsection*{(c) Limit and domain}
 
