@@ -22,7 +22,7 @@
 
 \maketitle
 
-\section*{H.11: Matchine the dust cloud to the exterior Schwarzschild metric}
+\section*{H.11: Matching the dust cloud to the exterior Schwarzschild metric}
 
 \subsection*{(a) Equal at certain point}
 
@@ -139,6 +139,8 @@ All other components are zero.
 Since $\tilde{\tens g}$ is diagonal, and most components of the jacobian are
 zero, the transformations only consist of two summands at most.
 
+\paragraph{Computation of $g_{00}$}
+
 \begin{align*}
     g_{00}
     &= \tilde g_{\mu\nu} \dpd{{y^\mu}}{{x^0}} \dpd{{y^\nu}}{{x^0}}
@@ -197,6 +199,8 @@ zero, the transformations only consist of two summands at most.
 \end{align*}
 This is the desired result.
 
+\paragraph{Computation of $g_{11}$}
+
 Now I will turn to the first diagonal entry:
 \begin{align*}
     g_{11}
@@ -229,6 +233,8 @@ Now I will turn to the first diagonal entry:
     }
 \end{align*}
 
+\paragraph{Computation of $g_{22}$ and $g_{33}$}
+
 Due to the identity of $x^2$ and $x^3$ and the diagonal metric, those entries
 transform identically:
 \[
@@ -240,6 +246,8 @@ transform identically:
 % TODO What happens to g_{01} for instance?
 
 \subsection*{(c) Limit and domain}
+
+\subsubsection*{Limit}
 
 \begin{align*}
     \bar t(r_0, \tS)
@@ -268,6 +276,8 @@ transform identically:
     &= \infty.
 \end{align*}
 
+\subsubsection*{Restrictions on the domain}
+
 If $\rho > f(\tS)$, this singularity does not occur. If $t < \tS$, this should
 be given. The restrictions on the map are therefore
 \[
@@ -282,6 +292,18 @@ gives $t \geq 0$. The restrictions are now:
 \[
     0 \leq t < \tS
 \]
+
+I can apply $f$ onto this restriction, paying attention to the flip in
+direction. This gives me $f(0) \geq f(t) > f(\tS)$. I can then multiply that with
+$r_0$ and get $r_0 f(0) \geq r_0 f(t) > r_0 f(\tS)$. Using the identities that
+I have used previously, this becomes $r_0 \geq r > r_g$. Combined I get:
+\[
+    0 \leq t < \tS
+    \quad\land\quad
+    r_g < r \leq r_0
+\]
+
+The last restriction, $r_g < r f(t)$ is still missing.
 
 
 \IfFileExists{\bibliographyfile}{
