@@ -8,6 +8,8 @@
 
 \newenvironment{aside}{\itshape\small}{}
 
+\newcommand\tS{t_\text S}
+
 %\subject{}
 \title{physics754 -- Problem Set \problemset}
 %\subtitle{}
@@ -220,7 +222,11 @@ Now I will turn to the first diagonal entry:
         result.
     }
     &= \frac{f(t)^2}{1 - ar^2} A \sbr{ \frac{1}S \WW \sbr{1 - \frac{ar_0^2}S}^2
-\sbr{1 - ar_0^2}^2 ar^2 \sbr{1 - f(t)}^2 - \sbr{1 - ar^2}} \\
+    \sbr{1 - ar_0^2}^2 ar^2 \sbr{1 - f(t)}^2 - \sbr{1 - ar^2}} \\
+    \intertext{%
+        $A$ times the bracket has to give $-1$ for the whole thing to come out
+        right.
+    }
 \end{align*}
 
 Due to the identity of $x^2$ and $x^3$ and the diagonal metric, those entries
@@ -232,6 +238,51 @@ transform identically:
 \]
 
 % TODO What happens to g_{01} for instance?
+
+\subsection*{(c) Limit and domain}
+
+\begin{align*}
+    \bar t(r_0, \tS)
+    &= \sqrt{\frac{1-ar_0^2}a} \int_{S(r_0, \tS)}^1 \dif \rho \,
+    \frac{\sqrt{\frac\rho{1-\rho}}}{1-\frac{ar_0^2}\rho} \\
+    \intertext{%
+        At $r_0$, $S$ is just $f(t)$.
+    }
+    &= \sqrt{\frac{1-ar_0^2}a} \int_{f(t)}^1 \dif \rho \,
+    \frac{\sqrt{\frac\rho{1-\rho}}}{1-\frac{ar_0^2}\rho} \\
+    \intertext{%
+        From $r_0 f(\tS) = r_g$ follows that $f(\tS) = ar_0^2$. The integrand
+        is singular at the lower bound of integration. I can expand the
+        denominator into a Laurent series
+        \[
+            \frac{1}{1 - \frac cz} = \sum_{k = -\infty}^0 c^{-k} z^k
+        \]
+        using the geometric series. Since the negative part of the series
+        extends until negative infinity, this means that this is a singularity
+        of the most series kind. The singularity at $\rho = 1$ does not seem to
+        be as bad as the one as $\rho = ar_0^2$, so I think that this one does
+        not have an impact on the convergence of the integral. The first one
+        has, so this integral does not converge. Therefore, as a physicist, I
+        can write
+    }
+    &= \infty.
+\end{align*}
+
+If $\rho > f(\tS)$, this singularity does not occur. If $t < \tS$, this should
+be given. The restrictions on the map are therefore
+\[
+    t < \tS
+\]
+so far.
+
+Also $f(t)$ must not be greater than $1$ so that the integral does not return
+negative values. Therefore $f(t) \leq 1$. Applying the inverse $f$ which is
+bijective and strictly monotonically decreasing on the domain of interest, this
+gives $t \geq 0$. The restrictions are now:
+\[
+    0 \leq t < \tS
+\]
+
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
