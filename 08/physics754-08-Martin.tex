@@ -351,13 +351,90 @@ mapping of this corner is:
     (r_0, \tS) \mapsto (r_g, \infty)
 \]
 
-\subsubsection*{Boundaries}
+\paragraph{Corners and restrictions}
 
 Those four corners abide the restriction $0 \leq \bar t < \infty$ of the image
 of the domain $D$, $\bar D$. The restriction $r_g \leq \bar r \leq r_0$ is
 abided as well. It remains to be shown that the corners abide the remaining
 $\bar r \leq r_0 f(t(\bar t))$ as well.
 
+When $(\bar r, \bar t) = (r_g, 0)$, then the $f(t)$ in the $\bar t$ in the
+implicit definition of $t$ has to be $1$, such that the integral vanishes.
+Therefore, the restriction $\bar r \leq r_0 f(t(\bar t))$ simplifies to $r_g
+\leq r_0$, which is satisfied.
+
+When $(\bar r, \bar t) = (r_g, \infty)$, the $f(t)$ has to be $ar_0^2$, which
+means that it is $r_g/r_0$. The restriction therefore is $r_g \leq r_g$,
+which is also satisfied.
+
+When $(\bar r, \bar t) = (r_0, 0)$, the restriction is $r_0 \leq r_0$, which is
+also true.
+
+\subsubsection*{Whole domain}
+
+Since the mappings are diffeomorphisms, they need to be invertible. Since they
+are invertible, they need to be bijective. Since they need to be continuous,
+they need to be strictly monotonic. So I think I can conclude from the corners
+that the interior is mapped properly.
+
+\subsection*{(e) Conclusion about map}
+
+I am supposed to conclude that we obtain a map $\tilde \phi \colon D \to \bar
+D$ which satisfies $\tens g = \tilde \phi^* \tilde{\tens g}$.
+
+
+The coordinates that are used in this problem are the Schwarzschild coordinates
+which are called $\tens y$. Those are the ones with the bar on top, so I will
+call this system $\bar \Sigma$. Then there are the comoving coordinates that
+are $\tens x$ without any decoration, so I call the system $\Sigma$.
+
+The quantity $\tilde{\tens g}$ looks odd at first. There is a $\bar{\tens g}$
+defined in (12) on the problem set, and the metric in the comoving coordinates
+$\tens g$ is given in (5). The metric $\tilde{\tens g}$ is defined in (18), and
+it depends on the coordinates without any decoration explicitly in (18) and in
+the definitions of $A$ and $B$ in (16). So I would assume that this metric
+belongs to the system of comoving coordinates $\Sigma$.
+
+The map $\tilde \phi$ maps from $D$ to $\bar D$, which also means that it maps
+the coordinates $\Sigma$ to $\bar \Sigma$, i.\,e. it maps from the comoving
+coordinates to the Schwarzschild coordinates.
+
+In part (b) of this problem, I have attempted to show that equation (19) holds.
+There, $\tens g$ is the image of $\tilde{\tens g}$ with a transformation that
+maps from $\tens x$ to $\tens y$. This mapping maps from $\Sigma$ to $\bar
+\Sigma$ and should therefore be $\tilde \psi$.
+
+So what do I really have to conclude here? It cannot simply be that I have
+proven this earlier, right?
+
+The second part is to show that $\tilde{\tens g} = \bar{\tens g}$ holds when
+$\bar r = r_0 f(t)$ and $\bar t = \bar t(r_0, t)$. That means that $r = r_0$
+and $t = t$ in $\Sigma$. With the identities in equation (17) from the problem
+set that I have shown in part (a), this is very easy, unless I overlooked
+something.
+\begin{align*}
+    \bar g_{00} &= 1 - \frac{r_g}{\bar r}
+    &
+    \tilde g_{00}(t, r_0) &= 1 - \frac{r_g}{\bar r(t, r_0)} \\
+    \bar g_{11} &= - \sbr{1 - \frac{r_g}{\bar r}}^{-1}
+    &
+    \tilde g_{11}(t, r_0) &= - \sbr{1 - \frac{r_g}{\bar r(t, r_0)}}^{-1} \\
+    \bar g_{22} &= - \bar r^2
+    &
+    \tilde g_{22} &= - r^2 f(t)^2 \\
+    \bar g_{33} &= - \bar r^2 \sin(\theta)^2
+    &
+    \tilde g_{33} &= r^2 f(t)^2 \sin(\theta)^2
+\end{align*}
+With $\bar r = r f(t)$, all the right sides are equal to the left sides. To the
+two metrical tensors are equal at those given points.
+
+Keeping $r_0$ fixed in the comoving coordinates means that we are inspecting
+the immediate neighborhood of an observer that moves with the dust cloud. Time
+just runs in the comoving coordinates, and it is mapped to $\bar t$
+appropriately. I think this means that the metric at the edge of the cloud
+looks the same to a comoving observer and a stationary observer outside the
+Schwarzschild radius.
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
