@@ -8,7 +8,7 @@
 
 \newenvironment{aside}{\itshape\small}{}
 
-\newcommand\tS{t_\text S}
+\newcommand\tS{t_\mathrm S}
 
 %\subject{}
 \title{physics754 -- Problem Set \problemset}
@@ -269,12 +269,24 @@ transform identically:
         extends until negative infinity, this means that this is a singularity
         of the most series kind. The singularity at $\rho = 1$ does not seem to
         be as bad as the one as $\rho = ar_0^2$, so I think that this one does
-        not have an impact on the convergence of the integral. The first one
+        not have an impact on the convergence of the integral. See
+        figure~\ref{fig:plot.pdf} for a plot of the integrand. The first one
         has, so this integral does not converge. Therefore, as a physicist, I
         can write
     }
     &= \infty.
 \end{align*}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\linewidth]{plot.pdf}
+    \caption{%
+        Integrand against $\rho$. The lower bound is chosen such that $\rho =
+        \num{0.1}$. It can be seen that the integrand diverges at both bounds
+        of integration.
+    }
+    \label{fig:plot.pdf}
+\end{figure}
 
 \subsubsection*{Restrictions on the domain}
 
@@ -304,6 +316,47 @@ I have used previously, this becomes $r_0 \geq r > r_g$. Combined I get:
 \]
 
 The last restriction, $r_g < r f(t)$, is still missing.
+
+\subsection*{(d) Mapping of the domain}
+
+I will start off by looking at the corners of the domain.
+
+\subsubsection*{Individual corners}
+
+\paragraph{Corner $(r_g/f(0), 0)$}
+
+The integral vanishes since $S$ becomes 1. The first corner gets transformed
+to:
+\[
+    \del{\frac{r_g}{f(0)}, 0} \mapsto (r_g, 0)
+\]
+
+\paragraph{Corner $(r_g/f(\tS), \tS)$}
+
+With this one, the integral diverges since $S$ becomes $f(\tS)$. Therefore, the
+mapping of this corner is:
+\[
+    \del{\frac{r_g}{f(\tS)}, \tS} \mapsto (r_g, \infty)
+\]
+
+\paragraph{Corner $(r_0, 0)$}
+
+\[
+    (r_0, 0) \mapsto (r_0, 0)
+\]
+
+\paragraph{Corner $(r_0, \tS)$}
+
+\[
+    (r_0, \tS) \mapsto (r_g, \infty)
+\]
+
+\subsubsection*{Boundaries}
+
+Those four corners abide the restriction $0 \leq \bar t < \infty$ of the image
+of the domain $D$, $\bar D$. The restriction $r_g \leq \bar r \leq r_0$ is
+abided as well. It remains to be shown that the corners abide the remaining
+$\bar r \leq r_0 f(t(\bar t))$ as well.
 
 
 \IfFileExists{\bibliographyfile}{
