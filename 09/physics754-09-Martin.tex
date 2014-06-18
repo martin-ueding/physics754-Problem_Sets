@@ -1,0 +1,65 @@
+\input{../header.tex}
+
+\newcommand\problemset{9}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+\newcommand\tS{t_\mathrm S}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section*{H.12: The dust cloud metric on $S^3$}
+
+\subsection*{(a) Pullback of $\tens g$}
+
+I will call the space where the $\vec x$ are contained in $X$. The space of the
+$\vec y$ will be called $Y$. Since $r(\psi)$ is given, $\varphi$ is a mapping that
+maps $Y \to X$. The associated pullback $\varphi^*$ therefore operates in the
+other direction, $X \to Y$.
+
+The Jacobian
+\[
+    \dpd{{x^\mu}}{{y^\nu}}
+\]
+that I will need for the pullback, has diagonal form. The only diagonal entry
+that is not 1 is the $1,1$ component. That is:
+\[
+    r'(\psi) = \frac{1}{\sqrt a} \sin(\psi).
+\]
+
+With that, I can write down metrical tensor that is pulled from $X$ to $Y$. The
+metrical tensor and the Jacobian are diagonal, so that the resulting metrical
+tensor is diagonal as well.
+\begin{align*}
+    \tilde g_{00}(\vec y) &= 1 \\
+    %
+    \tilde g_{11}(\vec y) &= g_{11}\del{\varphi(\vec y)} \frac 1a \cos(\psi)^2 \\
+    &= - \frac{f(t)^2}{a} \\
+    %
+    \tilde g_{22}(\vec y) &= - f(t)^2 \frac 1a \cos(\psi)^2 \\
+    %
+    \tilde g_{33}(\vec y) &= - f(t)^2 \frac 1a \cos(\psi)^2 \sin(\theta)^2
+\end{align*}
+
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
