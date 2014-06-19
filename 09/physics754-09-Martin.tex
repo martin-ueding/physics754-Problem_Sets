@@ -50,11 +50,55 @@ tensor is diagonal as well.
     \tilde g_{11}(\vec y) &= g_{11}\del{\varphi(\vec y)} \frac 1a \cos(\psi)^2 \\
     &= - \frac{f(t)^2}{a} \\
     %
-    \tilde g_{22}(\vec y) &= - f(t)^2 \frac 1a \sin(\psi)^2 \\
+    \tilde g_{22}(\vec y) &= - \frac{f(t)^2}a \sin(\psi)^2 \\
     %
-    \tilde g_{33}(\vec y) &= - f(t)^2 \frac 1a \sin(\psi)^2 \sin(\theta)^2
+    \tilde g_{33}(\vec y) &= - \frac{f(t)^2}a \sin(\psi)^2 \sin(\theta)^2
 \end{align*}
 
+\subsection*{(b) Vector $\vec n$}
+
+The $\tilde g_{00} = 1$ was shown before in part (a). For the $\tilde g_{ik}$,
+I will need the Jacobian of $\vec n(t, \psi, \theta, \phi)$. With that, I can
+write down the components. This is just using trigonometric identities. They
+give me the results that I had previously, I do not see a point in pretty
+printing all those calculations here. The last part is easy as well:
+\[
+    \dpd{{n^\alpha}}{{y^0}} = 0 \implies \tilde g_{i0} = 0.
+\]
+
+That leaves the interesting part, the interpretation. The vector $\vec n$ is
+given as
+\[
+    \vec n = \begin{pmatrix}
+        \cos(\psi) \\
+        \sin(\psi) \sin(\theta) \cos(\phi) \\
+        \sin(\psi) \sin(\theta) \sin(\phi) \\
+        \sin(\psi) \cos(\theta) \\
+    \end{pmatrix},
+\]
+which is a unit vector. Since there are three coordinates, it is a unit vector
+for all $\psi$, $\theta$ and $\phi$ and the problem set says something about an
+$S^3$, I think that this a $S^3$ embedded in $\mathbb E^4$.
+
+Since metric in $\mathbb E^4$ is flat and has an all-positive signature, I can
+write this sum as
+\[
+    \sum_{\alpha = 1}^4 \dpd{{n^\alpha}}{{y^i}} \dpd{{n^\alpha}} {{y^k}}
+    = \widehat{\Dif \vec n \otimes \Dif \vec n} = \inner{\Dif \vec n}{\Dif \vec
+    n}
+\]
+if you contract over the first upper index of both parts. That again looks like
+a Gram determinant since they are square matrices:
+\[
+    \mathcal G = [\Dif \vec n]^\mathrm T \Dif \vec n.
+\]
+Since the $\sqrt{\mathcal G}$ comes up in the measure (?) on an integral on
+manifolds, and the $\sqrt{|g|}$ comes up in a lot of our integrals, I assume
+that they are closely related.
+
+The metric $\tilde{\tens g}$ has the form it has in comoving coordinates. The
+spatial part seems to have the same metric as a $S^3$ with a radius being some
+power or root of $f(t)^2/a$.
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
