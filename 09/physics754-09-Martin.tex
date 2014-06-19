@@ -22,6 +22,100 @@
 
 \maketitle
 
+\section*{P.10: Gravitational Waves}
+
+\subsection*{(a) Solution of the equation}
+
+The perturbation is given by:
+\[
+    h_{\mu\nu}(\tens x) = a_{\mu\nu} \exp(\iup \tens k \tens x) + c
+\]
+Then
+\[
+    \dalambert h_{\mu\nu}(\tens x) = - a_{\mu\nu} \exp(\iup \tens k \tens x)
+    \sbr{k_0^2 - |\vec k|^2}
+\]
+is 0, since $|\tens k| = 0$. This Ansatz indeed solves (3) from the problem
+set.
+
+\subsection*{(b)}
+
+Equation (7) has to be plugged into (6). The result of that has then to be
+plugged into (4). (7) into (6) gives me
+\[
+    h^\mu_\nu = \sbr{ \alpha \sbr{e_1^\mu {e_1}_\nu - e^\mu_2 {e_2}_\nu} + \beta
+\sbr{e^\mu_1 {e_2}_\nu + e_2^\mu {e_1}_\nu}} \exp(\iup \tens k \tens x).
+\]
+I then have to take the derivative with respect to $x^\lambda$ of the whole
+thing.
+\[
+    h^\mu_{\nu,\lambda} = \sbr{ \alpha \sbr{e_1^\mu {e_1}_\nu - e^\mu_2 {e_2}_\nu} + \beta
+\sbr{e^\mu_1 {e_2}_\nu + e_2^\mu {e_1}_\nu}} \exp(\iup \tens k \tens x) \iup
+k_\lambda
+\]
+With that, I have to show that the equation $h^\mu_{\nu,\mu} = h^\mu_{\mu,\nu}
+/ 2$ holds. So I contract the indices and look at the vectors in full:
+\[
+    \alpha \sbr{ \tens e_1 \tens e_1 \tens k - \tens e_2 \tens e_2 \tens k} +
+    \beta \sbr{\tens e_2 \tens e_1 \tens k + \tens e_1 \tens e_2 \tens k} =
+    \frac12 \alpha \sbr{\tens k \tens e_1 \tens e_1 - \tens k \tens e_2 \tens
+    e_2} + \frac 12 \beta \sbr{\tens k \tens e_1 \tens e_2 + \tens k \tens e_2
+    \tens e_1}.
+\]
+The scalar products are meant to be from right to left, as usual. Now I can use
+$\tens e_1 \tens e_1 = \tens e_2 \tens e_2$, $\tens e_1 \tens e_2 = 0$ and $k
+\tens e_i = 0$. With that, both sides are individually zero.
+
+\subsection*{(c) Degrees of freedom}
+
+The gauge fixing condition is linear. So I can perform the same steps, yielding
+\[
+    \tens b \tens k \tens k + \tens k \tens b \tens k = \frac12[ \tens k \tens
+    k \tens b + \tens k \tens k \tens b].
+\]
+Since $\tens k \tens k = 0$, this is also true.
+
+$\dalambert \tens h = 0$ and $\tens h$ being symmetric means that I have 10
+equations with 10 integration constants, since it is a second order
+differential equation. The gauge fixing removes 4 degrees of freedom in
+those parameters. Then the full family of $\tens b$ removes another four
+degrees, leaving just two.
+
+\subsection*{(d) Analogy in electrodynamics}
+
+Showing that (9) is a solution is fast, since $\dalambert A_\mu$ produces a
+$k_0^2 - |\vec k|^2$ which is zero in its nature as a light-like vector.
+
+The linear independence is equivalent to:
+\[
+    \forall \tens x \forall \tens k \forall \tens k' \neq \tens k \colon \del{a = b \exp\del{\iup [\tens k' - \tens k] \tens x} \iff
+        a = 0 \land b = 0
+    }
+\]
+And the only solution is that $a$ and $b$ are both zero, I think. So the
+solutions are linearly independent.
+
+Then, using
+\[
+    A_\mu = \sbr{a {e_1}_\mu + \beta {e_2}_\mu + \gamma k_\mu} \exp(\iup \tens
+    k \tens x) + c
+\]
+I can show that this fulfills the Lorenz gauge condition
+\[
+    \partial_\mu A^\mu = \sbr{a e_1^\mu + \beta e_2^\mu + \gamma k^\mu} \exp(\iup \tens
+    k \tens x) k_\mu
+\]
+since all the scalar products are zero.
+
+The term that is proportional to $\gamma$ is a gauge transformation since it
+can be written as the gradient of another function. That function is $- \iup
+\gamma \exp(\iup \tens k \tens x)$. See the footnote!7 on page~49 in the
+lecture notes.
+
+Then, the curl of that gradient is zero, so it does not change the magnetic
+field $\vec B$. The field $\vec E$ is not changed either, since the time
+dependence removes it again.
+
 \section*{H.12: The dust cloud metric on $S^3$}
 
 \subsection*{(a) Pullback of $\tens g$}
