@@ -1,0 +1,39 @@
+\input{../header.tex}
+
+\newcommand\problemset{10}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\begin{aside}
+    In the energy momentum tensor $\tens T$, the electromagnetic waves are a
+    form of energy density. With $\tens G = 8 \piup G \tens T$, this means that
+    photons create curvature.
+
+    The gravitational waves carry energy. Are they also a sort of energy
+    density? If so, do they need to be included in the energy momentum tensor
+    or are they taken care of by the Einstein tensor itself?
+\end{aside}
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
