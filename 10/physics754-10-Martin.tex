@@ -32,6 +32,90 @@
     \vspace{10cm}
 \end{aside}
 
+\section*{P.11: Strong gravitational waves}
+
+\subsection*{(a)}
+
+Lower the index on $\tens A$ and form $\tens A \otimes \tens A$ with it. It
+will have the needed form.
+
+\subsection*{(b): Pull back}
+
+I compute the Jacobian:
+\[
+    \dpd{{x^\mu}}{{y^\nu}} =
+    \begin{pmatrix}
+        1/\sqrt 2 & 1/\sqrt 2 & 0 & 0 \\
+        - 1/\sqrt 2 & 1/\sqrt 2 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+    \end{pmatrix}^\mu_\nu
+\]
+
+With that, I can compute the elements of the transformed metric. That worked
+out, so I do not write it down here explicitly.
+
+\subsection*{(c): Inverse metric}
+
+Now one has to compute the inverse metric. The metric is given by
+\[
+    \hat g_{\mu\nu}
+    =
+    \begin{pmatrix}
+        2f & 1 \\
+        1 & 0
+    \end{pmatrix}^\mu_\nu.
+\]
+The inverse can be computed easily with the gauss algorithm. Start with
+$(\hat{\tens g} | \mathbb 1)$ and bring the first part to the identity. Then
+the system hat the form $(\mathbb 1 | \hat{\tens g}^{-1})$. The inverse is
+\[
+    \hat g_{\mu\nu}^{-1}
+    =
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & -2f
+    \end{pmatrix}^\mu_\nu.
+\]
+
+\subsection*{Part (d): Christoffel symbols}
+
+The only nonzero derivatives are the $g_{00,\delta}$, such that the Christoffel
+symbols only consist of $f$ and $f_{,\delta}$. I did the first, and I will not
+write them down here.
+
+\subsection*{Part (e): Additional condition}
+
+The
+\[
+    A^\mu f_{,\mu} = 0
+\]
+means
+\[
+    [\partial_0 + \partial_1] f = 0
+\]
+when written out. This equation can be differentiated with respect to $x^0$ and
+$x^1$, which will yield
+\[
+    [\partial_0^2 + \partial_0 \partial_1] f = 0
+    \eqnsep
+    [\partial_0 \partial_1 + \partial_1^2] f = 0.
+\]
+I then subtract those two equations giving me
+\[
+    [\partial_0^2 - \partial_1^2] f = 0.
+\]
+Subtracting this from $\dalambert f = 0$ leaves the required
+\[
+    [\partial_2^3 + \partial_3^2] f = 0.
+\]
+
+\subsection*{Part (f): Meets conditions}
+
+$f$ meets the homogeneous wave equation because of the minus sign. Since it
+does not depend on the first two coordinates, it also meets $A^\mu f_{,\mu} =
+0$ where $\tens A$ is nonzero only for the first two components.
+
 \section*{H.13: Geodesics}
 
 A general geodesic equation is given:
@@ -156,7 +240,7 @@ where I can drop one derivative and get
     f [\dot y^0 + \dot y^1] + \dot y^1 = 0.
 \]
 
-I just do not see, where I can continue from here. So far, I have not used $\|
+I just do not see where I could continue from here. So far, I have not used $\|
 \tens x \| = c$, which is probably required to go on. However, I do not see
 how.
 
