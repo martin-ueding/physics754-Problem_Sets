@@ -28,7 +28,137 @@
     The gravitational waves carry energy. Are they also a sort of energy
     density? If so, do they need to be included in the energy momentum tensor
     or are they taken care of by the Einstein tensor itself?
+
+    \vspace{10cm}
 \end{aside}
+
+\section*{H.13: Geodesics}
+
+A general geodesic equation is given:
+\[
+    \dod{}\tau g_{\mu\nu} \dot x^\nu = \frac12 \partial_\mu g_{\alpha\beta}
+    \dot x^\alpha \dot x^\beta.
+\]
+
+The problem asks for solutions $\tens x(\tau)$ of this equation with $\| \tens
+x \| = 1$ or $\| \tens x \| = 0$. That means that the $g_{\alpha\beta} \dot
+x^\alpha \dot x^\beta$ is a constant, and the complete right hand side of the
+equation is zero. This leaves
+\[
+    \dod{}\tau g_{\mu\nu} \dot x^\nu = 0.
+\]
+
+The metric is given by its nonzero components
+\[
+    g_{00} = 1 + f
+    \eqnsep
+    g_{10} = g_{01} = -f
+    \eqnsep
+    g_{11} = -1 + f
+    \eqnsep
+    g_{22} = g_{33} = -1
+\]
+where $f$ is a function of $x^2$ and $x^3$ only, namely
+\[
+    f(x^2, x^3) = [x^2]^2 - [x^3]^3.
+\]
+
+Using product and chain rule, the differential equation becomes
+\[
+    g_{\mu\nu,\lambda} x^\lambda \dot x^\nu + g_{\mu\nu} \ddot x^\nu = 0.
+\]
+
+The condition $\| \tens x \| = c$ can be written as
+\[
+    [1+f] \dot x^0 \dot x^0 - 2f \dot x^0 \dot x^1 + [-1+f] \dot x^1 \dot x^1 -
+    [\dot x^2]^2 - [\dot x^2]^2 = c.
+\]
+
+I have tried to transform the equation to the coordinates $y$, but that would
+require the metric $\hat{\tens g}$ to be
+\[
+    \hat g_{00} = \frac{1-f}2
+    \eqnsep
+    \hat g_{10} = \hat g_{01} = \frac{1+f}2
+    \eqnsep
+    \hat g_{11} = \frac{1+3f}2
+    \eqnsep
+    \hat g_{22} = \hat g_{33} = -1
+\]
+in order to match the $\| \tens y \| = c$ in those coordinates as well.
+Therefore, I have continued to do this problem int the $x$ coordinates.
+
+I then put the metric $\tens g$ into the equation that I am supposed to solve.
+Since they are actually four equations, I start with $\mu = 0$. The derivatives
+of the metric are the derivatives of $f$, and those are rather simple with
+respect to any coordinate. Only the derivatives with respect to the components
+2 and 3 are nonzero. And $\mu$ and $\nu$ have to be either 0 or 1. Therefore,
+the only nonzero summands are
+\[
+    g_{00,2} \dot x^2 \dot x^0 + g_{01,2} \dot x^2 \dot x^1 + g_{00,3} \dot x^3
+    \dot x^0 + g_{01,3} \dot x^3 \dot x^1 + g_{0\nu} \ddot x^\nu = 0.
+\]
+I can then expand the occurrences of the metric and yield
+\[
+    2 x^2 \dot x^2 \dot x^- - 2 x^2 \dot x^2 \dot x^1 - 2 x^3 \dot x^3 \dot x^0
+    + 2 x^3 \dot x^3 \dot x^1 + [1-f] \ddot x^0 - f \ddot x^1 = 0.
+\]
+Observing that
+\[
+    2 x^\mu \dot x^\mu = \dod{}\tau [x^\mu]^2
+\]
+the previous equation can be written terser as
+\[
+    \dot f [\dot x^0 + \dot x^1] + [1+f] \ddot x^0 - f \ddot x^1 = 0.
+\]
+
+$\mu = 1$ gives a similar equation:
+\[
+    \dot f [-\dot x^0 + \dot x^1] - f \ddot x^0 + [1-f] \ddot x^1 = 0.
+\]
+
+The last two equations are simple, they are $\ddot x^2 = 0$ and $\ddot x^3 =
+0$. Their solutions are just linear functions in $\tau$:
+\[
+    x^2(\tau) = c_1 + c_2 \tau
+    \eqnsep
+    x^3(\tau) = c_3 + c_4 \tau.
+\]
+
+That gives a system of coupled, second order differential equations. I think
+that they are also linear.
+\begin{align*}
+    \dot f [\dot x^0 + \dot x^1] + [1+f] \ddot x^0 - f \ddot x^1 &= 0 \\
+    \dot f [-\dot x^0 + \dot x^1] - f \ddot x^0 + [1-f] \ddot x^1 &= 0
+\end{align*}
+
+Since $f$ is a function of $x^2$ and $x^3$ only, and those are solved so far,
+this is just a known function of $\tau$ at this point. I have tried to generate
+two new equations by adding and subtracting the previous two:
+\begin{align*}
+    2 \dot f \dot x^1 + \ddot x^0 + [1 - 2f] \ddot x^1 &= 0 \\
+    2 \dot f \dot x^0 - \ddot x^1 + [1 + 2f] \ddot x^0 &= 0
+\end{align*}
+
+I then tried to use the coordinates $y$ from here. By just substituting the
+various derivatives of $x^\mu$ with $y^\mu$, I was able to transform the two
+equations to
+\begin{align*}
+    \dot f \dot y^1 + \ddot y^1 + f \ddot y^0 &= 0 \\
+    \dot f \dot y^0 + f \ddot y^1 &= 0.
+\end{align*}
+The sum of those two can be written as
+\[
+    \dod{}\tau f [\dot y^0 + \dot y^1] + \ddot y^1 = 0
+\]
+where I can drop one derivative and get
+\[
+    f [\dot y^0 + \dot y^1] + \dot y^1 = 0.
+\]
+
+I just do not see, where I can continue from here. So far, I have not used $\|
+\tens x \| = c$, which is probably required to go on. However, I do not see
+how.
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
