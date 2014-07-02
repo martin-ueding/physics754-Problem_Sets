@@ -1,0 +1,268 @@
+\input{../header.tex}
+
+\newcommand\problemset{11}
+
+\hypersetup{
+    pdftitle={physics754 Problem Set \problemset}
+}
+
+\newenvironment{aside}{\itshape\small}{}
+
+%\subject{}
+\title{physics754 -- Problem Set \problemset}
+%\subtitle{}
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Group 5 -- Olaf Baake}
+
+\begin{document}
+
+\maketitle
+
+\section*{Questions}
+
+\subsection*{Equation of state}
+
+In the lecture notes, the equation of state is written as
+\[
+    p(t) = p\del{\epsilon(t)}.
+\]
+If that is an equation and $p$ an invertible function, then I could transform
+this into
+\[
+    t = \epsilon(t),
+\]
+which is probably not what is really meant. If it was
+\[
+    p(t) := p\del{\epsilon(t)}
+\]
+where $p(t)$ is a different function than $p(\epsilon)$, which I find
+cumbersome, then it would just say that the overloaded $p$ has the same value
+that the previous $p$ had when it is evaluated at the value of $\epsilon(t)$.
+That does not make more sense either.
+
+As far as I recall from physik521, the equation of state was something like
+like
+\[
+    f(p, \epsilon) = 0.
+\]
+
+The physik521 lecture notes read:
+\begin{quote}
+    The functional relation between all the (relevant) state variables in
+    equilibrium is called \emph{equation of state}: $f(P, V, N, T) = 0$.
+\end{quote}
+
+So how does $p(t) = p(\epsilon(t))$ and the quote from the lecture notes fit
+together?
+
+\vspace*{10cm}
+
+\subsection*{Cosmological constant and vacuum energy}
+
+In the lecture, he has shown that if $\epsilon(t) = \lambda p(t)$ with $\lambda
+= 1$ holds, this kind of matter does the same as a nonzero cosmological
+constant would, mathematically. He also said that one could either take the
+mathematical stance and say that the Hilbert theorem allows for such a
+constant, or propose that some dark energy exists.
+
+As far as I read in \parencite{penrose-road_to_reality}, the energy of the
+vacuum does not vanish, but has fluctuations in it. Therefore, there is
+something called vacuum energy.
+
+The dark energy seems to have the property that the energy density stays the
+same regardless of the size. So if you increase the volume, the total energy
+increases. This sounds compatible with that vacuum energy, since the energy
+density of the vacuum should not depend on the volume, I would think
+intuitively.
+
+Also, having negative pressure seems to be compatible with the vacuum version
+of the Casimir effect. Two plates in vacuum attract each other because the
+vacuum in between the plates is more empty than the surrounding vacuum. It is
+more empty since the wave functions of the virtual particles are bounded by the
+plates and therefore have less degrees of freedom. With ships on sea, there is
+the same effect that ships get pushed together since there are less waves
+pressing them apart in between the ships.
+
+The catch seems to be that the difference in the cosmological constant and the
+quantum mechanical vacuum energy is some \num{e120}. Does that mean that,
+although the correspondence seems intuitive at first, it does not hold? Or does
+that rather mean that this is a use case for a grand unified theory and one
+cannot say anything about that as of now?
+
+\vspace*{10cm}
+
+\section*{P.12: The Robertson-Walker-metric for a universe filled with dust
+particles}
+
+\subsection*{(a)}
+
+I have to show that
+\[
+    \frac{\epsilon}{\epsilon_0} = \sbr{\frac{R}{R_0}}^{-3}
+\]
+holds.
+
+Since we are looking at dust with zero pressure, the equation (2) from the
+problem set reduces to
+\[
+    \dod{}t \epsilon R^3 = 0,
+\]
+meaning that the energy contained in a sphere does not change. If $R$ is
+assumed to be the radius of a spherical universe, this means that the total
+energy within that universe does not change. This is because there is no
+pressure to work against.
+
+This differential equation can be solved to yield
+\[
+    \sbr{\epsilon R^3}(t) = c.
+\]
+With the initial condition that at $t = 0$ it has to be
+\[
+    \sbr{\epsilon R^3}(0) = \epsilon_0 R_0^3,
+\]
+Therefore,
+\[
+    \sbr{\epsilon R^3}(t) = \epsilon_0 R_0^3,
+\]
+It follows that
+\[
+    \frac{\epsilon(t)}{\epsilon_0} = \sbr{\frac{R(t)}{R_0}}^{-3}.
+\]
+Dropping the explicit functional evaluation, this yields equation (1) from the
+problem set:
+\[
+    \frac{\epsilon}{\epsilon_0} = \sbr{\frac{R}{R_0}}^{-3}.
+\]
+
+\subsection*{(b)}
+
+I have to show that
+\[
+    \sbr{\frac{\dot R}{R_0}}^2 = H_0^2 \sbr{1 - 2 q_0 + 2q_0 \frac{R_0}R}
+\]
+holds.
+
+Since I do not see where I should start, I try to go backwards.
+\begin{align*}
+    \sbr{\frac{\dot R}{R_0}}^2 &= H_0^2 \sbr{1 - 2 q_0 + 2q_0 \frac{R_0}R} \\
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 - 2 q_0 + 2q_0 \frac{R_0}R} \\
+    \intertext{%
+        Now I can insert
+        \[
+            q_0 := \frac{4\piup}3 \frac{G \epsilon_0}{H_0^2}
+        \]
+        into the equation.
+    }
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 - 2 \frac{4\piup}3 \frac{G \epsilon_0}{H_0^2}
++ 2\frac{4\piup}3 \frac{G \epsilon_0}{H_0^2} \frac{R_0}R} \\
+\iff \dot R^2 &= R_0^2 \sbr{1 - \frac{8\piup}3 \frac{G \epsilon_0}{H_0^2}
+    + \frac{8\piup}3 \frac{G \epsilon_0}{H_0^2} \frac{R_0}R} \\
+    \intertext{%
+        Since the definition of $H_0$ is given by
+        \[
+            H_0 := \frac{\dot R_0}{R_0},
+        \]
+        there are more of the $R_0$.
+    }
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 - \frac{8\piup}3 \frac{G \epsilon_0}{\dot R_0^2}
+R_0^2 + \frac{8\piup}3 \frac{G \epsilon_0}{\dot R_0^2} \frac{R_0^3}R} \\
+\intertext{%
+    Cancel out $\dot R^2$.
+}
+\iff \dot R^2 &= \dot R_0^2 - \frac{8\piup}3 G \epsilon_0
+R_0^2 + \frac{8\piup}3 G \epsilon_0 \frac{R_0^3}R \\
+\intertext{%
+    Then I can use equation (4) from the problem set in the last summand and
+    then cancel out one $R$.
+}
+\iff \dot R^2 &= \dot R_0^2 - \frac{8\piup}3 G \epsilon_0
+R_0^2 + \frac{8\piup}3 G \epsilon R^2 \\
+\iff \dot R^2 - \dot R_0^2 &=
+\frac{8\piup}3 G \epsilon R^2 - \frac{8\piup}3 G \epsilon_0 R_0^2
+\end{align*}
+After all, this is just equation (1) evaluated at $t$ minus the same equation
+evaluated at 0. Now one could reverse this and have an actual derivation. The
+difference also explains why $k$ does not show up in any of this.
+
+\subsection*{(c)}
+
+I have to show that
+\[
+    t = \frac{1}{H_0} \int_0^{R/R_0} \dif \rho \, \sbr{1 - 2q_0 +
+    \frac{2q_0}{\rho}}^{-1/2}
+\]
+holds.
+
+I will start with equation (5) from the problem set that was derived in the
+previous problem:
+\begin{align*}
+    \sbr{\frac{\dot R}{R_0}}^2 &= H_0^2 \sbr{1 - 2 q_0 + 2q_0 \frac{R_0}R}. \\
+    \intertext{%
+        I put everything to one side.
+    }
+    \iff \frac{\dot R}{R_0} \frac1{H_0} \sbr{1 - 2 q_0 + 2q_0
+    \frac{R_0}R}^{-1/2} &= 1 \\
+        \intertext{%
+            Writing down the derivative explicitly gives
+        }
+    \iff \dod Rt \frac{1}{R_0} \frac1{H_0} \sbr{1 - 2 q_0 + 2q_0
+    \frac{R_0}R}^{-1/2} &= 1 \\
+        \intertext{%
+            Where the derivative can be split up to both sides of the equation.
+            Look away if you faint from seeing blood.
+        }
+    \iff \dif R \frac{1}{R_0} \frac1{H_0} \sbr{1 - 2 q_0 + 2q_0
+    \frac{R_0}R}^{-1/2} &= \dif t \\
+        \intertext{%
+            I define
+            \[
+                \rho := \frac{R}{R_0}
+            \]
+            with the total differential
+            \[
+                \dif \rho := \frac{\dif R}{R_0}.
+            \]
+            Inserting that into the equation gives
+        }
+    \iff \dif \rho \frac1{H_0} \sbr{1 - 2 q_0 + \frac{2q_0}\rho}^{-1/2} &= \dif
+        t. \\
+        \intertext{%
+            Now I integrate on both sides. Before I do that, I will rename the
+            integration variables from $X$ to $X'$ in order to distinguish
+            them from the boundaries.
+        }
+        \iff \frac1{H_0} \int_0^{\rho} \dif \rho' \sbr{1 - 2 q_0 +
+        \frac{2q_0}{\rho'}}^{-1/2} &= \int_0^t \dif t' \\
+            \intertext{%
+                Inserting $\rho$ into the boundary give me the chance to rename
+                the integration variables back. However, the $\rho$ in the
+                integration is a “free” integration variable and not the
+                $R/R_0$ that is supplied from “outside” of that integral. I
+                just do not like overloading the meaning of symbols with
+                different things. So after renaming and integration I am left
+                with
+            }
+        \iff \frac1{H_0} \int_0^{R/R_0} \dif \rho \sbr{1 - 2 q_0 +
+        \frac{2q_0}\rho}^{-1/2} &= t.
+\end{align*}
+
+The age of the universe is obtained when we let $R \to R_0$.
+
+\subsection*{(d)}
+
+\subsection*{(e)}
+
+\subsection*{(f)}
+
+\section*{H.14: The Robertson-Walker-metric for a universe dominated by
+radiation}
+
+\IfFileExists{\bibliographyfile}{
+    \printbibliography
+}{}
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
