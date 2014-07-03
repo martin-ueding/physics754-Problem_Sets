@@ -20,83 +20,10 @@
 
 \maketitle
 
-\section*{Questions}
-
-\subsection*{Equation of state}
-
-In the lecture notes, the equation of state is written as
-\[
-    p(t) = p\del{\epsilon(t)}.
-\]
-If that is an equation and $p$ an invertible function, then I could transform
-this into
-\[
-    t = \epsilon(t),
-\]
-which is probably not what is really meant. If it was
-\[
-    p(t) := p\del{\epsilon(t)}
-\]
-where $p(t)$ is a different function than $p(\epsilon)$, which I find
-cumbersome, then it would just say that the overloaded $p$ has the same value
-that the previous $p$ had when it is evaluated at the value of $\epsilon(t)$.
-That does not make more sense either.
-
-As far as I recall from physik521, the equation of state was something like
-like
-\[
-    f(p, \epsilon) = 0.
-\]
-
-The physik521 lecture notes read:
-\begin{quote}
-    The functional relation between all the (relevant) state variables in
-    equilibrium is called \emph{equation of state}: $f(P, V, N, T) = 0$.
-\end{quote}
-
-So how does $p(t) = p(\epsilon(t))$ and the quote from the lecture notes fit
-together?
-
-\vspace*{10cm}
-
-\subsection*{Cosmological constant and vacuum energy}
-
-In the lecture, he has shown that if $\epsilon(t) = \lambda p(t)$ with $\lambda
-= 1$ holds, this kind of matter does the same as a nonzero cosmological
-constant would, mathematically. He also said that one could either take the
-mathematical stance and say that the Hilbert theorem allows for such a
-constant, or propose that some dark energy exists.
-
-As far as I read in \parencite{penrose-road_to_reality}, the energy of the
-vacuum does not vanish, but has fluctuations in it. Therefore, there is
-something called vacuum energy.
-
-The dark energy seems to have the property that the energy density stays the
-same regardless of the size. So if you increase the volume, the total energy
-increases. This sounds compatible with that vacuum energy, since the energy
-density of the vacuum should not depend on the volume, I would think
-intuitively.
-
-Also, having negative pressure seems to be compatible with the vacuum version
-of the Casimir effect. Two plates in vacuum attract each other because the
-vacuum in between the plates is more empty than the surrounding vacuum. It is
-more empty since the wave functions of the virtual particles are bounded by the
-plates and therefore have less degrees of freedom. With ships on sea, there is
-the same effect that ships get pushed together since there are less waves
-pressing them apart in between the ships.
-
-The catch seems to be that the difference in the cosmological constant and the
-quantum mechanical vacuum energy is some \num{e120}. Does that mean that,
-although the correspondence seems intuitive at first, it does not hold? Or does
-that rather mean that this is a use case for a grand unified theory and one
-cannot say anything about that as of now?
-
-\vspace*{10cm}
-
 \section*{P.12: The Robertson-Walker-metric for a universe filled with dust
 particles}
 
-\subsection*{(a)}
+\subsection*{(a): Energy density}
 
 I have to show that
 \[
@@ -118,13 +45,13 @@ This differential equation can be solved to yield
 \[
     \sbr{\epsilon R^3}(t) = c.
 \]
-With the initial condition that at $t = 0$ it has to be
+With the initial condition that at the point $t = 0$ it has to be
 \[
     \sbr{\epsilon R^3}(0) = \epsilon_0 R_0^3,
 \]
-Therefore,
+the constant is fixed to
 \[
-    \sbr{\epsilon R^3}(t) = \epsilon_0 R_0^3,
+    \sbr{\epsilon R^3}(t) = \epsilon_0 R_0^3.
 \]
 It follows that
 \[
@@ -136,7 +63,7 @@ problem set:
     \frac{\epsilon}{\epsilon_0} = \sbr{\frac{R}{R_0}}^{-3}.
 \]
 
-\subsection*{(b)}
+\subsection*{(b): Radius evolution}
 
 I have to show that
 \[
@@ -186,7 +113,7 @@ After all, this is just equation (1) evaluated at $t$ minus the same equation
 evaluated at 0. Now one could reverse this and have an actual derivation. The
 difference also explains why $k$ does not show up in any of this.
 
-\subsection*{(c)}
+\subsection*{(c): Age of the universe}
 
 I have to show that
 \[
@@ -211,7 +138,8 @@ previous problem:
     \frac{R_0}R}^{-1/2} &= 1 \\
         \intertext{%
             Where the derivative can be split up to both sides of the equation.
-            Look away if you faint from seeing blood.
+            Look away if you faint from seeing derivatives used as fractions.
+            Rated “P” for “Physicist”.
         }
     \iff \dif R \frac{1}{R_0} \frac1{H_0} \sbr{1 - 2 q_0 + 2q_0
     \frac{R_0}R}^{-1/2} &= \dif t \\
@@ -248,20 +176,221 @@ previous problem:
         \frac{2q_0}\rho}^{-1/2} &= t.
 \end{align*}
 
-The age of the universe is obtained when we let $R \to R_0$.
+The age of the universe is obtained when we let $R \to R_0$. The $R_0$ is
+defined to be the size parameter at the current time, so the upper bound has to
+be 1.
 
-\subsection*{(d)}
+\subsection*{(d): Large deceleration}
 
-\subsection*{(e)}
+I tried, but I did not succeed in showing that. I will wait for the exercise.
 
-\subsection*{(f)}
+\subsection*{(e): Medium deceleration}
+
+For the case that $q_0 = 1/2$ it should be shown that
+\[
+    \frac{R}{R_0} = \sbr{\frac 32 H_0 t}^{2/3}
+\]
+holds.
+
+I have tried, but I came up with a different result. Let me show. With the
+given value of $q_0$ the relation (7) on the problem set reduces to
+\[
+    1 - \cos(\theta) = 0.
+\]
+Therefore, the formula (6) on the set reduces to
+\[
+    t = \frac{1}{H_0} \int_0^{R/R_0} \dif \rho \, \rho^{-1/2}.
+\]
+That is, note the factor 2 at the beginning,
+\[
+    t = \frac{2}{H_0} \int_0^{R/R_0} \dif \rho \, \dod{}\rho \sqrt\rho.
+\]
+
+\begin{aside}
+    I would like to see whether I understand this correctly. So let me attempt
+    to use fancy words.
+\end{aside}
+
+In the above, I cancel the $\dif \rho$ and get
+\[
+    t = \frac{2}{H_0} \int_0^{R/R_0} \dif \sqrt\rho.
+\]
+
+The fundamental theorem of exterior calculus says for a p-form $\alpha$ and a
+set $\Omega \subseteq M$ the following holds:
+\[
+    \intop_\Omega \dif \alpha = \intop_{\partial \Omega} \alpha.
+\]
+The boundary of a compact interval is just the set of the boundary points, one
+counting negative and the other one positive.
+
+In this case, $\sqrt p$ is a 0-form, i.\,e. a simple $M \mapsto \R$ function. So
+that makes $\dif\sqrt p$ a 1-form, which is a total differential.
+
+So I can write the above integral as
+\[
+    t = \frac{2}{H_0} \intop_{[0, {R}/{R_0}]} \dif \sqrt\rho
+    = \frac{2}{H_0} \intop_{\partial [0, {R}/{R_0}]} \sqrt\rho
+    = \frac{2}{H_0} \sqrt{\frac{R}{R_0}}.
+\]
+
+When I solve this for $R/R_0$, I get something different, though:
+\[
+    \frac{R}{R_0} = \sbr{\frac 12 H_0t}^2.
+\]
+The expected result from the problem set looks like it was integrated yet
+another time, but I do not see where that would come into.
+
+\subsection*{(f): Small deceleration}
+
+I tried, but I did not succeed in showing that. I will wait for the exercise.
 
 \section*{H.14: The Robertson-Walker-metric for a universe dominated by
 radiation}
 
+\subsection*{(a): Energy density}
+
+Now there is $p = \epsilon/3$. Therefore:
+\begin{align*}
+    \dod{}t \epsilon R^3 &= - p \dod{}t R^3 \\
+    \iff \dod{}t \epsilon R^3 &= \frac13 \epsilon \dod{}t R^3 \\
+    \iff \dot \epsilon R^3 + 3 \epsilon R^2 \dot R &= \epsilon R^2 \dot R \\
+    \iff \dot \epsilon R^3 &= - 2 \epsilon R^2 \dot R \\
+    \iff \frac{\dot\epsilon}{\epsilon} &= -2 \frac{\dot R}{R} \\
+    \intertext{%
+        I now cancel a $\dif t$ on both sides. Again, rated “P” for
+        “Physicist”.
+    }
+    \iff \frac{\dif\epsilon}{\epsilon} &= -2 \frac{\dif R}{R} \\
+    \intertext{%
+        There are the differentials of a function composed with the logarithm.
+        Therefore, the solution is
+    }
+    \iff \ln\del{\epsilon(t)} &= -2 \ln\del{R(t)} + c_1 \\
+    \iff \epsilon(t) &= c_2 R^{-2} \\
+    \intertext{%
+        With the initial condition that for $t = 0$ the value is $\epsilon_0$,
+        this gives
+    }
+    \iff \epsilon(t) &= \epsilon_0 R_0^2 R(t)^{-2} \\
+    \iff \frac{\epsilon}{\epsilon_0} &= \sbr{\frac{R}{R_0}}^{-2}
+\end{align*}
+
+\subsection*{(b): Radius evolution}
+
+I go the right way compared to the derivation that I did in the presence
+problem above. I subtract equation (1) from itself evaluated at $t=0$. That
+gives me
+\begin{align*}
+    \dot R^2 - \dot R_0^2 &= \frac{8\piup}3 G \sbr{\epsilon R^2 - \epsilon_0
+R_0^2} \\
+\intertext{%
+    With the equation derived above, the last summand can be written at Time $t$:
+}
+    \dot R^2 - \dot R_0^2 &= \frac{8\piup}3 G \sbr{\epsilon R^2 - \epsilon
+R^2} \\
+    \dot R^2 - \dot R_0^2 &= 0 \\
+\intertext{%
+    Therefore, the remainder is easier.
+}
+\sbr{\frac{\dot R}{R_0}}^2 &= H_0^2
+\end{align*}
+
+\subsection*{(c): Age of the universe}
+
+It is just
+\[
+    t = \frac{1}{H_0} \frac{R}{R_0}.
+\]
+For the age of the universe, it is
+\[
+    T = \frac{1}{H_0},
+\]
+which I have seen in astro122 two years ago.
+
+Since the $t = \ldots$ formula is so simple and does not contain any $q_0$, it
+does not make sense to discuss the cases of $q_0$ like in the presence
+exercise.
+
+\section*{Questions}
+
+\subsection*{Equation of state}
+
+In the lecture notes, the equation of state is written as
+\[
+    p(t) = p\del{\epsilon(t)}.
+\]
+If that is an equation and $p$ an invertible function, then I could transform
+this into
+\[
+    t = \epsilon(t),
+\]
+which is probably not what is really meant. If it was
+\[
+    p(t) := p\del{\epsilon(t)}
+\]
+where $p(t)$ is a different function than $p(\epsilon)$, which I find
+cumbersome, then it would just say that the overloaded $p$ has the same value
+that the previous $p$ had when it is evaluated at the value of $\epsilon(t)$.
+That does not make more sense either.
+
+As far as I recall from physik521, the equation of state was something like
+like
+\[
+    f(p, \epsilon) = 0.
+\]
+
+The physik521 lecture notes read:
+\begin{quote}
+    The functional relation between all the (relevant) state variables in
+    equilibrium is called \emph{equation of state}: $f(P, V, N, T) = 0$.
+\end{quote}
+
+So how does $p(t) = p(\epsilon(t))$ and the quote from the lecture notes fit
+together?
+
+\vfill
+\vspace*{10cm}
+
+\subsection*{Cosmological constant and vacuum energy}
+
+In the lecture, he has shown that if $\epsilon(t) = \lambda p(t)$ with $\lambda
+= 1$ holds, this kind of matter does the same as a nonzero cosmological
+constant would, mathematically. He also said that one could either take the
+mathematical stance and say that the Hilbert theorem allows for such a
+constant, or propose that some dark energy exists.
+
+As far as I read in \parencite{penrose-road_to_reality}, the energy of the
+vacuum does not vanish, but has fluctuations in it. Therefore, there is
+something called vacuum energy.
+
+The dark energy seems to have the property that the energy density stays the
+same regardless of the size. So if you increase the volume, the total energy
+increases. This sounds compatible with that vacuum energy, since the energy
+density of the vacuum should not depend on the volume, I would think
+intuitively.
+
+Also, having negative pressure seems to be compatible with the vacuum version
+of the Casimir effect. Two plates in vacuum attract each other because the
+vacuum in between the plates is more empty than the surrounding vacuum. It is
+more empty since the wave functions of the virtual particles are bounded by the
+plates and therefore have less degrees of freedom. With ships on sea, there is
+the same effect that ships get pushed together since there are less waves
+pressing them apart in between the ships.
+
+The catch seems to be that the difference in the cosmological constant and the
+quantum mechanical vacuum energy is some \num{e120}. Does that mean that,
+although the correspondence seems intuitive at first, it does not hold? Or does
+that rather mean that this is a use case for a grand unified theory and one
+cannot say anything about that as of now?
+
+\vfill
+\vspace*{10cm}
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
+
 
 \end{document}
 
