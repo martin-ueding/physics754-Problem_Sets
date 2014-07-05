@@ -182,7 +182,69 @@ be 1.
 
 \subsection*{(d): Large deceleration}
 
-I tried, but I did not succeed in showing that. I will wait for the exercise.
+Equation (7), where $\theta$ is defined, can be written as
+\[
+    \rho = \sbr{1 - \cos(\theta)} \frac{q_0}{2q_0 - 1}.
+\]
+The differential of that is
+\[
+    \dif \rho = \frac{q_0}{2q_0 - 1} \sin(\theta) \dif \theta.
+\]
+
+Equation (6) from the problem set is given as:
+\label{sec:P12-d}
+\begin{align*}
+    H_0 t &= \int_0^{R/R_0} \dif \rho \sbr{1-2q_0 + \frac{2q_0}{\rho}}^{-1/2}.
+    \\
+    \intertext{%
+        I can now substitute $\rho$ with $\theta$:
+    }
+    &= \frac{q_0}{2q_0 - 1} \int_0^{R/R_0} \dif \theta \sin(\theta) \sbr{1-2q_0 + \frac{2q_0}{\sbr{1 - \cos(\theta)} \frac{q_0}{2q_0 - 1}}}^{-1/2}
+    \\
+    \intertext{%
+        Simplify …
+    }
+    &= \frac{q_0}{2q_0 - 1} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{1-2q_0 + 2 \frac{2q_0 - 1}{1 - \cos(\theta)}}^{-1/2} \\
+    \intertext{%
+        Factorize …
+    }
+    &= \frac{q_0}{2q_0 - 1} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{[2q_0-1]\sbr{-1 + \frac{2}{1 - \cos(\theta)}}}^{-1/2} \\
+    \intertext{%
+        Pull the bracket to the front …
+    }
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{-1 + \frac{2}{1 - \cos(\theta)}}^{-1/2} \\
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{\frac{-1 + \cos(\theta) + 2}{1 - \cos(\theta)}}^{-1/2} \\
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{\frac{\cos(\theta) + 1}{1 - \cos(\theta)}}^{-1/2} \\
+    \intertext{%
+        Expand the fraction with $[1 + \cos(\theta)]$ …
+    }
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{\frac{[\cos(\theta) + 1]^2}{1 - \cos(\theta)^2}}^{-1/2} \\
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \sbr{\frac{[\cos(\theta) + 1]^2}{\sin(\theta)^2}}^{-1/2} \\
+    \intertext{%
+        Cancel the square root …
+    }
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta \sin(\theta)
+    \frac{\sin(\theta)}{\cos(\theta) + 1} \\
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \int_0^{R/R_0} \dif \theta
+    \frac{\sin(\theta)^2}{\cos(\theta) + 1} \\
+    \intertext{%
+        This is Mathematica integrable and gives
+    }
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \sbr{\theta -
+    \sin(\theta)}_{\theta(0)}^{\theta(R/R_0)}. \\
+    \intertext{%
+        When $\rho = 0$, then $\theta = 0$ as well. Therefore, this gives
+    }
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \sbr{\theta -
+    \sin(\theta)}.
+\end{align*}
 
 \subsection*{(e): Medium deceleration}
 
@@ -192,58 +254,23 @@ For the case that $q_0 = 1/2$ it should be shown that
 \]
 holds.
 
-I have tried, but I came up with a different result. Let me show. With the
-given value of $q_0$ the relation (7) on the problem set reduces to
+With the given value of $q_0$ the relation (6) on the problem set reduces to
 \[
-    1 - \cos(\theta) = 0.
+    t = \frac{1}{H_0} \int_0^{R/R_0} \dif \rho \, \rho^{1/2}.
 \]
-Therefore, the formula (6) on the set reduces to
-\[
-    t = \frac{1}{H_0} \int_0^{R/R_0} \dif \rho \, \rho^{-1/2}.
-\]
-That is, note the factor 2 at the beginning,
-\[
-    t = \frac{2}{H_0} \int_0^{R/R_0} \dif \rho \, \dod{}\rho \sqrt\rho.
-\]
-
-\begin{aside}
-    I would like to see whether I understand this correctly. So let me attempt
-    to use fancy words.
-\end{aside}
-
-In the above, I cancel the $\dif \rho$ and get
-\[
-    t = \frac{2}{H_0} \int_0^{R/R_0} \dif \sqrt\rho.
-\]
-
-The fundamental theorem of exterior calculus says for a p-form $\alpha$ and a
-set $\Omega \subseteq M$ the following holds:
-\[
-    \intop_\Omega \dif \alpha = \intop_{\partial \Omega} \alpha.
-\]
-The boundary of a compact interval is just the set of the boundary points, one
-counting negative and the other one positive.
-
-In this case, $\sqrt p$ is a 0-form, i.\,e. a simple $M \mapsto \R$ function. So
-that makes $\dif\sqrt p$ a 1-form, which is a total differential.
-
 So I can write the above integral as
 \[
-    t = \frac{2}{H_0} \intop_{[0, {R}/{R_0}]} \dif \sqrt\rho
-    = \frac{2}{H_0} \intop_{\partial [0, {R}/{R_0}]} \sqrt\rho
-    = \frac{2}{H_0} \sqrt{\frac{R}{R_0}}.
+    t = \frac23 \frac{1}{H_0} \sbr{\frac{R}{R_0}}^{3/2}.
 \]
-
-When I solve this for $R/R_0$, I get something different, though:
+When I solve this for $R/R_0$, I get the formula from the problem set:
 \[
-    \frac{R}{R_0} = \sbr{\frac 12 H_0t}^2.
+    \frac{R}{R_0} = \sbr{\frac 32 H_0t}^{2/3}.
 \]
-The expected result from the problem set looks like it was integrated yet
-another time, but I do not see where that would come into.
 
 \subsection*{(f): Small deceleration}
 
-I tried, but I did not succeed in showing that. I will wait for the exercise.
+The difference to part (d) is that the differential of the $\cosh$ has no minus
+sign. This changes the signs and gives the desired result.
 
 \section*{H.14: The Robertson-Walker-metric for a universe dominated by
 radiation}
@@ -327,6 +354,52 @@ $R_0/R$ term.
 The derivation is the same as for the dust universe, except that the power of
 $\rho$ in the denominator is two.
 
+\subsection*{(d): Large deceleration}
+
+On page~\pageref{sec:P12-d}, there is the calculation for the dust universe.
+Now I have to carry out the same with $\rho^2$. I start with $\rho$ already
+substituted by $\theta$.
+\begin{align*}
+    H_0 t
+    &= \frac{q_0}{2q_0 - 1} \intop_{\theta(0)}^{\theta(R/R_0)} \dif \theta
+    \sin(\theta) \sbr{1-2q_0 + \frac{2q_0}{\sbr{\sbr{1 - \cos(\theta)}
+    \frac{q_0}{2q_0 - 1}}^2}}^{-1/2} \\
+    &= \frac{q_0}{2q_0 - 1} \intop_{\theta(0)}^{\theta(R/R_0)} \dif \theta
+    \sin(\theta) \sbr{1-2q_0 + 2 \frac{[2q_0 - 1]^2}{q_0 \sbr{1 -
+    \cos(\theta)}^2}}^{-1/2} \\
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \intop_{\theta(0)}^{\theta(R/R_0)} \dif \theta
+    \sin(\theta) \sbr{2 \frac{2q_0 - 1}{q_0 \sbr{1 -
+    \cos(\theta)}^2} - 1}^{-1/2} \\
+    &= \frac{q_0}{[2q_0 - 1]^{3/2}} \intop_{\theta(0)}^{\theta(R/R_0)} \dif \theta
+    \sin(\theta) \sbr{\frac{2[2q_0 - 1] - q_0\sbr{1 -
+    \cos(\theta)}^2}{q_0 \sbr{1 -
+    \cos(\theta)}^2}}^{-1/2}
+\end{align*}
+
+I am stuck here.
+
+\subsection*{(e): Medium deceleration}
+
+With $q_0 = 1/2$, the integral reduces to
+\[
+    t = \frac{1}{H_0} \int_0^{R/R_0} \dif \rho \, \rho.
+\]
+So I can write the above integral as
+\[
+    t = \frac12 \frac{1}{H_0} \sbr{\frac{R}{R_0}}^{2}.
+\]
+This is
+\[
+    \frac{R}{R_0} = \sqrt{2 H_0t}.
+\]
+
+\subsection*{(f): Small deceleration}
+
+Since I did not finish the (d), I do not see a point in starting this one. I
+assume that the results from (d) and (f) only differ in the sign as with the
+dust universe.
+
+\newpage
 \section*{Questions}
 
 \subsection*{Equation of state}
@@ -364,9 +437,7 @@ The physik521 lecture notes read:
 So how does $p(t) = p(\epsilon(t))$ and the quote from the lecture notes fit
 together?
 
-\vfill
-\vspace*{10cm}
-
+\newpage
 \subsection*{Cosmological constant and vacuum energy}
 
 In the lecture, he has shown that if $\epsilon(t) = \lambda p(t)$ with $\lambda
@@ -399,10 +470,8 @@ although the correspondence seems intuitive at first, it does not hold? Or does
 that rather mean that this is a use case for a grand unified theory and one
 cannot say anything about that as of now?
 
-\vfill
-\vspace*{10cm}
-
-\subsection{Energy density of gravitational waves}
+\newpage
+\subsection*{Energy density of gravitational waves}
 
 In the energy momentum tensor $\tens T$, the electromagnetic waves are a form
 of energy density. With $\tens G = 8 \piup G \tens T$, this means that photons
@@ -413,7 +482,6 @@ If so, do they need to be included in the energy momentum tensor or are they
 taken care of by the Einstein tensor itself?
 
 \vfill
-\vspace*{10cm}
 
 \IfFileExists{\bibliographyfile}{
     \printbibliography
