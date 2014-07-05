@@ -253,27 +253,27 @@ radiation}
 Now there is $p = \epsilon/3$. Therefore:
 \begin{align*}
     \dod{}t \epsilon R^3 &= - p \dod{}t R^3 \\
-    \iff \dod{}t \epsilon R^3 &= \frac13 \epsilon \dod{}t R^3 \\
-    \iff \dot \epsilon R^3 + 3 \epsilon R^2 \dot R &= \epsilon R^2 \dot R \\
-    \iff \dot \epsilon R^3 &= - 2 \epsilon R^2 \dot R \\
-    \iff \frac{\dot\epsilon}{\epsilon} &= -2 \frac{\dot R}{R} \\
+    \iff \dod{}t \epsilon R^3 &= - \frac13 \epsilon \dod{}t R^3 \\
+    \iff \dot \epsilon R^3 + 3 \epsilon R^2 \dot R &= - \epsilon R^2 \dot R \\
+    \iff \dot \epsilon R^3 &= - 4 \epsilon R^2 \dot R \\
+    \iff \frac{\dot\epsilon}{\epsilon} &= -4 \frac{\dot R}{R} \\
     \intertext{%
         I now cancel a $\dif t$ on both sides. Again, rated “P” for
         “Physicist”.
     }
-    \iff \frac{\dif\epsilon}{\epsilon} &= -2 \frac{\dif R}{R} \\
+    \iff \frac{\dif\epsilon}{\epsilon} &= -4 \frac{\dif R}{R} \\
     \intertext{%
-        There are the differentials of a function composed with the logarithm.
+        These are the differentials of a function composed with the logarithm.
         Therefore, the solution is
     }
-    \iff \ln\del{\epsilon(t)} &= -2 \ln\del{R(t)} + c_1 \\
-    \iff \epsilon(t) &= c_2 R^{-2} \\
+    \iff \ln\del{\epsilon(t)} &= -4 \ln\del{R(t)} + c_1 \\
+    \iff \epsilon(t) &= c_2 R^{-4}. \\
     \intertext{%
         With the initial condition that for $t = 0$ the value is $\epsilon_0$,
         this gives
     }
-    \iff \epsilon(t) &= \epsilon_0 R_0^2 R(t)^{-2} \\
-    \iff \frac{\epsilon}{\epsilon_0} &= \sbr{\frac{R}{R_0}}^{-2}
+    \iff \epsilon(t) &= \epsilon_0 R_0^2 R(t)^{-4} \\
+    \iff \frac{\epsilon}{\epsilon_0} &= \sbr{\frac{R}{R_0}}^{-4}.
 \end{align*}
 
 \subsection*{(b): Radius evolution}
@@ -282,35 +282,50 @@ I go the right way compared to the derivation that I did in the presence
 problem above. I subtract equation (1) from itself evaluated at $t=0$. That
 gives me
 \begin{align*}
-    \dot R^2 - \dot R_0^2 &= \frac{8\piup}3 G \sbr{\epsilon R^2 - \epsilon_0
-R_0^2} \\
-\intertext{%
-    With the equation derived above, the last summand can be written at Time $t$:
-}
-    \dot R^2 - \dot R_0^2 &= \frac{8\piup}3 G \sbr{\epsilon R^2 - \epsilon
-R^2} \\
-    \dot R^2 - \dot R_0^2 &= 0 \\
-\intertext{%
-    Therefore, the remainder is easier.
-}
-\sbr{\frac{\dot R}{R_0}}^2 &= H_0^2
+    \dot R^2 - \dot R_0^2 &= \frac{8\piup}3 G \sbr{\epsilon R^2 - \epsilon_0 R_0^2} \\
+    \intertext{%
+        With the equation derived above, the last summand can be written at time
+        $t_0$:
+    }
+    \iff \dot R^2 - \dot R_0^2 &= \frac{8\piup}3 G \sbr{\epsilon_0 R_0^4
+\frac{1}{R^2} - \epsilon_0 R_0^2} \\
+    \intertext{%
+        Putting $\dot R_0^2$ to the other side …
+    }
+    \iff \dot R^2 &= \dot R_0^2 + \frac{8\piup}3 G \sbr{\epsilon_0 R_0^4
+\frac{1}{R^2} - \epsilon_0 R_0^2} \\
+    \intertext{%
+        Expanding …
+    }
+    \iff \dot R^2 &= \dot R_0^2 + \frac{8\piup}3 G \epsilon_0 R_0^4
+    \frac{1}{R^2} - \frac{8\piup}3 G \epsilon_0 R_0^2 \\
+    \intertext{%
+        Factoring in a $\dot R_0^2$ …
+    }
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 + \frac{8\piup}3 \frac{G \epsilon_0
+    R_0^2}{\dot R_0^2} \frac{R_0^2}{R^2} - \frac{8\piup}3 \frac{G \epsilon_0
+    R_0^2}{\dot R_0^2}} \\
+    \intertext{%
+        Inserting $H_0$ …
+    }
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 + \frac{8\piup}3 \frac{G \epsilon_0}{H_0^2} \frac{R_0^2}{R^2} - \frac{8\piup}3 \frac{G \epsilon_0}{H_0^2}} \\
+    \intertext{%
+        Inserting $q_0$ …
+    }
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 + 2q_0 \frac{R_0^2}{R^2} - 2q_0} \\
+    \intertext{%
+        Bringing it into the same form …
+    }
+    \iff \dot R^2 &= \dot R_0^2 \sbr{1 - 2q_0 + 2q_0 \frac{R_0^2}{R^2}}
 \end{align*}
+
+So this is the same as the dust universe, except for the power of the last
+$R_0/R$ term.
 
 \subsection*{(c): Age of the universe}
 
-It is just
-\[
-    t = \frac{1}{H_0} \frac{R}{R_0}.
-\]
-For the age of the universe, it is
-\[
-    T = \frac{1}{H_0},
-\]
-which I have seen in astro122 two years ago.
-
-Since the $t = \ldots$ formula is so simple and does not contain any $q_0$, it
-does not make sense to discuss the cases of $q_0$ like in the presence
-exercise.
+The derivation is the same as for the dust universe, except that the power of
+$\rho$ in the denominator is two.
 
 \section*{Questions}
 
@@ -387,10 +402,22 @@ cannot say anything about that as of now?
 \vfill
 \vspace*{10cm}
 
+\subsection{Energy density of gravitational waves}
+
+In the energy momentum tensor $\tens T$, the electromagnetic waves are a form
+of energy density. With $\tens G = 8 \piup G \tens T$, this means that photons
+create curvature.
+
+The gravitational waves carry energy. Are they also a sort of energy density?
+If so, do they need to be included in the energy momentum tensor or are they
+taken care of by the Einstein tensor itself?
+
+\vfill
+\vspace*{10cm}
+
 \IfFileExists{\bibliographyfile}{
     \printbibliography
 }{}
-
 
 \end{document}
 
